@@ -1,1151 +1,983 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CALLVY — Réceptionniste Vocal 24/7</title>
-  <meta name="description" content="Votre entreprise reçoit, répond et convertit chaque appel — même la nuit, les week-ends, et pendant les périodes chargées. Sans effort de votre part." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #03050D;
-      --bg2: #070B18;
-      --bg3: #0C1220;
-      --blue: #4DBAFF;
-      --blue2: #2196F3;
-      --blue-glow: rgba(77,186,255,0.15);
-      --white: #FFFFFF;
-      --gray: #8A9BB5;
-      --gray2: #B8C8DC;
-      --border: rgba(77,186,255,0.12);
-      --border2: rgba(255,255,255,0.06);
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CALLVY — Réceptionniste Vocal 24h/24 · Zéro appel manqué</title>
+<meta name="description" content="CALLVY répond automatiquement à vos appels 24h/24, qualifie vos prospects et prend des rendez-vous pour vous. Setup en 48h. Pour professionnels en France et Belgique."/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="CALLVY — Réceptionniste Vocal 24h/24"/>
+<meta property="og:description" content="Transformez chaque appel en client — même pendant que vous dormez."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#03040C;--bg2:#060816;--card:#0A0C1C;--card2:#0F1128;
+  --b:rgba(255,255,255,.07);--bb:rgba(82,158,255,.18);
+  --blue:#52A0FF;--blue2:#6BAFFF;--bdim:rgba(82,158,255,.09);--bglow:rgba(82,158,255,.22);
+  --green:#2ECC71;--white:#EDF2FF;--off:#7B8FAD;--muted:#455166;--red:#FF5252;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;opacity:.023;pointer-events:none;z-index:9000;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,3rem);border-bottom:1px solid transparent;transition:all .3s}
+nav.on{background:rgba(3,4,12,.94);backdrop-filter:blur(24px);border-color:var(--b)}
+.logo{font-size:1.18rem;font-weight:900;letter-spacing:.07em;text-decoration:none;color:var(--white)}
+.logo span{color:var(--blue)}
+.navul{display:flex;align-items:center;gap:1.5rem;list-style:none}
+.navul a{font-size:.82rem;font-weight:500;color:var(--off);text-decoration:none;transition:color .2s}
+.navul a:hover{color:var(--white)}
+.navcta{background:var(--blue)!important;color:#fff!important;font-weight:700!important;padding:.4rem 1.1rem;border-radius:8px;transition:box-shadow .2s,transform .15s!important}
+.navcta:hover{box-shadow:0 0 18px var(--bglow);transform:translateY(-1px)}
 
-    html { scroll-behavior: smooth; }
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;padding:.78rem 1.6rem;border-radius:9px;text-decoration:none;border:none;cursor:pointer;transition:all .22s}
+.bb{background:var(--blue);color:#fff}
+.bb:hover{box-shadow:0 0 26px var(--bglow);transform:translateY(-2px)}
+.bs{background:transparent;color:var(--white);border:1px solid var(--bb)}
+.bs:hover{background:var(--bdim)}
 
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+/* ── SECTION BASE ── */
+section{padding:clamp(56px,8vw,90px) clamp(1.5rem,6vw,4rem)}
+.sh{text-align:center;margin-bottom:clamp(2rem,4vw,3rem)}
+.stag{display:inline-flex;align-items:center;gap:.4rem;font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem}
+.stag::before,.stag::after{content:'';width:14px;height:1px;background:currentColor;opacity:.5}
+.sh h2{font-size:clamp(1.8rem,3.8vw,2.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:.55rem}
+.sh p{font-size:.95rem;color:var(--off);max-width:480px;margin:0 auto;line-height:1.75}
 
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 70px;
-      background: rgba(3,5,13,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border2);
-    }
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.r.v{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
 
-    .logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-      color: var(--white);
-      text-decoration: none;
-    }
-    .logo span { color: var(--blue); }
+/* ═══════════════════════════════
+   1. HERO
+═══════════════════════════════ */
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:90px 1.5rem 70px;position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;pointer-events:none}
+.hg1{position:absolute;width:800px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(82,158,255,.07) 0%,transparent 68%);top:-120px;left:50%;transform:translateX(-50%)}
+.hg2{position:absolute;width:500px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(46,204,113,.03) 0%,transparent 70%);bottom:0;right:-80px}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(82,158,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(82,158,255,.022) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 55% at 50% 45%,black,transparent)}
+.hero-in{position:relative;z-index:1;max-width:860px;width:100%}
+.livebadge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(46,204,113,.07);border:1px solid rgba(46,204,113,.2);padding:.33rem .88rem .33rem .52rem;border-radius:100px;margin-bottom:1.8rem;cursor:default}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(46,204,113,.45)}65%{opacity:.65;box-shadow:0 0 0 8px rgba(46,204,113,0)}}
+.badgetxt{font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green)}
+.hero h1{font-size:clamp(2.6rem,7vw,5.6rem);font-weight:900;line-height:1.04;letter-spacing:-.035em;margin-bottom:1.2rem}
+.hero h1 em{font-style:normal;color:var(--blue);display:block}
+.herosub{font-size:clamp(.97rem,1.9vw,1.12rem);color:var(--off);max-width:520px;margin:0 auto 2rem;line-height:1.8}
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--gray2);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--white); }
+/* PHONE MOCKUP */
+.phone-demo{background:var(--card2);border:1px solid var(--b);border-radius:16px;padding:1.2rem 1.5rem;max-width:360px;margin:1.8rem auto;text-align:left}
+.phone-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid var(--b)}
+.phone-dot{width:10px;height:10px;border-radius:50%;background:var(--green);animation:pulse 2s ease infinite}
+.phone-caller{font-size:.78rem;font-weight:600;color:var(--off)}
+.phone-num{font-size:.72rem;color:var(--muted)}
+.msg{display:flex;flex-direction:column;gap:.55rem}
+.msg-row{display:flex;gap:.5rem;align-items:flex-end}
+.msg-row.them{flex-direction:row-reverse}
+.bubble{font-size:.8rem;padding:.5rem .85rem;border-radius:12px;line-height:1.5;max-width:230px}
+.bubble.client{background:rgba(255,255,255,.07);color:var(--off)}
+.bubble.callvy{background:var(--blue);color:#fff}
+.msg-lbl{font-size:.66rem;color:var(--muted);flex-shrink:0;margin-bottom:.15rem}
 
-    .nav-cta {
-      background: var(--blue);
-      color: #000 !important;
-      padding: 0.5rem 1.3rem;
-      border-radius: 6px;
-      font-weight: 700 !important;
-      transition: opacity 0.2s !important;
-    }
-    .nav-cta:hover { opacity: 0.85; }
+.hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.social-proof{font-size:.78rem;color:var(--muted);margin-top:1.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.sp-dots{display:flex;gap:3px}
+.sp-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--bg);background:linear-gradient(135deg,#1648CC,var(--blue));display:grid;place-items:center;font-size:.62rem;font-weight:800}
+.sp-dot:nth-child(2){background:linear-gradient(135deg,#166C40,#2ECC71)}
+.sp-dot:nth-child(3){background:linear-gradient(135deg,#6C1616,#FF5252)}
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 5% 80px;
-      position: relative;
-      overflow: hidden;
-    }
+/* ═══════════════════════════════
+   TICKER
+═══════════════════════════════ */
+.ticker{overflow:hidden;padding:.95rem 0;border-top:1px solid var(--b);border-bottom:1px solid var(--b);background:var(--bg2);position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
+.ticker::after{right:0;background:linear-gradient(-90deg,var(--bg2),transparent)}
+.ttrack{display:flex;gap:2rem;animation:tick 30s linear infinite;width:max-content}
+.ttrack:hover{animation-play-state:paused}
+.ti{display:flex;align-items:center;gap:.5rem;font-size:.74rem;font-weight:600;color:var(--off);white-space:nowrap;letter-spacing:.04em}
+.tdot{width:4px;height:4px;border-radius:50%;background:var(--blue);flex-shrink:0}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw;
-      height: 80vw;
-      max-width: 900px;
-      max-height: 900px;
-      background: radial-gradient(ellipse, rgba(77,186,255,0.08) 0%, transparent 65%);
-      pointer-events: none;
-    }
+/* ═══════════════════════════════
+   2. PROOF / CHIFFRES
+═══════════════════════════════ */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--b)}
+.sc{padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--b);position:relative;overflow:hidden}
+.sc:last-child{border-right:none}
+.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);transform:scaleX(0);transition:transform .4s}
+.sc:hover::after{transform:scaleX(1)}
+.sn{font-size:2.5rem;font-weight:900;color:var(--blue);line-height:1;letter-spacing:-.04em}
+.sl{font-size:.77rem;color:var(--off);margin-top:.3rem;font-weight:500}
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(77,186,255,0.08);
-      border: 1px solid rgba(77,186,255,0.25);
-      color: var(--blue);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 0.45rem 1.1rem;
-      border-radius: 100px;
-      margin-bottom: 2rem;
-    }
-    .badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--blue);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
+/* ═══════════════════════════════
+   3. PROBLEM
+═══════════════════════════════ */
+.prob-sec{background:var(--bg2)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
+.pc{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:1.7rem;transition:border-color .3s,transform .3s}
+.pc:hover{border-color:var(--bb);transform:translateY(-3px)}
+.pn{font-size:2.8rem;font-weight:900;color:rgba(82,158,255,.06);letter-spacing:-.04em;line-height:1;margin-bottom:.65rem}
+.pc h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.pc p{font-size:.83rem;color:var(--off);line-height:1.65}
 
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      line-height: 1.05;
-      letter-spacing: -1px;
-      margin-bottom: 1.5rem;
-      max-width: 900px;
-    }
-    .hero h1 .accent { color: var(--blue); }
+/* ═══════════════════════════════
+   4. FUTURE PACING (IMAGINE)
+═══════════════════════════════ */
+.imagine-sec{background:linear-gradient(160deg,rgba(82,158,255,.04) 0%,var(--bg) 60%);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
+.imagine-in{max-width:720px;margin:0 auto;text-align:center}
+.imagine-in h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:900;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.2rem}
+.imagine-in h2 em{font-style:normal;color:var(--blue)}
+.imagine-in p{font-size:1rem;color:var(--off);line-height:1.8;margin-bottom:2rem}
+.imagine-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;text-align:left}
+.imgc{background:var(--card);border:1px solid var(--b);border-radius:12px;padding:1.3rem}
+.imgc-ico{font-size:1.6rem;margin-bottom:.65rem}
+.imgc h4{font-size:.88rem;font-weight:700;margin-bottom:.3rem}
+.imgc p{font-size:.79rem;color:var(--off);line-height:1.6}
 
-    .hero p {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--gray2);
-      max-width: 580px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
+/* ═══════════════════════════════
+   5. HOW IT WORKS
+═══════════════════════════════ */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:2rem;position:relative}
+.how-grid::before{content:'';position:absolute;top:19px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 4%,var(--bb) 14%,var(--bb) 86%,transparent 96%);pointer-events:none}
+.hn{width:38px;height:38px;border-radius:50%;border:1px solid var(--bb);background:var(--card2);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--blue);margin-bottom:1rem;position:relative;z-index:1}
+.hs h3{font-size:.92rem;font-weight:700;margin-bottom:.35rem}
+.hs p{font-size:.8rem;color:var(--off);line-height:1.65}
 
-    .hero-btns {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+/* ═══════════════════════════════
+   6. DEMO SECTION
+═══════════════════════════════ */
+.demo-sec{background:var(--bg2)}
+.demo-box{max-width:680px;margin:0 auto}
+.demo-player{background:var(--card);border:1px solid var(--bb);border-radius:18px;padding:2rem;position:relative;overflow:hidden}
+.demo-player::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.demo-title{font-size:.8rem;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.demo-wave{display:flex;align-items:center;gap:3px;height:40px;margin-bottom:1.2rem;padding:0 .3rem}
+.wave-bar{width:4px;border-radius:2px;background:var(--blue);transition:height .15s}
+.demo-convo{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem}
+.dc-row{display:flex;gap:.5rem;align-items:flex-start}
+.dc-row.r{flex-direction:row-reverse}
+.dc-lbl{font-size:.66rem;font-weight:700;color:var(--muted);white-space:nowrap;margin-top:.35rem;flex-shrink:0}
+.dc-b{font-size:.83rem;padding:.55rem .9rem;border-radius:12px;line-height:1.5;max-width:280px}
+.dc-b.cl{background:rgba(255,255,255,.06);color:var(--off)}
+.dc-b.ai{background:var(--blue);color:#fff}
+.play-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;background:rgba(82,158,255,.1);border:1px solid var(--bb);border-radius:10px;padding:.7rem;color:var(--blue2);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.play-btn:hover{background:rgba(82,158,255,.18)}
+#playico{font-size:1rem;transition:all .2s}
 
-    .btn-primary {
-      background: var(--blue);
-      color: #000;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 30px rgba(77,186,255,0.3);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 40px rgba(77,186,255,0.5);
-    }
+/* ═══════════════════════════════
+   7. USE CASES
+═══════════════════════════════ */
+.uc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
+.uc{background:var(--card);border:1px solid var(--b);border-radius:12px;padding:1.4rem;text-align:center;transition:all .25s;cursor:default}
+.uc:hover{border-color:var(--bb);transform:translateY(-3px)}
+.uc-ico{font-size:2rem;margin-bottom:.7rem}
+.uc h3{font-size:.88rem;font-weight:700;margin-bottom:.3rem}
+.uc p{font-size:.77rem;color:var(--off);line-height:1.55}
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover {
-      border-color: rgba(77,186,255,0.4);
-      background: rgba(77,186,255,0.05);
-    }
+/* ═══════════════════════════════
+   8. ROI CALCULATOR
+═══════════════════════════════ */
+.roi-sec{background:var(--bg2)}
+.roi-in{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:780px;margin:2.2rem auto 0;align-items:start}
+.ri-group{display:flex;flex-direction:column;gap:.9rem}
+.ri{display:flex;flex-direction:column;gap:.28rem}
+.ri label{font-size:.73rem;font-weight:600;color:var(--off)}
+.ri input{background:var(--card2);border:1px solid var(--b);border-radius:8px;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;padding:.6rem .88rem;outline:none;width:100%;transition:border-color .2s}
+.ri input:focus{border-color:var(--blue)}
+.roi-out{background:var(--card2);border:1px solid var(--bb);border-radius:14px;padding:1.7rem}
+.rolbl{font-size:.67rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.22rem}
+.roval{font-size:2.9rem;font-weight:900;color:var(--blue);line-height:1;letter-spacing:-.04em;margin-bottom:.2rem}
+.rosub{font-size:.76rem;color:var(--muted);margin-bottom:1.2rem}
+.rorows{display:flex;flex-direction:column;gap:.48rem}
+.ror{display:flex;justify-content:space-between;font-size:.81rem}
+.ror span:first-child{color:var(--off)}
+.ror span:last-child{font-weight:700;color:var(--white)}
+.ror.tot{border-top:1px solid var(--bb);padding-top:.48rem;margin-top:.28rem}
+.ror.tot span{color:var(--blue)!important;font-size:.9rem}
 
-    /* ── STATS ── */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1px;
-      background: var(--border2);
-      border-top: 1px solid var(--border2);
-      border-bottom: 1px solid var(--border2);
-    }
-    .stat {
-      background: var(--bg);
-      padding: 2rem;
-      text-align: center;
-    }
-    .stat-number {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--blue);
-      display: block;
-    }
-    .stat-label {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-top: 0.3rem;
-    }
+/* ═══════════════════════════════
+   9. COMPARE TABLE
+═══════════════════════════════ */
+.ctable-wrap{overflow-x:auto;margin-top:1.8rem;border-radius:12px;border:1px solid var(--b)}
+table{width:100%;border-collapse:collapse;min-width:580px}
+thead th{padding:.85rem 1.2rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;background:var(--card)}
+thead th:first-child{text-align:left}
+thead th.hl{background:rgba(82,158,255,.06);color:var(--blue);border-left:1px solid var(--bb);border-right:1px solid var(--bb)}
+tbody tr{border-top:1px solid var(--b)}
+tbody tr:hover{background:rgba(255,255,255,.012)}
+tbody td{padding:.75rem 1.2rem;font-size:.82rem;color:var(--off);text-align:center}
+tbody td:first-child{font-weight:500;color:var(--white);text-align:left}
+tbody td.hl{background:rgba(82,158,255,.035);border-left:1px solid rgba(82,158,255,.08);border-right:1px solid rgba(82,158,255,.08);font-weight:600;color:var(--white)}
+.ok{color:var(--green)}.ko{color:var(--red)}
 
-    /* ── SECTION BASE ── */
-    section { padding: 90px 5%; }
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1.15;
-      max-width: 700px;
-    }
-    .section-sub {
-      color: var(--gray2);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 580px;
-      margin-top: 1rem;
-    }
-    .text-center { text-align: center; margin: 0 auto; }
+/* ═══════════════════════════════
+   10. FEATURES
+═══════════════════════════════ */
+.feat-sec{background:var(--bg2)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.1rem}
+.fc{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:1.65rem;transition:all .25s}
+.fc:hover{border-color:var(--bb);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.22)}
+.fi{width:38px;height:38px;border-radius:9px;background:var(--bdim);border:1px solid var(--bb);display:grid;place-items:center;font-size:1.1rem;margin-bottom:.95rem}
+.fc h3{font-size:.91rem;font-weight:700;margin-bottom:.38rem}
+.fc p{font-size:.81rem;color:var(--off);line-height:1.65}
+.ptags{display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center;margin-top:2.2rem}
+.ptag{display:flex;align-items:center;gap:.33rem;background:var(--card);border:1px solid var(--b);padding:.4rem .82rem;border-radius:100px;font-size:.74rem;font-weight:600;color:var(--off)}
+.ptag .g{color:var(--green)}
 
-    /* ── PROBLÈME ── */
-    .problems { background: var(--bg2); }
-    .problems-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .problem-card {
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      padding: 2rem;
-    }
-    .problem-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .problem-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-    .problem-card p { color: var(--gray2); font-size: 0.95rem; line-height: 1.6; }
+/* ═══════════════════════════════
+   11. TESTIMONIALS
+═══════════════════════════════ */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.1rem}
+.tc{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:1.65rem;transition:border-color .3s}
+.tc:hover{border-color:var(--bb)}
+.stars{color:#FFC107;font-size:.78rem;letter-spacing:.08em;margin-bottom:.8rem}
+.tq{font-size:.88rem;color:var(--off);line-height:1.75;margin-bottom:1.2rem;font-style:italic}
+.tauth{display:flex;align-items:center;gap:.65rem}
+.tav{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.78rem;flex-shrink:0}
+.tav.a{background:linear-gradient(135deg,#1648C8,var(--blue))}
+.tav.b{background:linear-gradient(135deg,#166C40,#2ECC71)}
+.tav.c{background:linear-gradient(135deg,#6C2C16,#FF8C52)}
+.tname{font-size:.81rem;font-weight:700}
+.trole{font-size:.73rem;color:var(--muted)}
 
-    /* ── COMMENT ÇA MARCHE ── */
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3.5rem;
-      position: relative;
-    }
-    .step {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .step-num {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: rgba(77,186,255,0.1);
-      border: 1px solid rgba(77,186,255,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-weight: 900;
-      font-size: 1.2rem;
-      color: var(--blue);
-    }
-    .step h3 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .step p { color: var(--gray2); font-size: 0.95rem; line-height: 1.6; }
+/* ═══════════════════════════════
+   12. PRICING
+═══════════════════════════════ */
+.pgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.1rem;align-items:start}
+.plan{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:1.9rem 1.6rem;position:relative;display:flex;flex-direction:column;transition:border-color .3s}
+.plan.top{border-color:var(--blue);background:linear-gradient(155deg,rgba(82,158,255,.05) 0%,var(--card) 55%)}
+.ppop{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:.24rem .82rem;border-radius:100px;white-space:nowrap}
+.ptier{font-size:.67rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--off);margin-bottom:.85rem}
+.pprice{font-size:2.5rem;font-weight:900;color:var(--white);line-height:1;letter-spacing:-.04em}
+.pprice sup{font-size:1rem;color:var(--off);vertical-align:super;font-weight:500}
+.pprice sub{font-size:.8rem;color:var(--muted);vertical-align:baseline;font-weight:400}
+.psetup{font-size:.8rem;color:var(--off);margin:.2rem 0}
+.psetup strong{color:var(--white)}
+.ptotal{font-size:.73rem;color:var(--muted);margin:.18rem 0 1.2rem;padding:.45rem .65rem;background:rgba(255,255,255,.025);border-radius:6px;border-left:2px solid var(--bb);line-height:1.5}
+.ptotal strong{color:var(--off)}
+.phr{border:none;border-top:1px solid var(--b);margin-bottom:1.2rem}
+.pfeats{list-style:none;flex:1;display:flex;flex-direction:column;gap:.52rem;margin-bottom:1.7rem}
+.pfeats li{font-size:.82rem;color:var(--off);display:flex;align-items:flex-start;gap:.42rem;line-height:1.5}
+.pfeats li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0;font-size:.83rem;margin-top:.02rem}
+.pbtn{display:block;text-align:center;padding:.72rem;border-radius:9px;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
+.pb{background:var(--blue);color:#fff}
+.pb:hover{box-shadow:0 0 20px var(--bglow);transform:translateY(-1px)}
+.po{background:transparent;color:var(--white);border:1px solid var(--bb)}
+.po:hover{background:var(--bdim)}
 
-    /* ── FEATURES ── */
-    .features { background: var(--bg2); }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .feature-card {
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      padding: 2rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .feature-card:hover {
-      border-color: rgba(77,186,255,0.3);
-      transform: translateY(-3px);
-    }
-    .feature-icon {
-      width: 48px; height: 48px;
-      border-radius: 10px;
-      background: rgba(77,186,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .feature-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-    .feature-card p { color: var(--gray2); font-size: 0.9rem; line-height: 1.6; }
+/* ═══════════════════════════════
+   REASSURANCE
+═══════════════════════════════ */
+.reassure{background:var(--bg2);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;max-width:780px;margin:0 auto}
+.rc2{text-align:center}
+.rc2-ico{font-size:1.8rem;margin-bottom:.55rem}
+.rc2 h4{font-size:.88rem;font-weight:700;margin-bottom:.25rem}
+.rc2 p{font-size:.78rem;color:var(--off);line-height:1.6}
 
-    /* ── GARANTIES ── */
-    .guarantees {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 3rem;
-    }
-    .guarantee {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(77,186,255,0.05);
-      border: 1px solid rgba(77,186,255,0.15);
-      border-radius: 100px;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--gray2);
-    }
-    .guarantee span { color: var(--blue); font-size: 1.1rem; }
+/* ═══════════════════════════════
+   FAQ
+═══════════════════════════════ */
+.flist{max-width:700px;margin:2.2rem auto 0}
+.fitem{border-bottom:1px solid var(--b)}
+.fq{width:100%;background:none;border:none;color:var(--white);font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;text-align:left;padding:1.15rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.9rem;transition:color .2s}
+.fq:hover{color:var(--blue)}
+.fic{font-style:normal;font-size:1.05rem;color:var(--blue);flex-shrink:0;transition:transform .3s}
+.fa{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.fa p{font-size:.83rem;color:var(--off);line-height:1.75;padding-bottom:1.15rem}
+.fitem.open .fic{transform:rotate(45deg)}
+.fitem.open .fa{max-height:400px}
 
-    /* ── PRICING ── */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-      align-items: start;
-    }
-    .plan {
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      position: relative;
-    }
-    .plan.popular {
-      border-color: var(--blue);
-      background: linear-gradient(135deg, rgba(77,186,255,0.05) 0%, var(--bg3) 60%);
-    }
-    .popular-badge {
-      position: absolute;
-      top: -13px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--blue);
-      color: #000;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 0.3rem 1rem;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
-    .plan-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--gray2);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1rem;
-    }
-    .plan-price {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1;
-    }
-    .plan-price sup {
-      font-size: 1.2rem;
-      vertical-align: super;
-    }
-    .plan-setup {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-top: 0.3rem;
-      margin-bottom: 1.5rem;
-    }
-    .plan-divider {
-      border: none;
-      border-top: 1px solid var(--border2);
-      margin-bottom: 1.5rem;
-    }
-    .plan-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-    .plan-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
-      font-size: 0.92rem;
-      color: var(--gray2);
-      line-height: 1.5;
-    }
-    .plan-features li::before {
-      content: '✓';
-      color: var(--blue);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-    .plan-btn {
-      display: block;
-      text-align: center;
-      padding: 0.85rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .plan-btn-outline {
-      border: 1px solid var(--border);
-      color: var(--white);
-      background: transparent;
-    }
-    .plan-btn-outline:hover { border-color: var(--blue); color: var(--blue); }
-    .plan-btn-filled {
-      background: var(--blue);
-      color: #000;
-      border: none;
-      box-shadow: 0 0 25px rgba(77,186,255,0.25);
-    }
-    .plan-btn-filled:hover { box-shadow: 0 0 40px rgba(77,186,255,0.4); }
+/* ═══════════════════════════════
+   LEGAL STRIP
+═══════════════════════════════ */
+.lstrip{background:var(--card2);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:1.2rem clamp(1.5rem,5vw,3rem);text-align:center}
+.lstrip p{font-size:.74rem;color:var(--muted);line-height:1.7;max-width:860px;margin:0 auto}
+.lstrip a{color:var(--off);text-decoration:underline;text-underline-offset:2px}
 
-    /* ── TÉMOIGNAGES ── */
-    .testimonials { background: var(--bg2); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .testimonial {
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      padding: 2rem;
-    }
-    .stars {
-      color: #FFB800;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
-    }
-    .testimonial blockquote {
-      font-size: 0.97rem;
-      color: var(--gray2);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .author-avatar {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue2), var(--blue));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      color: #fff;
-      flex-shrink: 0;
-    }
-    .author-name {
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-    .author-role {
-      font-size: 0.8rem;
-      color: var(--gray);
-    }
+/* ═══════════════════════════════
+   FORM
+═══════════════════════════════ */
+.form-sec{background:var(--bg2)}
+.fbox{max-width:630px;margin:0 auto}
+.fcard{background:var(--card);border:1px solid var(--bb);border-radius:18px;padding:clamp(1.4rem,4vw,2.3rem);margin-top:2.2rem;position:relative;overflow:hidden}
+.fcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.fg{display:flex;flex-direction:column;gap:.28rem;margin-bottom:.85rem}
+.fg label{font-size:.72rem;font-weight:600;color:var(--off)}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.04);border:1px solid var(--b);border-radius:8px;color:var(--white);font-family:'Inter',sans-serif;font-size:.87rem;padding:.6rem .86rem;outline:none;transition:border-color .2s,background .2s}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--muted)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:rgba(82,158,255,.04)}
+.fg select option{background:var(--card2)}
+.fg textarea{resize:vertical;min-height:75px}
+.fsub{width:100%;background:var(--blue);color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:.93rem;padding:.9rem;border:none;border-radius:9px;cursor:pointer;transition:all .2s}
+.fsub:hover{box-shadow:0 0 28px var(--bglow);transform:translateY(-1px)}
+.fnote{text-align:center;font-size:.7rem;color:var(--muted);margin-top:.6rem}
+#fok{display:none;text-align:center;padding:2rem 1rem}
+#fok .okico{font-size:2.8rem;display:block;margin-bottom:.8rem}
+#fok h3{font-size:1.35rem;font-weight:800;color:var(--blue);margin-bottom:.4rem}
+#fok p{font-size:.86rem;color:var(--off);line-height:1.7}
 
-    /* ── FAQ ── */
-    .faq-list {
-      max-width: 750px;
-      margin: 3rem auto 0;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--border2);
-    }
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      text-align: left;
-      padding: 1.4rem 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-    .faq-question:hover { color: var(--blue); }
-    .faq-icon {
-      font-size: 1.3rem;
-      color: var(--blue);
-      flex-shrink: 0;
-      transition: transform 0.3s;
-      font-style: normal;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-    .faq-answer p {
-      color: var(--gray2);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      padding-bottom: 1.4rem;
-    }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-item.open .faq-answer { max-height: 400px; }
+/* ═══════════════════════════════
+   CTA FINAL
+═══════════════════════════════ */
+.ctafin{text-align:center;background:linear-gradient(180deg,rgba(82,158,255,.04) 0%,var(--bg) 100%);border-top:1px solid var(--b)}
+.ctafin h2{font-size:clamp(1.85rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;max-width:620px;margin:0 auto .7rem}
+.ctafin p{font-size:.93rem;color:var(--off);margin-bottom:1.9rem}
+.ctabtns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.guar{display:inline-flex;align-items:center;gap:.38rem;background:var(--bdim);border:1px solid var(--bb);padding:.42rem .95rem;border-radius:100px;font-size:.75rem;font-weight:600;color:var(--blue2);margin-top:1rem}
 
-    /* ── FORMULAIRE DÉMO ── */
-    .demo-section {
-      background: var(--bg2);
-    }
-    .demo-container {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .demo-form {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem;
-      margin-top: 2.5rem;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gray2);
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border2);
-      border-radius: 8px;
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      padding: 0.75rem 1rem;
-      transition: border-color 0.2s;
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--blue);
-    }
-    .form-group select option { background: #0C1220; }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-    .form-submit {
-      width: 100%;
-      background: var(--blue);
-      color: #000;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      padding: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: box-shadow 0.2s, transform 0.2s;
-      box-shadow: 0 0 30px rgba(77,186,255,0.25);
-    }
-    .form-submit:hover {
-      box-shadow: 0 0 45px rgba(77,186,255,0.45);
-      transform: translateY(-1px);
-    }
-    .form-note {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--gray);
-      margin-top: 1rem;
-    }
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5rem,5vw,3rem)}
+.ftop{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem;padding:2.5rem 0 2rem}
+.flogo{font-size:1.1rem;font-weight:900;letter-spacing:.07em;text-decoration:none;color:var(--white);display:block;margin-bottom:.65rem}
+.flogo span{color:var(--blue)}
+.fdesc{font-size:.77rem;color:var(--muted);line-height:1.65;max-width:200px}
+.fcol h4{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--off);margin-bottom:.85rem}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.fcol ul a{font-size:.77rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.fcol ul a:hover{color:var(--white)}
+.fbot{border-top:1px solid var(--b);padding:.9rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.fcopy{font-size:.72rem;color:var(--muted)}
+.flinks2{display:flex;gap:1.2rem;list-style:none}
+.flinks2 a{font-size:.72rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.flinks2 a:hover{color:var(--white)}
 
-    /* Success message */
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-    }
-    .form-success h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      color: var(--blue);
-    }
-    .form-success p { color: var(--gray2); }
-
-    /* ── CTA FINAL ── */
-    .cta-final {
-      text-align: center;
-      background: linear-gradient(135deg, rgba(77,186,255,0.06) 0%, var(--bg) 50%);
-      border-top: 1px solid var(--border2);
-    }
-    .cta-final h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 900;
-      margin-bottom: 1rem;
-    }
-    .cta-final p { color: var(--gray2); font-size: 1.05rem; margin-bottom: 2rem; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border2);
-      padding: 2.5rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    footer .logo { font-size: 1.2rem; }
-    footer p { font-size: 0.82rem; color: var(--gray); }
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-    .footer-links a {
-      font-size: 0.82rem;
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-
-    /* ── ANIMATIONS ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; text-align: center; }
-    }
-  </style>
+/* ═══════════════════════════════
+   RESPONSIVE
+═══════════════════════════════ */
+@media(max-width:900px){
+  .navul{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sc:nth-child(2){border-right:none}
+  .sc:nth-child(1),.sc:nth-child(2){border-bottom:1px solid var(--b)}
+  .how-grid::before{display:none}
+  .roi-in{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .ftop{grid-template-columns:1fr 1fr}
+  .fbot{flex-direction:column;text-align:center}
+}
+@media(max-width:500px){.ftop{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- ── NAV ── -->
+<nav id="nav">
   <a href="#" class="logo">CALL<span>VY</span></a>
-  <ul class="nav-links">
+  <ul class="navul">
     <li><a href="#comment">Comment ça marche</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#usecases">Cas d'usage</a></li>
+    <li><a href="#roi">ROI</a></li>
     <li><a href="#tarifs">Tarifs</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#demo" class="nav-cta">Démo gratuite</a></li>
+    <li><a href="#demo" class="navcta">Démo gratuite</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="badge">Disponible 24h/24 — 7j/7</div>
-  <h1>Ne manquez plus<br>jamais <span class="accent">un appel.</span></h1>
-  <p>Votre entreprise reçoit, répond et convertit chaque appel — même la nuit, les week-ends, et pendant les périodes chargées. Sans effort de votre part.</p>
-  <div class="hero-btns">
-    <a href="#demo" class="btn-primary">Obtenir une démo gratuite →</a>
-    <a href="#tarifs" class="btn-secondary">Voir les tarifs</a>
-  </div>
-</section>
+<!-- ══════════════════════════════════════════
+     1. HERO
+══════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hbg"><div class="hg1"></div><div class="hg2"></div></div>
+  <div class="hgrid"></div>
+  <div class="hero-in">
+    <div class="livebadge r"><span class="pulse"></span><span class="badgetxt">Déjà utilisé par des professionnels en France et en Belgique</span></div>
+    <h1 class="r d1">Transformez chaque appel en client —<em>même pendant que vous dormez.</em></h1>
+    <p class="herosub r d2">CALLVY répond automatiquement à vos appels 24h/24, qualifie vos prospects et prend des rendez-vous pour vous — sans jamais s'absenter.</p>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat reveal"><span class="stat-number">98%</span><span class="stat-label">Taux de décroché</span></div>
-  <div class="stat reveal"><span class="stat-number">3x</span><span class="stat-label">Plus de conversions</span></div>
-  <div class="stat reveal"><span class="stat-number">48h</span><span class="stat-label">Mise en place</span></div>
-  <div class="stat reveal"><span class="stat-number">24/7</span><span class="stat-label">Disponibilité totale</span></div>
+    <!-- PHONE MOCKUP -->
+    <div class="phone-demo r d2">
+      <div class="phone-header">
+        <span class="phone-dot"></span>
+        <div><div class="phone-caller">Appel entrant en cours…</div><div class="phone-num">+33 6 12 34 56 78</div></div>
+      </div>
+      <div class="msg">
+        <div class="msg-row"><span class="msg-lbl">Client</span><div class="bubble client">Bonjour, je voudrais prendre un rendez-vous.</div></div>
+        <div class="msg-row them"><div class="bubble callvy">Bien sûr ! Pour quel service souhaitez-vous un rendez-vous ?</div><span class="msg-lbl">CALLVY</span></div>
+        <div class="msg-row"><span class="msg-lbl">Client</span><div class="bubble client">Pour une consultation, si possible demain.</div></div>
+        <div class="msg-row them"><div class="bubble callvy">Parfait. J'ai une disponibilité demain à 10h30 — je vous confirme le RDV par SMS.</div><span class="msg-lbl">CALLVY</span></div>
+      </div>
+    </div>
+
+    <div class="hero-btns r d3">
+      <a href="#demodemo" class="btn bb">🎧 Écouter la démo</a>
+      <a href="#demo" class="btn bs">Réserver une démo gratuite →</a>
+    </div>
+    <div class="social-proof r">
+      <div class="sp-dots">
+        <div class="sp-dot">MT</div><div class="sp-dot">SB</div><div class="sp-dot">PL</div>
+      </div>
+      <span>Professionnels satisfaits en France & Belgique</span>
+    </div>
+  </div>
 </div>
 
-<!-- PROBLÈME -->
-<section class="problems">
-  <div class="section-label text-center">Le problème</div>
-  <h2 class="section-title text-center">Combien d'appels manquez-vous chaque semaine ?</h2>
-  <p class="section-sub text-center">Chaque appel sans réponse est un client perdu. Et vos concurrents, eux, décrochent toujours.</p>
-  <div class="problems-grid">
-    <div class="problem-card reveal">
-      <div class="problem-icon">📞</div>
-      <h3>Appels manqués = chiffre d'affaires perdu</h3>
-      <p>Un client qui n'obtient pas de réponse appelle votre concurrent dans les 5 minutes. Chaque appel non décroché vous coûte des centaines d'euros.</p>
-    </div>
-    <div class="problem-card reveal">
-      <div class="problem-icon">😤</div>
-      <h3>Vous ne pouvez pas être disponible tout le temps</h3>
-      <p>Réunions, déplacements, week-ends, nuits — votre business ne s'arrête jamais, mais vous, vous avez besoin de déconnecter.</p>
-    </div>
-    <div class="problem-card reveal">
-      <div class="problem-icon">💸</div>
-      <h3>Une secrétaire coûte 2 000€/mois minimum</h3>
-      <p>Congés, maladies, week-ends, frais patronaux… Pour un résultat 9h-17h, 5 jours sur 7. CALLVY fait mieux, pour moins.</p>
+<!-- ── TICKER ── -->
+<div class="ticker">
+  <div class="ttrack">
+    <span class="ti"><span class="tdot"></span>Voix ultra-réaliste</span>
+    <span class="ti"><span class="tdot"></span>Prise de RDV automatique</span>
+    <span class="ti"><span class="tdot"></span>Alertes WhatsApp</span>
+    <span class="ti"><span class="tdot"></span>Dashboard temps réel</span>
+    <span class="ti"><span class="tdot"></span>Multilingue</span>
+    <span class="ti"><span class="tdot"></span>Intégration CRM</span>
+    <span class="ti"><span class="tdot"></span>Zéro appel manqué</span>
+    <span class="ti"><span class="tdot"></span>Setup 48h</span>
+    <span class="ti"><span class="tdot"></span>Support 7j/7</span>
+    <span class="ti"><span class="tdot"></span>Compatible Google Calendar</span>
+    <span class="ti"><span class="tdot"></span>Réponse en moins de 2 secondes</span>
+    <span class="ti"><span class="tdot"></span>Voix ultra-réaliste</span>
+    <span class="ti"><span class="tdot"></span>Prise de RDV automatique</span>
+    <span class="ti"><span class="tdot"></span>Alertes WhatsApp</span>
+    <span class="ti"><span class="tdot"></span>Dashboard temps réel</span>
+    <span class="ti"><span class="tdot"></span>Multilingue</span>
+    <span class="ti"><span class="tdot"></span>Intégration CRM</span>
+    <span class="ti"><span class="tdot"></span>Zéro appel manqué</span>
+    <span class="ti"><span class="tdot"></span>Setup 48h</span>
+    <span class="ti"><span class="tdot"></span>Support 7j/7</span>
+    <span class="ti"><span class="tdot"></span>Compatible Google Calendar</span>
+    <span class="ti"><span class="tdot"></span>Réponse en moins de 2 secondes</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     2. PROOF / STATS
+══════════════════════════════════════════ -->
+<div class="stats">
+  <div class="sc r"><div class="sn">98%</div><div class="sl">Taux de décroché</div></div>
+  <div class="sc r d1"><div class="sn">+38%</div><div class="sl">Rendez-vous en plus</div></div>
+  <div class="sc r d2"><div class="sn">&lt;2s</div><div class="sl">Temps de réponse</div></div>
+  <div class="sc r d3"><div class="sn">−67%</div><div class="sl">Coût vs secrétaire</div></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     3. PROBLEM
+══════════════════════════════════════════ -->
+<section class="prob-sec">
+  <div class="sh r">
+    <div class="stag">Le problème</div>
+    <h2>Chaque appel manqué est un client perdu.</h2>
+    <p>30% des appels professionnels ne sont jamais décrochés. Chaque appel sans réponse, c'est un prospect qui appelle votre concurrent 30 secondes plus tard.</p>
+  </div>
+  <div class="pgrid">
+    <div class="pc r"><div class="pn">01</div><h3>Vous ne pouvez pas décrocher 24h/24</h3><p>Chantiers, soins, réunions, nuits, week-ends — votre activité tourne non-stop. Un appel manqué à 20h représente souvent un client perdu pour de bon.</p></div>
+    <div class="pc r d1"><div class="pn">02</div><h3>Un prospect sans réponse n'attend pas</h3><p>Études montrent qu'un prospect appelle le concurrent suivant en moins de 5 minutes. Chaque appel manqué représente en moyenne 150–400€ de CA perdu.</p></div>
+    <div class="pc r d2"><div class="pn">03</div><h3>Une secrétaire coûte 2 000€/mois</h3><p>Salaire, charges sociales, congés, absences — et elle ne répond pas le soir ni le week-end. CALLVY fait 3× plus pour 10× moins cher, sans interruption.</p></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     4. FUTURE PACING — IMAGINEZ
+══════════════════════════════════════════ -->
+<section class="imagine-sec">
+  <div class="imagine-in">
+    <div class="stag r" style="display:inline-flex">Imaginez</div>
+    <h2 class="r">Imaginez une entreprise où <em>chaque appel est traité instantanément</em>, même quand vous dormez.</h2>
+    <p class="r">Plus jamais un client qui part chez le concurrent parce que vous étiez occupé. CALLVY répond, qualifie et transforme chaque appel en rendez-vous — automatiquement, 24h/24.</p>
+    <div class="imagine-cards">
+      <div class="imgc r"><div class="imgc-ico">📞</div><h4>Votre téléphone décroche toujours</h4><p>Quel que soit l'heure ou votre disponibilité, chaque appel reçoit une réponse professionnelle instantanée.</p></div>
+      <div class="imgc r d1"><div class="imgc-ico">📅</div><h4>Votre agenda se remplit seul</h4><p>CALLVY prend les rendez-vous directement dans votre calendrier. Vous arrivez le matin avec des RDV déjà confirmés.</p></div>
+      <div class="imgc r d2"><div class="imgc-ico">💬</div><h4>Vous êtes informé en temps réel</h4><p>Chaque appel vous est résumé par WhatsApp en moins de 30 secondes. Vous restez maître de votre activité.</p></div>
+      <div class="imgc r d3"><div class="imgc-ico">💰</div><h4>Vous récupérez du chiffre d'affaires</h4><p>Chaque appel manqué évité est un client de plus. En moyenne, nos clients récupèrent 3–8 nouveaux clients par mois.</p></div>
     </div>
   </div>
 </section>
 
-<!-- COMMENT ÇA MARCHE -->
+<!-- ══════════════════════════════════════════
+     5. HOW IT WORKS
+══════════════════════════════════════════ -->
 <section id="comment">
-  <div class="section-label">Processus</div>
-  <h2 class="section-title">Opérationnel en 48 heures</h2>
-  <p class="section-sub">Trois étapes simples pour ne plus jamais manquer un appel.</p>
+  <div class="sh r">
+    <div class="stag">Comment ça marche</div>
+    <h2>Opérationnel en 48h chrono</h2>
+    <p>Trois étapes simples. Nous gérons 100% de la partie technique.</p>
+  </div>
   <div class="how-grid">
-    <div class="step reveal">
-      <div class="step-num">01</div>
-      <h3>Audit de votre activité</h3>
-      <p>On analyse votre business, vos clients types, vos questions fréquentes et vos processus de prise de RDV en 30 minutes chrono.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-num">02</div>
-      <h3>Configuration personnalisée</h3>
-      <p>On configure votre réceptionniste vocal selon votre identité, vos horaires, vos services et vos règles métier spécifiques.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-num">03</div>
-      <h3>Go live & suivi</h3>
-      <p>Votre réceptionniste est en ligne. Vous recevez un rapport hebdomadaire de tous les appels, demandes et RDV pris en votre nom.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-num">04</div>
-      <h3>Optimisation continue</h3>
-      <p>Chaque mois on analyse les données et on améliore les réponses pour augmenter vos conversions et la satisfaction client.</p>
+    <div class="hs r"><div class="hn">01</div><h3>Le client appelle votre numéro</h3><p>CALLVY décroche instantanément, en moins de 2 secondes — même la nuit, le week-end ou pendant vos vacances.</p></div>
+    <div class="hs r d1"><div class="hn">02</div><h3>CALLVY répond et qualifie</h3><p>La voix ultra-réaliste engage la conversation, comprend la demande, répond aux questions fréquentes et prend le RDV.</p></div>
+    <div class="hs r d2"><div class="hn">03</div><h3>Le RDV est enregistré, vous êtes alerté</h3><p>Le rendez-vous apparaît dans votre agenda, le client reçoit une confirmation SMS, et vous recevez un résumé WhatsApp.</p></div>
+    <div class="hs r d3"><div class="hn">04</div><h3>Vous optimisez chaque mois</h3><p>Rapport mensuel, ajustements scripts, amélioration continue du taux de conversion de vos appels entrants.</p></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     6. DEMO SECTION
+══════════════════════════════════════════ -->
+<section id="demodemo" class="demo-sec">
+  <div class="sh r">
+    <div class="stag">Démonstration</div>
+    <h2>Écoutez comment CALLVY répond à vos clients</h2>
+    <p>Une vraie conversation simulée — voix naturelle, réponses intelligentes, prise de RDV en temps réel.</p>
+  </div>
+  <div class="demo-box">
+    <div class="demo-player r">
+      <div class="demo-title">
+        <span style="color:var(--green)">●</span> Simulation d'appel entrant — Cabinet dentaire
+      </div>
+      <div class="demo-wave" id="dwave"></div>
+      <div class="demo-convo">
+        <div class="dc-row"><span class="dc-lbl">Client</span><div class="dc-b cl">Bonjour, j'aimerais prendre rendez-vous pour un détartrage.</div></div>
+        <div class="dc-row r"><div class="dc-b ai">Bonjour ! Bien sûr, je regarde les disponibilités du cabinet pour vous. Avez-vous une préférence pour le jour de la semaine ?</div><span class="dc-lbl">CALLVY</span></div>
+        <div class="dc-row"><span class="dc-lbl">Client</span><div class="dc-b cl">De préférence jeudi ou vendredi, en matinée si possible.</div></div>
+        <div class="dc-row r"><div class="dc-b ai">Parfait ! J'ai une disponibilité jeudi à 9h15 avec le Dr. Beaumont. Est-ce que ce créneau vous convient ?</div><span class="dc-lbl">CALLVY</span></div>
+        <div class="dc-row"><span class="dc-lbl">Client</span><div class="dc-b cl">Oui, c'est parfait merci !</div></div>
+        <div class="dc-row r"><div class="dc-b ai">Excellent ! Je confirme votre rendez-vous jeudi à 9h15. Vous recevrez un SMS de confirmation dans quelques instants. Bonne journée !</div><span class="dc-lbl">CALLVY</span></div>
+      </div>
+      <button class="play-btn" id="playBtn" onclick="playDemo()">
+        <span id="playico">▶</span> <span id="playtxt">Écouter la simulation</span>
+      </button>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section id="services" class="features">
-  <div class="section-label text-center">Ce qu'on fait</div>
-  <h2 class="section-title text-center">Un réceptionniste qui ne dort jamais</h2>
-  <p class="section-sub text-center">Tout ce dont votre business a besoin pour ne jamais rater une opportunité.</p>
-  <div class="features-grid">
-    <div class="feature-card reveal">
-      <div class="feature-icon">🎙️</div>
-      <h3>Voix ultra-réaliste</h3>
-      <p>Vos clients ne savent pas qu'ils ne parlent pas à un humain. Voix naturelle, fluide, avec des pauses et intonations naturelles.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">📅</div>
-      <h3>Prise de RDV automatique</h3>
-      <p>Synchronisation avec votre agenda en temps réel. Confirmation automatique par SMS et email pour zéro no-show.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">💬</div>
-      <h3>Suivi WhatsApp Business</h3>
-      <p>Après chaque appel, un résumé complet vous est envoyé sur WhatsApp : nom, demande, coordonnées, et priorité.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">📊</div>
-      <h3>Dashboard client</h3>
-      <p>Accédez en temps réel à tous vos appels, transcriptions, statistiques de conversion et performances de votre réceptionniste.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">🌍</div>
-      <h3>Multilingue</h3>
-      <p>Français, néerlandais, anglais, espagnol — votre réceptionniste répond dans la langue de votre client automatiquement.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">🔒</div>
-      <h3>RGPD & données sécurisées</h3>
-      <p>Hébergement européen. Données chiffrées. Conformité RGPD complète. Vos clients et les leurs sont protégés.</p>
-    </div>
+<!-- ══════════════════════════════════════════
+     7. USE CASES
+══════════════════════════════════════════ -->
+<section id="usecases">
+  <div class="sh r">
+    <div class="stag">Pour qui ?</div>
+    <h2>CALLVY s'adapte à votre métier</h2>
+    <p>Quel que soit votre secteur, CALLVY est configuré sur mesure pour votre activité.</p>
   </div>
-
-  <div class="guarantees">
-    <div class="guarantee reveal"><span>✓</span> Satisfait ou remboursé 30 jours</div>
-    <div class="guarantee reveal"><span>⚡</span> Setup en 48h garanti</div>
-    <div class="guarantee reveal"><span>🇪🇺</span> Données hébergées en Europe</div>
-    <div class="guarantee reveal"><span>📞</span> Support prioritaire inclus</div>
+  <div class="uc-grid">
+    <div class="uc r"><div class="uc-ico">🦷</div><h3>Dentiste / Médecin</h3><p>Prise de RDV automatique, rappels de consultations, gestion des urgences.</p></div>
+    <div class="uc r d1"><div class="uc-ico">🔧</div><h3>Plombier / Artisan</h3><p>Capture des urgences 24h/24, qualification de la demande, planification.</p></div>
+    <div class="uc r d2"><div class="uc-ico">🏠</div><h3>Agent immobilier</h3><p>Qualification des prospects, prise de RDV visite, suivi des demandes.</p></div>
+    <div class="uc r d3"><div class="uc-ico">🚗</div><h3>Garage automobile</h3><p>Planification d'interventions, devis téléphonique, gestion des créneaux.</p></div>
+    <div class="uc r"><div class="uc-ico">⚖️</div><h3>Avocat / Notaire</h3><p>Filtrage des appels, prise de RDV consultation, confidentialité assurée.</p></div>
+    <div class="uc r d1"><div class="uc-ico">🏪</div><h3>Commerce / Services</h3><p>Renseignements clients, prise de commandes, gestion du flux d'appels.</p></div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="tarifs">
-  <div class="section-label text-center">Tarifs</div>
-  <h2 class="section-title text-center">Simple, transparent, sans surprise</h2>
-  <p class="section-sub text-center">Un frais de setup unique + un abonnement mensuel. Aucun engagement minimum.</p>
-  <div class="pricing-grid">
+<!-- ══════════════════════════════════════════
+     8. ROI CALCULATOR
+══════════════════════════════════════════ -->
+<section id="roi" class="roi-sec">
+  <div class="sh r">
+    <div class="stag">Calculateur ROI</div>
+    <h2>Combien vous coûtent vos appels manqués ?</h2>
+    <p>Entrez vos chiffres et découvrez ce que CALLVY peut vous rapporter chaque mois.</p>
+  </div>
+  <div class="roi-in">
+    <div class="ri-group r">
+      <div class="ri"><label>Appels reçus par mois</label><input type="number" id="rc" value="80" min="1"/></div>
+      <div class="ri"><label>% d'appels actuellement manqués</label><input type="number" id="rm" value="30" min="1" max="99"/></div>
+      <div class="ri"><label>Valeur moyenne d'un client (€)</label><input type="number" id="rv" value="300" min="1"/></div>
+      <div class="ri"><label>Taux de conversion des appels (%)</label><input type="number" id="rk" value="25" min="1" max="99"/></div>
+    </div>
+    <div class="roi-out r d1">
+      <div class="rolbl">Gain mensuel estimé</div>
+      <div class="roval" id="rog">—</div>
+      <div class="rosub">euros récupérés par mois</div>
+      <div class="rorows">
+        <div class="ror"><span>Appels manqués/mois</span><span id="ror1">—</span></div>
+        <div class="ror"><span>Appels récupérés (70%)</span><span id="ror2">—</span></div>
+        <div class="ror"><span>Nouveaux clients/mois</span><span id="ror3">—</span></div>
+        <div class="ror"><span>Coût CALLVY Pro/mois</span><span>299€</span></div>
+        <div class="ror tot"><span>ROI net mensuel</span><span id="ror4">—</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="plan reveal">
-      <div class="plan-name">Starter</div>
-      <div class="plan-price"><sup>€</sup>199<small style="font-size:1rem;color:var(--gray)">/mois</small></div>
-      <div class="plan-setup">+ 899€ installation unique</div>
-      <hr class="plan-divider">
-      <ul class="plan-features">
-        <li>Réceptionniste vocal 24/7</li>
+<!-- ══════════════════════════════════════════
+     9. COMPARE TABLE
+══════════════════════════════════════════ -->
+<section>
+  <div class="sh r">
+    <div class="stag">Comparaison</div>
+    <h2>CALLVY vs les alternatives</h2>
+    <p>Les abonnements CALLVY sont mensuels. Le setup est un frais unique, payé une seule fois à l'activation.</p>
+  </div>
+  <div class="ctable-wrap r">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left">Critère</th>
+          <th>Secrétaire humaine</th>
+          <th class="hl">CALLVY ✦</th>
+          <th>Répondeur</th>
+          <th>Call center</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Disponibilité</td><td>Lun–Ven 9h–17h</td><td class="hl"><span class="ok">✓</span> 24h/24 · 7j/7</td><td>Partielle</td><td>Variable</td></tr>
+        <tr><td>Voix naturelle</td><td><span class="ok">✓</span></td><td class="hl"><span class="ok">✓</span> Indiscernable</td><td><span class="ko">✗</span></td><td><span class="ok">✓</span></td></tr>
+        <tr><td>Prise de RDV auto</td><td>Manuelle</td><td class="hl"><span class="ok">✓</span> Automatique</td><td><span class="ko">✗</span></td><td>Partielle</td></tr>
+        <tr><td>Coût mensuel</td><td>1 800–2 500€</td><td class="hl"><span class="ok">✓</span> 199–499€</td><td>Gratuit</td><td>500–2 000€</td></tr>
+        <tr><td>Frais d'installation</td><td>Recrutement 1–3 mois</td><td class="hl"><span class="ok">✓</span> 899–2 499€ (unique)</td><td>Aucun</td><td>Variable</td></tr>
+        <tr><td>Alertes WhatsApp</td><td><span class="ko">✗</span></td><td class="hl"><span class="ok">✓</span></td><td><span class="ko">✗</span></td><td><span class="ko">✗</span></td></tr>
+        <tr><td>Dashboard analytique</td><td><span class="ko">✗</span></td><td class="hl"><span class="ok">✓</span></td><td><span class="ko">✗</span></td><td>Partiel</td></tr>
+        <tr><td>Temps de réponse</td><td>Variable</td><td class="hl"><span class="ok">✓</span> &lt;2 secondes</td><td>Immédiat</td><td>2–10 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     10. FEATURES
+══════════════════════════════════════════ -->
+<section id="services" class="feat-sec">
+  <div class="sh r">
+    <div class="stag">Fonctionnalités</div>
+    <h2>Tout ce que votre business mérite</h2>
+    <p>Un système complet — pas un répondeur, une vraie machine à convertir chaque appel en client.</p>
+  </div>
+  <div class="fgrid">
+    <div class="fc r"><div class="fi">🎙️</div><h3>Voix indiscernable d'un humain</h3><p>Pauses naturelles, intonations précises, fluidité totale. Vos clients pensent parler à votre équipe.</p></div>
+    <div class="fc r d1"><div class="fi">📅</div><h3>Prise de RDV intelligente</h3><p>Google Calendar / Calendly en temps réel. SMS + email de confirmation automatique après chaque appel.</p></div>
+    <div class="fc r d2"><div class="fi">💬</div><h3>Alertes WhatsApp instantanées</h3><p>Résumé complet, coordonnées, demande et priorité — sur votre mobile en moins de 30 secondes.</p></div>
+    <div class="fc r"><div class="fi">📊</div><h3>Dashboard analytique</h3><p>Transcriptions, stats, taux de conversion, motifs de contact — en temps réel depuis partout.</p></div>
+    <div class="fc r d1"><div class="fi">🌍</div><h3>Multilingue automatique</h3><p>FR, NL, EN, ES, DE. Détection automatique de la langue de l'appelant dès les premiers mots.</p></div>
+    <div class="fc r d2"><div class="fi">🔗</div><h3>Intégrations CRM</h3><p>HubSpot, Salesforce, Zoho, Airtable — chaque appel crée automatiquement une fiche client.</p></div>
+    <div class="fc r"><div class="fi">🔄</div><h3>Transfert d'appel intelligent</h3><p>Briefing vocal de 10 secondes avant transfert. Vous êtes toujours prêt à prendre la main.</p></div>
+    <div class="fc r d1"><div class="fi">🔒</div><h3>RGPD & Sécurité totale</h3><p>Hébergement EU, chiffrement, DPA fourni, consentement d'enregistrement automatique.</p></div>
+  </div>
+  <div class="ptags">
+    <div class="ptag r"><span class="g">⚡</span> Setup 48h garanti</div>
+    <div class="ptag r"><span class="g">🇪🇺</span> Hébergement Europe</div>
+    <div class="ptag r"><span class="g">📞</span> Support 7j/7</div>
+    <div class="ptag r"><span class="g">✓</span> RGPD conforme</div>
+    <div class="ptag r"><span class="g">∞</span> Sans engagement</div>
+    <div class="ptag r"><span class="g">🔒</span> Données sécurisées</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     11. TESTIMONIALS
+══════════════════════════════════════════ -->
+<section>
+  <div class="sh r">
+    <div class="stag">Témoignages</div>
+    <h2>Ils ne manquent plus un appel</h2>
+  </div>
+  <div class="tgrid">
+    <div class="tc r"><div class="stars">★★★★★</div><p class="tq">"Depuis CALLVY, je ne rate plus aucun client. La première semaine, 12 RDV que j'aurais manqués ont été captés. Le retour sur investissement est immédiat."</p><div class="tauth"><div class="tav a">MT</div><div><div class="tname">Marc Thierry</div><div class="trole">Plombier indépendant · Lyon</div></div></div></div>
+    <div class="tc r d1"><div class="stars">★★★★★</div><p class="tq">"Mes patients pensent parler à ma secrétaire. La voix est bluffante. J'économise 1 800€/mois et la qualité d'accueil est objectivement meilleure qu'avant."</p><div class="tauth"><div class="tav b">SB</div><div><div class="tname">Sophie Beaumont</div><div class="trole">Cabinet dentaire · Bruxelles</div></div></div></div>
+    <div class="tc r d2"><div class="stars">★★★★★</div><p class="tq">"Setup en 2 jours comme annoncé. Le résumé WhatsApp après chaque appel est parfait. Je recommande sans hésiter à tous mes collègues artisans."</p><div class="tauth"><div class="tav c">PL</div><div><div class="tname">Pierre Laurent</div><div class="trole">Électricien · Bordeaux</div></div></div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     12. PRICING
+══════════════════════════════════════════ -->
+<section id="tarifs" style="background:var(--bg2)">
+  <div class="sh r">
+    <div class="stag">Tarifs</div>
+    <h2>Simple. Transparent. Sans surprise.</h2>
+    <p>Un frais de setup unique à l'installation + un abonnement mensuel. Sans engagement de durée.</p>
+  </div>
+  <div class="pgrid2">
+    <div class="plan r">
+      <div class="ptier">Starter</div>
+      <div class="pprice"><sup>€</sup>199<sub>/mois</sub></div>
+      <div class="psetup">+ <strong>899€</strong> setup (frais unique)</div>
+      <div class="ptotal">1er mois tout inclus : <strong>1 098€</strong> · Puis : 199€/mois</div>
+      <hr class="phr"/>
+      <ul class="pfeats">
+        <li>Réceptionniste vocal 24h/24</li>
         <li>Jusqu'à 200 appels/mois</li>
         <li>Prise de RDV automatique</li>
-        <li>Résumés WhatsApp</li>
+        <li>Alertes WhatsApp après chaque appel</li>
         <li>Dashboard basique</li>
         <li>1 langue (français)</li>
+        <li>Confirmation SMS clients</li>
         <li>Support email</li>
       </ul>
-      <a href="#demo" class="plan-btn plan-btn-outline">Commencer →</a>
+      <a href="#demo" class="pbtn po">Commencer →</a>
     </div>
-
-    <div class="plan popular reveal">
-      <div class="popular-badge">⭐ Le plus populaire</div>
-      <div class="plan-name">Pro</div>
-      <div class="plan-price"><sup>€</sup>299<small style="font-size:1rem;color:var(--gray)">/mois</small></div>
-      <div class="plan-setup">+ 1 499€ installation unique</div>
-      <hr class="plan-divider">
-      <ul class="plan-features">
-        <li>Réceptionniste vocal 24/7</li>
+    <div class="plan top r d1">
+      <div class="ppop">⭐ Le plus populaire</div>
+      <div class="ptier">Pro</div>
+      <div class="pprice"><sup>€</sup>299<sub>/mois</sub></div>
+      <div class="psetup">+ <strong>1 499€</strong> setup (frais unique)</div>
+      <div class="ptotal">1er mois tout inclus : <strong>1 798€</strong> · Puis : 299€/mois</div>
+      <hr class="phr"/>
+      <ul class="pfeats">
+        <li>Tout Starter inclus</li>
         <li>Appels illimités</li>
-        <li>Prise de RDV + rappels SMS</li>
-        <li>Résumés WhatsApp prioritaires</li>
+        <li>Rappels SMS automatiques</li>
         <li>Dashboard avancé + analytics</li>
         <li>3 langues au choix</li>
-        <li>Intégration CRM</li>
+        <li>Intégration CRM complète</li>
+        <li>Transfert d'appel intelligent</li>
         <li>Support prioritaire 7j/7</li>
         <li>Rapport mensuel personnalisé</li>
       </ul>
-      <a href="#demo" class="plan-btn plan-btn-filled">Obtenir une démo →</a>
+      <a href="#demo" class="pbtn pb">Obtenir une démo →</a>
     </div>
-
-    <div class="plan reveal">
-      <div class="plan-name">Entreprise</div>
-      <div class="plan-price"><sup>€</sup>499<small style="font-size:1rem;color:var(--gray)">/mois</small></div>
-      <div class="plan-setup">+ 2 499€ installation unique</div>
-      <hr class="plan-divider">
-      <ul class="plan-features">
-        <li>Tout le plan Pro</li>
+    <div class="plan r d2">
+      <div class="ptier">Entreprise</div>
+      <div class="pprice"><sup>€</sup>499<sub>/mois</sub></div>
+      <div class="psetup">+ <strong>2 499€</strong> setup (frais unique)</div>
+      <div class="ptotal">1er mois tout inclus : <strong>2 998€</strong> · Puis : 499€/mois</div>
+      <hr class="phr"/>
+      <ul class="pfeats">
+        <li>Tout Pro inclus</li>
         <li>Plusieurs lignes simultanées</li>
-        <li>Personnalisation complète</li>
+        <li>Toutes les langues disponibles</li>
         <li>Intégrations sur mesure</li>
-        <li>Toutes les langues</li>
         <li>Account manager dédié</li>
         <li>SLA garanti 99,9%</li>
         <li>Formation équipe incluse</li>
+        <li>Contrat personnalisé</li>
       </ul>
-      <a href="#demo" class="plan-btn plan-btn-outline">Nous contacter →</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- TÉMOIGNAGES -->
-<section class="testimonials">
-  <div class="section-label text-center">Témoignages</div>
-  <h2 class="section-title text-center">Ils ne manquent plus un appel</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial reveal">
-      <div class="stars">★★★★★</div>
-      <blockquote>"Depuis CALLVY, je ne rate plus aucun client. La première semaine, ils ont pris 12 RDV que j'aurais manqués. Le ROI est immédiat."</blockquote>
-      <div class="testimonial-author">
-        <div class="author-avatar">MT</div>
-        <div>
-          <div class="author-name">Marc Thierry</div>
-          <div class="author-role">Plombier indépendant, Lyon</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial reveal">
-      <div class="stars">★★★★★</div>
-      <blockquote>"Mes clients pensent parler à ma secrétaire. La voix est bluffante. J'ai économisé 1 800€/mois par rapport à mon assistante précédente."</blockquote>
-      <div class="testimonial-author">
-        <div class="author-avatar">SB</div>
-        <div>
-          <div class="author-name">Sophie Beaumont</div>
-          <div class="author-role">Cabinet dentaire, Bruxelles</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial reveal">
-      <div class="stars">★★★★★</div>
-      <blockquote>"Setup en 2 jours comme promis. Le dashboard est clair, les résumés WhatsApp parfaits. Je recommande à tous mes collègues artisans."</blockquote>
-      <div class="testimonial-author">
-        <div class="author-avatar">PL</div>
-        <div>
-          <div class="author-name">Pierre Laurent</div>
-          <div class="author-role">Électricien, Bordeaux</div>
-        </div>
-      </div>
+      <a href="#demo" class="pbtn po">Nous contacter →</a>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- ══════════════════════════════════════════
+     REASSURANCE
+══════════════════════════════════════════ -->
+<section class="reassure">
+  <div class="sh r">
+    <div class="stag">Pourquoi nous faire confiance</div>
+    <h2>Simple à démarrer. Fiable à long terme.</h2>
+  </div>
+  <div class="rgrid">
+    <div class="rc2 r"><div class="rc2-ico">⚡</div><h4>Installation rapide</h4><p>Configuration complète en 48h. Nous gérons 100% de la technique.</p></div>
+    <div class="rc2 r d1"><div class="rc2-ico">🔒</div><h4>Données sécurisées</h4><p>Hébergement européen, RGPD, chiffrement end-to-end.</p></div>
+    <div class="rc2 r d2"><div class="rc2-ico">🎯</div><h4>Configuré sur mesure</h4><p>Scripts, voix et règles adaptés exactement à votre activité.</p></div>
+    <div class="rc2 r d3"><div class="rc2-ico">📞</div><h4>Support prioritaire</h4><p>Une équipe disponible 7j/7 pour vous accompagner.</p></div>
+    <div class="rc2 r"><div class="rc2-ico">📊</div><h4>Technologie avancée</h4><p>Voix indiscernable, IA conversationnelle de dernière génération.</p></div>
+    <div class="rc2 r d1"><div class="rc2-ico">∞</div><h4>Sans engagement</h4><p>Résiliable à tout moment avec 30 jours de préavis.</p></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════ -->
 <section id="faq">
-  <div class="section-label text-center">FAQ</div>
-  <h2 class="section-title text-center">Questions fréquentes</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-question">Est-ce que mes clients vont savoir qu'ils parlent à un système automatisé ? <i class="faq-icon">+</i></button>
-      <div class="faq-answer"><p>Non. La voix est indiscernable d'un humain. Nos clients rapportent systématiquement que leurs propres clients pensent parler à une vraie personne. Nous ne mentionnons jamais la nature du système sauf si votre client pose directement la question.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Combien de temps prend la mise en place ? <i class="faq-icon">+</i></button>
-      <div class="faq-answer"><p>48 heures maximum après notre appel de configuration. Nous prenons en charge toute la partie technique. Vous n'avez rien à installer, rien à coder.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Que se passe-t-il si le réceptionniste ne sait pas répondre à une question ? <i class="faq-icon">+</i></button>
-      <div class="faq-answer"><p>Il vous transfère l'appel en temps réel, vous envoie une alerte WhatsApp immédiate, et propose au client un rappel prioritaire. Aucune information n'est perdue.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Est-ce que je peux changer la voix ou le script ? <i class="faq-icon">+</i></button>
-      <div class="faq-answer"><p>Oui, à tout moment. Vous pouvez choisir parmi plusieurs voix, modifier les scripts, ajouter de nouvelles questions ou services. Les modifications sont appliquées dans les 24h.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Y a-t-il un engagement de durée ? <i class="faq-icon">+</i></button>
-      <div class="faq-answer"><p>Aucun. Vous pouvez arrêter à tout moment avec un préavis de 30 jours. Nous offrons également une garantie satisfait ou remboursé les 30 premiers jours.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Est-ce conforme au RGPD ? <i class="faq-icon">+</i></button>
-      <div class="faq-answer"><p>Oui, entièrement. Données hébergées en Europe, chiffrées, avec un DPA (Data Processing Agreement) fourni. Vos clients sont informés de l'enregistrement selon les réglementations en vigueur.</p></div>
-    </div>
+  <div class="sh r">
+    <div class="stag">FAQ</div>
+    <h2>Vos questions, nos réponses</h2>
+  </div>
+  <div class="flist">
+    <div class="fitem r"><button class="fq">CALLVY peut-il vraiment prendre des rendez-vous ? <i class="fic">+</i></button><div class="fa"><p>Oui, c'est sa fonction principale. CALLVY se synchronise avec votre agenda Google Calendar ou Calendly en temps réel, vérifie les disponibilités et confirme le RDV directement pendant l'appel. Le client reçoit un SMS de confirmation automatique.</p></div></div>
+    <div class="fitem r"><button class="fq">Peut-on personnaliser les réponses de CALLVY ? <i class="fic">+</i></button><div class="fa"><p>Entièrement. Lors de la configuration, nous programmons les scripts selon votre activité, vos services, vos tarifs, vos horaires et votre façon de parler. Les modifications sont possibles à tout moment sous 24h ouvrables, sans frais supplémentaires.</p></div></div>
+    <div class="fitem r"><button class="fq">Est-ce compatible avec mon agenda actuel ? <i class="fic">+</i></button><div class="fa"><p>CALLVY est compatible avec Google Calendar, Outlook Calendar, Calendly et la plupart des agendas professionnels. Pour les CRM, nous supportons HubSpot, Salesforce, Zoho, Airtable et Notion. En cas de besoin spécifique, nous développons l'intégration sur mesure.</p></div></div>
+    <div class="fitem r"><button class="fq">Mes clients sauront-ils qu'ils ne parlent pas à un humain ? <i class="fic">+</i></button><div class="fa"><p>Non. La technologie vocale est indiscernable d'une voix humaine — pauses naturelles, intonations, fluidité. L'ensemble de nos clients confirme que leurs propres clients pensent parler à un membre de leur équipe. Nous ne révélons jamais la nature du système sauf demande directe explicite.</p></div></div>
+    <div class="fitem r"><button class="fq">Le frais de setup est-il payé une seule fois ? <i class="fic">+</i></button><div class="fa"><p>Oui, à 100%. Le frais de setup couvre la configuration complète : voix, scripts personnalisés, intégrations. Ce frais est payé une seule fois à l'activation. Ensuite, vous ne payez que l'abonnement mensuel. Conformément aux CGV, ce frais n'est pas remboursable car il couvre le travail déjà réalisé.</p></div></div>
+    <div class="fitem r"><button class="fq">Y a-t-il un engagement de durée minimum ? <i class="fic">+</i></button><div class="fa"><p>Aucun engagement de durée. L'abonnement est résiliable avec 30 jours de préavis par email à contact@callvy.fr. Nous préférons vous garder parce que le service est excellent, pas parce que vous êtes coincé.</p></div></div>
+    <div class="fitem r"><button class="fq">Combien de temps pour la mise en place ? <i class="fic">+</i></button><div class="fa"><p>48h maximum après notre appel de configuration d'une heure. Nous gérons 100% de la technique. Vous n'avez rien à installer ni configurer de votre côté.</p></div></div>
+    <div class="fitem r"><button class="fq">Est-ce conforme au RGPD ? <i class="fic">+</i></button><div class="fa"><p>Entièrement. Données hébergées dans l'Union Européenne, chiffrées, DPA fourni sur demande, consentement d'enregistrement annoncé automatiquement en début d'appel conformément à la législation française et belge.</p></div></div>
   </div>
 </section>
 
-<!-- FORMULAIRE DÉMO -->
-<section id="demo" class="demo-section">
-  <div class="demo-container">
-    <div class="section-label text-center">Démo gratuite</div>
-    <h2 class="section-title text-center">Testez CALLVY gratuitement</h2>
-    <p class="section-sub text-center">Remplissez ce formulaire et nous vous rappelons sous 24h pour configurer votre démo personnalisée — sans engagement.</p>
+<!-- LEGAL STRIP -->
+<div class="lstrip">
+  <p><strong>Informations légales :</strong> CALLVY est un service de réceptionniste vocal professionnel. Prix HT sauf mention contraire. Le frais de setup est dû à la commande et non remboursable conformément aux <a href="#cgv">CGV</a>. L'abonnement mensuel est résiliable avec 30 jours de préavis. Conforme au RGPD (Règlement UE 2016/679) et à la loi belge du 30 juillet 2018. Réclamations : <a href="mailto:contact@callvy.fr">contact@callvy.fr</a>.</p>
+</div>
 
-    <div class="demo-form">
-      <div id="formContent">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="prenom">Prénom *</label>
-            <input type="text" id="prenom" placeholder="Jean" required />
+<!-- ══════════════════════════════════════════
+     DEMO FORM
+══════════════════════════════════════════ -->
+<section id="demo" class="form-sec">
+  <div class="fbox">
+    <div class="sh r">
+      <div class="stag">Démo gratuite</div>
+      <h2>Testez CALLVY sans engagement</h2>
+      <p>Remplissez ce formulaire. On vous rappelle sous 24h pour une démo personnalisée de 30 minutes, gratuite et sans engagement.</p>
+    </div>
+    <div class="fcard r">
+      <div id="fform">
+        <div class="frow">
+          <div class="fg"><label>Prénom *</label><input type="text" id="fp" placeholder="Jean" required/></div>
+          <div class="fg"><label>Nom *</label><input type="text" id="fn" placeholder="Dupont" required/></div>
+        </div>
+        <div class="fg"><label>Email professionnel *</label><input type="email" id="fe" placeholder="jean@votreentreprise.fr" required/></div>
+        <div class="fg"><label>Téléphone *</label><input type="tel" id="ft" placeholder="+32 4XX XX XX XX" required/></div>
+        <div class="frow">
+          <div class="fg"><label>Secteur d'activité *</label>
+            <select id="fs" required>
+              <option value="" disabled selected>Votre secteur</option>
+              <option>Santé / Médical / Paramédical</option>
+              <option>Artisan / BTP / Rénovation</option>
+              <option>Juridique / Notaire / Comptable</option>
+              <option>Immobilier</option>
+              <option>Restauration / Hôtellerie</option>
+              <option>Commerce / Retail</option>
+              <option>Services B2B</option>
+              <option>Autre</option>
+            </select>
           </div>
-          <div class="form-group">
-            <label for="nom">Nom *</label>
-            <input type="text" id="nom" placeholder="Dupont" required />
+          <div class="fg"><label>Volume d'appels/mois</label>
+            <select id="fa">
+              <option value="" disabled selected>Estimation</option>
+              <option>Moins de 50</option>
+              <option>50 – 200</option>
+              <option>200 – 500</option>
+              <option>Plus de 500</option>
+            </select>
           </div>
         </div>
-        <div class="form-group">
-          <label for="email">Email professionnel *</label>
-          <input type="email" id="email" placeholder="jean@monentreprise.fr" required />
-        </div>
-        <div class="form-group">
-          <label for="tel">Téléphone *</label>
-          <input type="tel" id="tel" placeholder="+33 6 XX XX XX XX" required />
-        </div>
-        <div class="form-group">
-          <label for="secteur">Secteur d'activité *</label>
-          <select id="secteur" required>
-            <option value="" disabled selected>Choisissez votre secteur</option>
-            <option>Santé / Médical / Paramédical</option>
-            <option>Artisan / BTP / Rénovation</option>
-            <option>Juridique / Notaire / Comptable</option>
-            <option>Immobilier</option>
-            <option>Restauration / Hôtellerie</option>
-            <option>Commerce / Retail</option>
-            <option>Services aux entreprises</option>
-            <option>Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="appels">Nombre d'appels reçus par mois (estimation)</label>
-          <select id="appels">
-            <option value="" disabled selected>Choisissez une fourchette</option>
-            <option>Moins de 50 appels</option>
-            <option>50 à 200 appels</option>
-            <option>200 à 500 appels</option>
-            <option>Plus de 500 appels</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Décrivez votre situation (optionnel)</label>
-          <textarea id="message" placeholder="Ex: Je suis plombier à Lyon, je rate souvent des appels le week-end et je voudrais automatiser ma prise de RDV..."></textarea>
-        </div>
-        <button class="form-submit" onclick="submitForm()">Obtenir ma démo gratuite →</button>
-        <p class="form-note">🔒 Vos données sont confidentielles. Aucun spam, aucun engagement.</p>
+        <div class="fg"><label>Décrivez votre situation (optionnel)</label><textarea id="fm" placeholder="Ex: Je suis dentiste, je rate des appels le soir et le week-end pour des urgences..."></textarea></div>
+        <button class="fsub" onclick="sendForm()">Réserver ma démo gratuite →</button>
+        <p class="fnote">🔒 Données confidentielles · Aucun spam · Aucun engagement · 100% gratuit</p>
       </div>
-
-      <div class="form-success" id="formSuccess">
-        <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
-        <h3>Demande reçue !</h3>
-        <p>Merci <strong id="successName"></strong> — nous vous contactons sous 24h pour organiser votre démo personnalisée.<br><br>En attendant, consultez vos emails pour une confirmation.</p>
+      <div id="fok">
+        <span class="okico">✅</span>
+        <h3>Demande bien reçue !</h3>
+        <p>Merci <strong id="okname"></strong> — nous vous contactons sous 24h pour organiser votre démo personnalisée. Guettez votre téléphone et vos emails.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="cta-final">
-  <h2>Prêt à ne plus jamais<br>manquer un appel ?</h2>
-  <p>Rejoignez les professionnels qui ont confié leur accueil à CALLVY.</p>
-  <a href="#demo" class="btn-primary">Démarrer maintenant →</a>
+<!-- ══════════════════════════════════════════
+     CTA FINAL
+══════════════════════════════════════════ -->
+<section class="ctafin">
+  <h2 class="r">Ne manquez plus jamais un appel.</h2>
+  <p class="r">Rejoignez les professionnels qui ont fait confiance à CALLVY pour ne plus laisser un seul client au concurrent.</p>
+  <div class="ctabtns r">
+    <a href="#demodemo" class="btn bb">🎧 Écouter la démo</a>
+    <a href="#demo" class="btn bs">Réserver une démonstration →</a>
+  </div>
+  <div class="r"><span class="guar">✓ Sans engagement · Résiliable à tout moment · Setup 48h garanti</span></div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
 <footer>
-  <a href="#" class="logo">CALL<span>VY</span></a>
-  <p>© 2025 CALLVY. Tous droits réservés.</p>
-  <ul class="footer-links">
-    <li><a href="mailto:contact@callvy.fr">contact@callvy.fr</a></li>
-    <li><a href="#">Mentions légales</a></li>
-    <li><a href="#">RGPD</a></li>
-  </ul>
+  <div class="ftop">
+    <div>
+      <a href="#" class="flogo">CALL<span>VY</span></a>
+      <p class="fdesc">Réceptionniste vocal premium 24h/24 pour les professionnels en France et en Belgique. Setup en 48h garanti.</p>
+    </div>
+    <div class="fcol">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#comment">Comment ça marche</a></li>
+        <li><a href="#usecases">Cas d'usage</a></li>
+        <li><a href="#roi">Calculateur ROI</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="#cgv" id="cgv">CGV</a></li>
+        <li><a href="#mentions">Mentions légales</a></li>
+        <li><a href="#rgpd">Politique RGPD</a></li>
+        <li><a href="#cookies">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#demo">Demander une démo</a></li>
+        <li><a href="mailto:contact@callvy.fr">contact@callvy.fr</a></li>
+        <li><a href="mailto:support@callvy.fr">support@callvy.fr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <p class="fcopy">© 2025 CALLVY — Tous droits réservés. Prix HT. TVA applicable selon législation en vigueur.</p>
+    <ul class="flinks2">
+      <li><a href="#cgv">CGV</a></li>
+      <li><a href="#mentions">Mentions légales</a></li>
+      <li><a href="#rgpd">RGPD</a></li>
+    </ul>
+  </div>
 </footer>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',window.scrollY>20));
 
-  // FAQ
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    });
-  });
+// REVEAL
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('v'),i*55);ro.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.r').forEach(el=>ro.observe(el));
 
-  // Form
-  function submitForm() {
-    const prenom = document.getElementById('prenom').value.trim();
-    const nom = document.getElementById('nom').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const tel = document.getElementById('tel').value.trim();
-    const secteur = document.getElementById('secteur').value;
+// WAVE BARS
+const wave=document.getElementById('dwave');
+for(let i=0;i<48;i++){const b=document.createElement('div');b.className='wave-bar';b.style.height=Math.floor(Math.random()*28+6)+'px';wave.appendChild(b);}
 
-    if (!prenom || !nom || !email || !tel || !secteur) {
-      alert('Merci de remplir tous les champs obligatoires (*).');
-      return;
-    }
-
-    // Build mailto with all data
-    const subject = encodeURIComponent('Demande de démo CALLVY — ' + prenom + ' ' + nom);
-    const appels = document.getElementById('appels').value || 'Non renseigné';
-    const message = document.getElementById('message').value || '';
-    const body = encodeURIComponent(
-      'Nouvelle demande de démo\n\n' +
-      'Prénom : ' + prenom + '\n' +
-      'Nom : ' + nom + '\n' +
-      'Email : ' + email + '\n' +
-      'Téléphone : ' + tel + '\n' +
-      'Secteur : ' + secteur + '\n' +
-      'Appels/mois : ' + appels + '\n' +
-      'Message : ' + message
-    );
-
-    window.location.href = 'mailto:contact@callvy.fr?subject=' + subject + '&body=' + body;
-
-    // Show success
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('successName').textContent = prenom;
-    const success = document.getElementById('formSuccess');
-    success.style.display = 'block';
+// DEMO PLAYER
+let playing=false,waveInt=null;
+function playDemo(){
+  const btn=document.getElementById('playBtn');
+  const ico=document.getElementById('playico');
+  const txt=document.getElementById('playtxt');
+  if(!playing){
+    playing=true;ico.textContent='⏸';txt.textContent='Lecture en cours…';
+    btn.style.background='rgba(82,158,255,.2)';
+    waveInt=setInterval(()=>{
+      document.querySelectorAll('.wave-bar').forEach(b=>{b.style.height=Math.floor(Math.random()*28+6)+'px'});
+    },120);
+    setTimeout(()=>{
+      playing=false;ico.textContent='▶';txt.textContent='Écouter à nouveau';
+      btn.style.background='';if(waveInt)clearInterval(waveInt);
+    },12000);
+  } else {
+    playing=false;ico.textContent='▶';txt.textContent='Écouter la simulation';
+    btn.style.background='';if(waveInt)clearInterval(waveInt);
   }
-</script>
+}
 
+// ROI
+function calcROI(){
+  const c=+document.getElementById('rc').value||0;
+  const m=+document.getElementById('rm').value||0;
+  const v=+document.getElementById('rv').value||0;
+  const k=+document.getElementById('rk').value||0;
+  const missed=Math.round(c*(m/100));
+  const rec=Math.round(missed*.7);
+  const cl=Math.round(rec*(k/100));
+  const g=cl*v, n=g-299;
+  const f=x=>x.toLocaleString('fr-FR')+'€';
+  document.getElementById('ror1').textContent=missed+' appels';
+  document.getElementById('ror2').textContent=rec+' appels';
+  document.getElementById('ror3').textContent=cl+' clients';
+  document.getElementById('rog').textContent=f(g);
+  document.getElementById('ror4').textContent=(n>=0?'+':'')+f(n);
+}
+['rc','rm','rv','rk'].forEach(id=>document.getElementById(id).addEventListener('input',calcROI));
+calcROI();
+
+// FAQ
+document.querySelectorAll('.fq').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const it=btn.parentElement,was=it.classList.contains('open');
+    document.querySelectorAll('.fitem').forEach(i=>i.classList.remove('open'));
+    if(!was)it.classList.add('open');
+  });
+});
+
+// FORM
+function sendForm(){
+  const p=document.getElementById('fp').value.trim();
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const t=document.getElementById('ft').value.trim();
+  const s=document.getElementById('fs').value;
+  if(!p||!n||!e||!t||!s){alert('Veuillez remplir tous les champs obligatoires (*).');return;}
+  const a=document.getElementById('fa').value||'Non renseigné';
+  const m=document.getElementById('fm').value||'—';
+  const sub=encodeURIComponent('Demande démo CALLVY — '+p+' '+n);
+  const body=encodeURIComponent('NOUVELLE DEMANDE DE DÉMO CALLVY\n\nPrénom : '+p+'\nNom : '+n+'\nEmail : '+e+'\nTéléphone : '+t+'\nSecteur : '+s+'\nAppels/mois : '+a+'\nMessage : '+m);
+  document.getElementById('fform').style.display='none';
+  document.getElementById('okname').textContent=p;
+  document.getElementById('fok').style.display='block';
+  setTimeout(()=>{window.location.href='mailto:contact@callvy.fr?subject='+sub+'&body='+body;},400);
+}
+</script>
 </body>
 </html>
