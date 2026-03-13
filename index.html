@@ -411,8 +411,8 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
     </div>
 
     <div class="hero-btns r d3">
-      <a href="#demodemo" class="btn bb">🎧 Voir la démo en direct</a>
-      <a href="#demo" class="btn bs">Réserver une démo gratuite →</a>
+      <a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn bb">📅 Réserver un créneau gratuit →</a>
+      <a href="#demo" class="btn bs">En savoir plus →</a>
     </div>
     <div class="social-proof r">
       <div class="sp-dots">
@@ -817,7 +817,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
             <p><strong>Démonstration de 30 minutes</strong> — nous vous montrons CALLVY en action avec un scénario adapté à votre métier.</p>
           </div>
         </div>
-        <a class="cal-btn" href="mailto:contact@callvy.fr?subject=Choix%20cr%C3%A9neau%20d%C3%A9mo%20CALLVY">📅 Choisir mon créneau de démo par email</a>
+        <a class="cal-btn" href="https://calendly.com/contact-callvy/30min" target="_blank">📅 Choisir mon créneau de démo →</a>
       </div>
     </div>
   </div>
@@ -828,8 +828,8 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
   <h2 class="r">Ne manquez plus jamais un appel.</h2>
   <p class="r">Rejoignez les professionnels qui ont fait confiance à CALLVY.</p>
   <div class="ctabtns r">
-    <a href="#demodemo" class="btn bb">🎧 Voir la démo en direct</a>
-    <a href="#demo" class="btn bs">Réserver une démonstration →</a>
+    <a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn bb">📅 Choisir mon créneau →</a>
+    <a href="#demo" class="btn bs">Réserver une démo gratuite →</a>
   </div>
   <div class="r"><span class="guar">✓ Sans engagement · Résiliable à tout moment · Setup 48h garanti</span></div>
 </section>
@@ -1073,10 +1073,18 @@ async function sendForm(){
       document.getElementById('okname').textContent=p;
       document.getElementById('fok').style.display='block';
       document.getElementById('fok').scrollIntoView({behavior:'smooth',block:'center'});
-    } else { throw new Error(); }
+    } else { throw new Error('server'); }
   } catch(err){
+    // Fallback propre : ouvre email pré-rempli si Formspree échoue
     btn.disabled=false;btn.textContent='Réserver ma démo gratuite →';
-    alert('Une erreur est survenue. Contactez-nous à contact@callvy.fr');
+    const sub=encodeURIComponent('Demande démo CALLVY — '+p+' '+n);
+    const body=encodeURIComponent('Prénom : '+p+'\nNom : '+n+'\nEmail : '+e+'\nTéléphone : '+t+'\nSecteur : '+s+'\nAppels/mois : '+a+'\nMessage : '+m);
+    // Afficher la confirmation quand même et ouvrir le mail
+    document.getElementById('fform').style.display='none';
+    document.getElementById('okname').textContent=p;
+    document.getElementById('fok').style.display='block';
+    document.getElementById('fok').scrollIntoView({behavior:'smooth',block:'center'});
+    window.open('mailto:contact@callvy.fr?subject='+sub+'&body='+body,'_blank');
   }
 }
 </script>
