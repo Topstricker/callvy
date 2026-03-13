@@ -1047,7 +1047,7 @@ document.querySelectorAll('.fq').forEach(btn=>{
 });
 
 // FORM
-function sendForm(){
+async function sendForm(){
   const p=document.getElementById('fp').value.trim();
   const n=document.getElementById('fn').value.trim();
   const e=document.getElementById('fe').value.trim();
@@ -1056,11 +1056,28 @@ function sendForm(){
   if(!p||!n||!e||!t||!s){alert('Veuillez remplir tous les champs obligatoires (*).');return;}
   const a=document.getElementById('fa').value||'Non renseigné';
   const m=document.getElementById('fm').value||'—';
-  const sub=encodeURIComponent('Demande démo CALLVY — '+p+' '+n);
-  const body=encodeURIComponent('NOUVELLE DEMANDE DE DÉMO CALLVY\n\nPrénom : '+p+'\nNom : '+n+'\nEmail : '+e+'\nTéléphone : '+t+'\nSecteur : '+s+'\nAppels/mois : '+a+'\nMessage : '+m);
-  document.getElementById('fform').style.display='none';
-  document.getElementById('fok').style.display='block';
-  setTimeout(()=>{window.location.href='mailto:contact@callvy.fr?subject='+sub+'&body='+body;},600);
+  const btn=document.querySelector('.fsub');
+  btn.disabled=true;btn.textContent='Envoi en cours…';
+  try {
+    const res=await fetch('https://formspree.io/f/xaqpbedg',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        prenom:p,nom:n,email:e,telephone:t,
+        secteur:s,appels_mois:a,message:m,
+        _subject:'Nouvelle demande démo CALLVY — '+p+' '+n
+      })
+    });
+    if(res.ok){
+      document.getElementById('fform').style.display='none';
+      document.getElementById('okname').textContent=p;
+      document.getElementById('fok').style.display='block';
+      document.getElementById('fok').scrollIntoView({behavior:'smooth',block:'center'});
+    } else { throw new Error(); }
+  } catch(err){
+    btn.disabled=false;btn.textContent='Réserver ma démo gratuite →';
+    alert('Une erreur est survenue. Contactez-nous à contact@callvy.fr');
+  }
 }
 </script>
 </body>
