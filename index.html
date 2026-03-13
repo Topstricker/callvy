@@ -673,7 +673,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
         <li>Confirmation SMS clients</li>
         <li>Support email</li>
       </ul>
-      <a href="#demo" class="pbtn po">Commencer →</a>
+      <a href="https://calendly.com/contact-callvy/30min" target="_blank" class="pbtn po">📅 Réserver ma démo gratuite →</a>
     </div>
     <div class="plan top r d1">
       <div class="ppop">⭐ Le plus populaire</div>
@@ -693,7 +693,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
         <li>Support prioritaire 7j/7</li>
         <li>Rapport mensuel personnalisé</li>
       </ul>
-      <a href="#demo" class="pbtn pb">Obtenir une démo →</a>
+      <a href="https://calendly.com/contact-callvy/30min" target="_blank" class="pbtn pb">📅 Réserver ma démo gratuite →</a>
     </div>
     <div class="plan r d2">
       <div class="ptier">Entreprise</div>
@@ -711,7 +711,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
         <li>Formation équipe incluse</li>
         <li>Contrat personnalisé</li>
       </ul>
-      <a href="#demo" class="pbtn po">Nous contacter →</a>
+      <a href="https://calendly.com/contact-callvy/30min" target="_blank" class="pbtn po">📅 Réserver ma démo gratuite →</a>
     </div>
   </div>
 </section>
@@ -761,7 +761,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
     <div class="sh r">
       <div class="stag">Démo gratuite</div>
       <h2>Testez CALLVY sans engagement</h2>
-      <p>Remplissez ce formulaire. On vous rappelle sous 24h pour une démo personnalisée de 30 minutes, gratuite et sans engagement.</p>
+      <p>Remplissez ce formulaire. On vous rappelle sous 24h pour une démo personnalisée de 15 minutes, gratuite et sans engagement.</p>
     </div>
     <div class="fcard r">
       <div id="fform">
@@ -799,7 +799,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
         <button class="fsub" onclick="sendForm()">Réserver ma démo gratuite →</button>
         <p class="fnote">🔒 Données confidentielles · Aucun spam · Aucun engagement · 100% gratuit</p>
       </div>
-      <div id="fok">
+      <div id="fok" data-calendly="https://calendly.com/contact-callvy/30min">
         <span class="okico">✅</span>
         <h3>Demande bien reçue !</h3>
         <div class="next-steps">
@@ -814,10 +814,11 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
           </div>
           <div class="nstep">
             <div class="nstep-n">3</div>
-            <p><strong>Démonstration de 30 minutes</strong> — nous vous montrons CALLVY en action avec un scénario adapté à votre métier.</p>
+            <p><strong>Démonstration de 15 minutes</strong> — nous vous montrons CALLVY en action avec un scénario adapté à votre métier.</p>
           </div>
         </div>
-        <a class="cal-btn" href="https://calendly.com/contact-callvy/30min" target="_blank">📅 Choisir mon créneau de démo →</a>
+        <a class="cal-btn" href="https://calendly.com/contact-callvy/30min" target="_blank" id="calBtn">📅 Choisir mon créneau maintenant →</a>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:.5rem">Redirection automatique dans <span id="calTimer">5</span>s...</p>
       </div>
     </div>
   </div>
@@ -1073,6 +1074,17 @@ async function sendForm(){
       document.getElementById('okname').textContent=p;
       document.getElementById('fok').style.display='block';
       document.getElementById('fok').scrollIntoView({behavior:'smooth',block:'center'});
+      // Redirection auto vers Calendly après 5 secondes
+      let t=5;
+      const ti=document.getElementById('calTimer');
+      const iv=setInterval(()=>{
+        t--;
+        if(ti) ti.textContent=t;
+        if(t<=0){
+          clearInterval(iv);
+          window.open('https://calendly.com/contact-callvy/30min','_blank');
+        }
+      },1000);
     } else { throw new Error('server'); }
   } catch(err){
     // Fallback propre : ouvre email pré-rempli si Formspree échoue
