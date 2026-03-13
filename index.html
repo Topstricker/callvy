@@ -412,7 +412,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
 
     <div class="hero-btns r d3">
       <a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn bb">📅 Réserver un créneau gratuit →</a>
-      <a href="#demo" class="btn bs">En savoir plus →</a>
+      <a href="#demo" onclick="openDemoForm()" class="btn bs">Réserver ma démo gratuite →</a>
     </div>
     <div class="social-proof r">
       <div class="sp-dots">
@@ -801,7 +801,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
       </div>
       <div id="fok" data-calendly="https://calendly.com/contact-callvy/30min">
         <span class="okico">✅</span>
-        <h3>Demande bien reçue !</h3>
+        <h3>Demande bien reçue, <span id="okname"></span> !</h3>
         <div class="next-steps">
           <h4>Prochaines étapes</h4>
           <div class="nstep">
@@ -830,7 +830,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
   <p class="r">Rejoignez les professionnels qui ont fait confiance à CALLVY.</p>
   <div class="ctabtns r">
     <a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn bb">📅 Choisir mon créneau →</a>
-    <a href="#demo" class="btn bs">Réserver une démo gratuite →</a>
+    <a href="#demo" onclick="openDemoForm()" class="btn bs">Réserver ma démo gratuite →</a>
   </div>
   <div class="r"><span class="guar">✓ Sans engagement · Résiliable à tout moment · Setup 48h garanti</span></div>
 </section>
@@ -881,6 +881,19 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
 </footer>
 
 <script>
+// OPEN DEMO FORM
+function openDemoForm(){
+  // Remet le formulaire visible si on l'avait déjà soumis
+  const fform = document.getElementById('fform');
+  const fok = document.getElementById('fok');
+  if(fok && fok.style.display==='block'){
+    // Déjà soumis — scrolle juste vers la confirmation
+    fok.scrollIntoView({behavior:'smooth',block:'center'});
+  } else {
+    if(fform) fform.style.display='block';
+    document.getElementById('demo').scrollIntoView({behavior:'smooth'});
+  }
+}
 // NAV
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',window.scrollY>20));
 function toggleMenu(){
