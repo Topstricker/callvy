@@ -676,17 +676,26 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
       <div class="voice-caller">
         <div class="voice-av">CV</div>
         <div>
-          <div class="voice-name">CALLVY — Agent Vocal</div>
-          <div class="voice-status" id="vstatus">Prêt à simuler</div>
+          <div class="voice-name">CALLVY — Agent Vocal IA</div>
+          <div class="voice-status" id="vstatus">Choisissez un scénario et lancez</div>
         </div>
       </div>
-      <div class="voice-badge" id="vbadge">IA PRÊTE</div>
+      <div class="voice-badge" id="vbadge">🔊 VOIX IA</div>
+    </div>
+    <div class="demo-scenarios" style="padding:.75rem 1.4rem;border-bottom:1px solid var(--b);display:flex;gap:.5rem;flex-wrap:wrap">
+      <button class="scen-btn active" id="vs0" onclick="setVScenario('dentiste',this)">🦷 Cabinet dentaire</button>
+      <button class="scen-btn" id="vs1" onclick="setVScenario('plombier',this)">🔧 Plombier urgence</button>
+      <button class="scen-btn" id="vs2" onclick="setVScenario('immo',this)">🏠 Immobilier</button>
     </div>
     <div class="voice-waves" id="vwaves"></div>
-    <div class="voice-transcript" id="vtranscript"></div>
+    <div class="voice-transcript" id="vtranscript">
+      <div style="display:flex;align-items:center;justify-content:center;height:80px;color:var(--muted);font-size:.82rem">
+        ▶ Cliquez sur "Simuler un appel" pour entendre CALLVY
+      </div>
+    </div>
     <div class="voice-footer">
       <button class="voice-btn" id="vbtn" onclick="runVoiceDemo()">🎙️ Simuler un appel</button>
-      <span class="voice-note" id="vnote">Simulation vocale interactive</span>
+      <span class="voice-note" id="vnote">🔊 Activez le son pour entendre l'appel</span>
     </div>
   </div>
 </section>
@@ -1338,13 +1347,108 @@ async function sendForm(){
 
 // ── VOICE DEMO — Voix ElevenLabs MP3 + fallback Web Speech ──
 const _AUDIO_BASE = 'https://raw.githubusercontent.com/Topstricker/callvy/main/audio/';
-const _speechOK = 'speechSynthesis' in window;
+
 
 // Vérifie si les fichiers audio existent
 let _audioReady = false;
 fetch(_AUDIO_BASE + 'callvy_r1.mp3', {method:'HEAD'})
   .then(r => { _audioReady = r.ok; })
   .catch(() => { _audioReady = false; });
+
+// ── VOICE DEMO — scénarios et état global ──
+const _vScenarios = {
+  dentiste: [
+    {side:'cl', text:"Bonjour, je voudrais prendre un rendez-vous pour un détartrage."},
+    {side:'ai', text:"Bonjour ! Bien sûr, je regarde les disponibilités du cabinet. Avez-vous une préférence pour le jour de la semaine ?"},
+    {side:'cl', text:"Jeudi ou vendredi matin de préférence."},
+    {side:'ai', text:"Parfait ! J'ai jeudi à neuf heures quinze avec le docteur Beaumont. Ce créneau vous convient ?"},
+    {side:'cl', text:"Oui, c'est parfait merci."},
+    {side:'ai', text:"Excellent ! Votre rendez-vous est confirmé jeudi à neuf heures quinze. Vous recevrez un SMS de confirmation dans quelques instants. Bonne journée !"}
+  ],
+  plombier: [
+    {side:'cl', text:"Bonjour, j'ai une fuite d'eau urgente dans ma cuisine, vous pouvez intervenir ?"},
+    {side:'ai', text:"Bonjour ! Je comprends l'urgence. Pouvez-vous me donner votre adresse et décrire rapidement la fuite ?"},
+    {side:'cl', text:"Je suis au quinze rue des Lilas à Lyon, l'eau coule sous l'évier depuis ce matin."},
+    {side:'ai', text:"Très bien, je note votre urgence. Un technicien peut intervenir aujourd'hui entre quatorze et seize heures. Ça vous convient ?"},
+    {side:'cl', text:"Oui parfait, merci beaucoup."},
+    {side:'ai', text:"C'est confirmé ! Vous recevrez un SMS avec les coordonnées du technicien avant son arrivée. À tout à l'heure !"}
+  ],
+  immo: [
+    {side:'cl', text:"Bonjour, je cherche un appartement trois pièces à louer sur Lyon."},
+    {side:'ai', text:"Bonjour ! Nous avons plusieurs biens disponibles. Quel est votre budget mensuel et vos quartiers préférés ?"},
+    {side:'cl', text:"Budget neuf cents euros, je préfère Part-Dieu ou Confluence."},
+    {side:'ai', text:"Parfait, j'ai trois appartements qui correspondent exactement à vos critères. Je peux organiser des visites samedi matin. Ça vous va ?"},
+    {side:'cl', text:"Oui, samedi matin c'est idéal."},
+    {side:'ai', text:"Samedi à dix heures trente, c'est noté ! Vous recevrez les adresses des biens par SMS avant la visite. À samedi !"}
+  ]
+};
+let _vActive = 'dentiste';
+const _EL_KEY = 'sk_6d368d4ae44466d49024d941a741243dbd5cc727c032eaad';
+const _EL_VOICE = 'ohItIVrXTBI80RrUECOD';
+const _speechOK = 'speechSynthesis' in window;
+
+function setVScenario(name, btn){
+  const vbtn = document.getElementById('vbtn');
+  if(vbtn && vbtn._running) return;
+  _vActive = name;
+  document.querySelectorAll('#vs0,#vs1,#vs2').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const tc = document.getElementById('vtranscript');
+  if(tc) tc.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:80px;color:var(--muted);font-size:.82rem">▶ Cliquez sur "Simuler un appel" pour entendre CALLVY</div>';
+  const vs = document.getElementById('vstatus');
+  if(vs) vs.textContent = 'Prêt à simuler';
+}
+
+async function _elSpeak(text, cb){
+  try {
+    const resp = await fetch('https://api.elevenlabs.io/v1/text-to-speech/'+_EL_VOICE+'/stream', {
+      method:'POST',
+      headers:{'xi-api-key':_EL_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
+      body:JSON.stringify({
+        text:text, model_id:'eleven_multilingual_v2',
+        voice_settings:{stability:0.5,similarity_boost:0.85,style:0.15,use_speaker_boost:true}
+      })
+    });
+    if(!resp.ok) throw new Error('EL '+resp.status);
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+    const audio = new Audio(url);
+    const btn = document.getElementById('vbtn');
+    if(btn) btn._audio = audio;
+    audio.onended = ()=>{ URL.revokeObjectURL(url); if(btn) btn._audio=null; if(cb) setTimeout(cb,350); };
+    audio.onerror = ()=>{ URL.revokeObjectURL(url); _fallbackSpeak(text,cb); };
+    await audio.play();
+  } catch(e){
+    console.warn('ElevenLabs:', e.message);
+    _fallbackSpeak(text, cb);
+  }
+}
+
+function _clientSpeak(text, cb){
+  if(!_speechOK){if(cb)setTimeout(cb,1200);return;}
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR'; u.rate=0.9; u.pitch=0.8; u.volume=0.9;
+  const voices = window.speechSynthesis.getVoices();
+  const v = voices.find(v=>v.name.includes('Thomas'))||voices.find(v=>v.name.includes('Jacques'))||voices.find(v=>v.lang.startsWith('fr'));
+  if(v) u.voice=v;
+  u.onend=()=>{if(cb)setTimeout(cb,400);};
+  u.onerror=()=>{if(cb)setTimeout(cb,400);};
+  window.speechSynthesis.speak(u);
+}
+
+function _fallbackSpeak(text, cb){
+  if(!_speechOK){if(cb)cb();return;}
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR'; u.rate=0.92; u.pitch=1.05; u.volume=1;
+  const voices=window.speechSynthesis.getVoices();
+  const v=voices.find(v=>v.name.includes('Google français'))||voices.find(v=>v.lang==='fr-FR')||null;
+  if(v) u.voice=v;
+  u.onend=()=>{if(cb)setTimeout(cb,300);};
+  u.onerror=()=>{if(cb)setTimeout(cb,200);};
+  window.speechSynthesis.speak(u);
+}
 
 function runVoiceDemo(){
   const btn=document.getElementById('vbtn');
@@ -1353,36 +1457,41 @@ function runVoiceDemo(){
   const vnote=document.getElementById('vnote');
   const tc=document.getElementById('vtranscript');
   const wc=document.getElementById('vwaves');
-  if(!btn||!wc)return;
+  if(!btn||!wc) return;
 
+  // Init barres sonores
   if(!wc._init){
-    wc._init=true;wc._bars=[];
+    wc._init=true; wc._bars=[];
     for(let i=0;i<40;i++){
       const b=document.createElement('div');b.className='vw-bar';
       b.style.height=Math.floor(Math.random()*14+4)+'px';
-      wc.appendChild(b);wc._bars.push(b);
+      wc.appendChild(b); wc._bars.push(b);
     }
   }
 
+  // STOP
   if(btn._running){
     btn._running=false;
     clearInterval(btn._waveInt);
     if(btn._audio){btn._audio.pause();btn._audio=null;}
-    if(_speechOK)window.speechSynthesis.cancel();
-    btn.className='voice-btn';btn.innerHTML='🎙️ Simuler un appel';
-    if(badge){badge.textContent='IA PRÊTE';badge.style.cssText='';}
-    if(vstatus)vstatus.textContent='Prêt à simuler';
-    if(vnote)vnote.textContent='Simulation vocale interactive';
+    if(_speechOK) window.speechSynthesis.cancel();
+    btn.className='voice-btn'; btn.innerHTML='🎙️ Simuler un appel';
+    if(badge){badge.textContent='🔊 VOIX IA';badge.style.cssText='';}
+    if(vstatus) vstatus.textContent="Prêt à simuler";
+    if(vnote) vnote.textContent='🔊 Activez le son — Voix IA';
     wc._bars.forEach(b=>{b.style.height=Math.floor(Math.random()*10+4)+'px';b.classList.remove('active');});
     return;
   }
 
-  btn._running=true;tc.innerHTML='';
-  btn.className='voice-btn stop';btn.innerHTML='⏹ Arrêter';
+  // START
+  btn._running=true;
+  tc.innerHTML='';
+  btn.className='voice-btn stop'; btn.innerHTML='⏹ Arrêter';
   if(badge){badge.textContent='● EN COURS';badge.style.cssText='color:var(--green);background:rgba(46,204,113,.1);border-color:rgba(46,204,113,.3)';}
-  if(vstatus)vstatus.textContent='Appel en cours…';
-  if(vnote)vnote.textContent=_audioReady?'🔊 Voix IA ElevenLabs — activez le son':'🔊 Activez le son';
+  if(vstatus) vstatus.textContent='Appel en cours…';
+  if(vnote) vnote.textContent='🔊 Activez le son — lancez la simulation';
 
+  // Animation barres
   btn._waveInt=setInterval(()=>{
     wc._bars.forEach(b=>{
       if(Math.random()>.55){b.style.height=Math.floor(Math.random()*34+4)+'px';b.classList.add('active');}
@@ -1390,99 +1499,50 @@ function runVoiceDemo(){
     });
   },110);
 
-  const conv=[
-    {side:'cl', text:"Bonjour, je voudrais prendre un rendez-vous pour un détartrage.", audio:null},
-    {side:'ai', text:"Bonjour ! Je regarde les disponibilités du cabinet. Avez-vous une préférence pour le jour de la semaine ?", audio:'callvy_r1.mp3'},
-    {side:'cl', text:"Jeudi ou vendredi matin si possible.", audio:null},
-    {side:'ai', text:"Parfait ! J'ai jeudi à 9h15 avec le Dr. Beaumont. Je confirme votre rendez-vous et vous envoie un SMS. Bonne journée !", audio:'callvy_r2.mp3'},
-  ];
+  // Récupère la conversation active
+  const conv = _vScenarios[_vActive] || _vScenarios.dentiste;
 
-  function getBestVoice(){
-    if(!_speechOK)return null;
-    const voices=window.speechSynthesis.getVoices();
-    const prefs=['Google français','Marie','Amélie','Thomas','Flo (français (France))'];
-    for(const p of prefs){const v=voices.find(v=>v.name.includes(p));if(v)return v;}
-    return voices.find(v=>v.lang==='fr-FR')||voices.find(v=>v.lang.startsWith('fr'))||null;
-  }
-
-  function speakFallback(text,cb){
-    if(!_speechOK){if(cb)cb();return;}
-    window.speechSynthesis.cancel();
-    const u=new SpeechSynthesisUtterance(text);
-    u.lang='fr-FR';u.rate=0.92;u.pitch=1.05;u.volume=1;
-    const v=getBestVoice();if(v)u.voice=v;
-    u.onend=()=>{if(cb)setTimeout(cb,300);};
-    u.onerror=()=>{if(cb)setTimeout(cb,200);};
-    window.speechSynthesis.speak(u);
-  }
-
-  async function playAudio(filename, text, cb){
-    try {
-      const resp = await fetch('https://api.elevenlabs.io/v1/text-to-speech/XB0fDUnXU5powFXDhCwa/stream', {
-        method: 'POST',
-        headers: {
-          'xi-api-key': 'sk_6d368d4ae44466d49024d941a741243dbd5cc727c032eaad',
-          'Content-Type': 'application/json',
-          'Accept': 'audio/mpeg'
-        },
-        body: JSON.stringify({
-          text: text,
-          model_id: 'eleven_multilingual_v2',
-          voice_settings: { stability: 0.5, similarity_boost: 0.85, style: 0.15, use_speaker_boost: true }
-        })
-      });
-      if(!resp.ok) throw new Error('EL '+resp.status);
-      const blob = await resp.blob();
-      const url = URL.createObjectURL(blob);
-      const audio = new Audio(url);
-      btn._audio = audio;
-      audio.onended = ()=>{ URL.revokeObjectURL(url); btn._audio=null; if(cb)setTimeout(cb,300); };
-      audio.onerror = ()=>{ URL.revokeObjectURL(url); speakFallback(text,cb); };
-      await audio.play();
-    } catch(e) {
-      console.warn('ElevenLabs fallback:', e.message);
-      speakFallback(text, cb);
-    }
-  }
-
-  function addBubble(side,text){
+  function addBubble(side, text){
     const row=document.createElement('div');
     row.className='vt-row'+(side==='ai'?' ai':'');
-    const lbl=document.createElement('span');lbl.className='vt-lbl';lbl.textContent=side==='ai'?'CALLVY':'Client';
-    const bub=document.createElement('div');bub.className='vt-b '+(side==='ai'?'ai':'cl');bub.textContent=text;
-    if(side==='ai'){row.appendChild(bub);row.appendChild(lbl);}else{row.appendChild(lbl);row.appendChild(bub);}
-    tc.appendChild(row);tc.scrollTop=tc.scrollHeight;
+    const lbl=document.createElement('span');lbl.className='vt-lbl';
+    lbl.textContent=side==='ai'?'CALLVY':'Client';
+    const bub=document.createElement('div');
+    bub.className='vt-b '+(side==='ai'?'ai':'cl');
+    bub.textContent=text;
+    if(side==='ai'){row.appendChild(bub);row.appendChild(lbl);}
+    else{row.appendChild(lbl);row.appendChild(bub);}
+    tc.appendChild(row); tc.scrollTop=tc.scrollHeight;
     setTimeout(()=>row.classList.add('show'),30);
   }
 
   let idx=0;
   function playNext(){
-    if(!btn._running||idx>=conv.length){
-      if(idx>=conv.length){
-        setTimeout(()=>{
-          clearInterval(btn._waveInt);btn._running=false;
-          btn.className='voice-btn';btn.innerHTML='🔄 Rejouer';
-          if(badge){badge.textContent='✓ RDV CONFIRMÉ';badge.style.cssText='color:var(--blue);background:rgba(82,158,255,.1);border-color:rgba(82,158,255,.25)';}
-          if(vstatus)vstatus.textContent='Appel terminé — RDV confirmé ✓';
-          if(vnote)vnote.textContent='SMS de confirmation envoyé au client';
-          wc._bars.forEach(b=>{b.style.height='4px';b.classList.remove('active');});
-        },600);
-      }
+    if(!btn._running) return;
+    if(idx>=conv.length){
+      setTimeout(()=>{
+        clearInterval(btn._waveInt); btn._running=false;
+        btn.className='voice-btn'; btn.innerHTML='🔄 Rejouer';
+        if(badge){badge.textContent='✓ RDV CONFIRMÉ';badge.style.cssText='color:var(--blue);background:rgba(82,158,255,.1);border-color:rgba(82,158,255,.25)';}
+        if(vstatus) vstatus.textContent='Appel terminé — RDV confirmé ✓';
+        if(vnote) vnote.textContent='SMS de confirmation envoyé au client';
+        wc._bars.forEach(b=>{b.style.height='4px';b.classList.remove('active');});
+      },600);
       return;
     }
     const c=conv[idx++];
     setTimeout(()=>{
-      if(!btn._running)return;
-      addBubble(c.side,c.text);
+      if(!btn._running) return;
+      addBubble(c.side, c.text);
       if(c.side==='ai'){
-        playAudio(c.audio, c.text, playNext);
+        _elSpeak(c.text, playNext);
       } else {
-        setTimeout(playNext, 1400);
+        _clientSpeak(c.text, playNext); // Client — Web Speech
       }
-    }, c.side==='cl'?600:300);
+    }, c.side==='cl' ? 500 : 250);
   }
 
-  // Charge voix si nécessaire
+  // Charge les voix Web Speech si nécessaire
   if(_speechOK && window.speechSynthesis.getVoices().length===0){
     window.speechSynthesis.onvoiceschanged=()=>{window.speechSynthesis.onvoiceschanged=null;playNext();};
   } else {
