@@ -1359,11 +1359,11 @@ fetch(_AUDIO_BASE + 'callvy_r1.mp3', {method:'HEAD'})
 const _vScenarios = {
   dentiste: [
     {side:'ai',  text:"Bonjour, cabinet dentaire Beaumont, je suis CALLVY votre assistant. Comment puis-je vous aider ? Et pour commencer, quel est votre prénom ?", audio:'audio/a1.mp3'},
-    {side:'cl',  text:"Je m'appelle Sophie, et je voudrais prendre un rendez-vous pour un détartrage.", audio:'audio/c0.mp3'},
+    {side:'cl',  text:"Je m'appelle Sophie, et je voudrais prendre un rendez-vous pour un détartrage.", audio:'audio/h1.mp3'},
     {side:'ai',  text:"Bonjour Sophie ! Je regarde les disponibilités pour un détartrage. Avez-vous une préférence pour le jour de la semaine ?", audio:'audio/a2.mp3'},
-    {side:'cl',  text:"Jeudi ou vendredi matin de préférence.", audio:'audio/c1.mp3'},
+    {side:'cl',  text:"Jeudi ou vendredi matin de préférence.", audio:'audio/h2.mp3'},
     {side:'ai',  text:"Parfait Sophie ! J'ai jeudi à neuf heures quinze avec le docteur Beaumont. Ce créneau vous convient ?", audio:'audio/a3.mp3'},
-    {side:'cl',  text:"Oui, c'est parfait, merci beaucoup.", audio:'audio/c2.mp3'},
+    {side:'cl',  text:"Oui, c'est parfait, merci beaucoup.", audio:'audio/h3.mp3'},
     {side:'ai',  text:"Excellent Sophie ! Votre rendez-vous est confirmé jeudi à neuf heures quinze. Vous recevrez un SMS de confirmation. Bonne journée !", audio:'audio/a4.mp3'},
   ],
   plombier: [
@@ -1401,12 +1401,27 @@ function setVScenario(name, btn){
 }
 
 async function _playAudioFile(url, fallbackText, cb){
+  // Arrête tout audio en cours avant de jouer le suivant
+  if(window._currentAudio){
+    window._currentAudio.pause();
+    window._currentAudio.src = '';
+    window._currentAudio = null;
+  }
+  if(_speechOK) window.speechSynthesis.cancel();
   try {
     const audio = new Audio(url);
-    audio.onended = ()=>{ if(cb) setTimeout(cb, 350); };
-    audio.onerror = ()=>{ _fallbackSpeak(fallbackText, cb); };
+    window._currentAudio = audio;
+    audio.onended = ()=>{ 
+      window._currentAudio = null;
+      if(cb) setTimeout(cb, 300); 
+    };
+    audio.onerror = ()=>{ 
+      window._currentAudio = null;
+      _fallbackSpeak(fallbackText, cb); 
+    };
     await audio.play();
   } catch(e){
+    window._currentAudio = null;
     _fallbackSpeak(fallbackText, cb);
   }
 }
@@ -1425,6 +1440,12 @@ function _fallbackSpeak(text, cb){
 
 function _clientSpeak(text, cb){
   if(!_speechOK){if(cb)setTimeout(cb,1200);return;}
+  // Arrête l'audio en cours
+  if(window._currentAudio){
+    window._currentAudio.pause();
+    window._currentAudio.src='';
+    window._currentAudio=null;
+  }
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang='fr-FR'; u.rate=0.9; u.pitch=0.85; u.volume=0.9;
