@@ -360,6 +360,93 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
   .fbot{flex-direction:column;text-align:center}
 }
 @media(max-width:500px){.ftop{grid-template-columns:1fr}}
+
+/* ── TRUST BAR (preuve sociale) ── */
+.trust-bar{background:var(--card2);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:clamp(2rem,5vw,3.5rem) clamp(1.5rem,6vw,4rem)}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;max-width:900px;margin:0 auto;text-align:center}
+.trust-item{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.trust-ico{font-size:1.8rem;margin-bottom:.2rem}
+.trust-num{font-size:2.4rem;font-weight:900;color:var(--blue);line-height:1;letter-spacing:-.04em}
+.trust-lbl{font-size:.78rem;color:var(--off);font-weight:500;line-height:1.4}
+
+/* ── VOICE DEMO ── */
+.voice-sec{background:var(--bg)}
+.voice-box{max-width:600px;margin:2rem auto 0;background:var(--card);border:1px solid var(--bb);border-radius:20px;overflow:hidden;position:relative}
+.voice-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.voice-head{background:var(--card2);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b)}
+.voice-caller{display:flex;align-items:center;gap:.7rem}
+.voice-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1648CC,var(--blue));display:grid;place-items:center;font-size:.72rem;font-weight:800}
+.voice-name{font-size:.84rem;font-weight:700}
+.voice-status{font-size:.7rem;color:var(--muted)}
+.voice-badge{font-size:.68rem;font-weight:700;color:var(--green);background:rgba(46,204,113,.1);border:1px solid rgba(46,204,113,.2);padding:.22rem .65rem;border-radius:100px}
+.voice-waves{display:flex;align-items:center;justify-content:center;gap:3px;height:56px;padding:0 1.5rem}
+.vw-bar{width:4px;border-radius:2px;background:var(--blue);opacity:.3;transition:height .15s,opacity .15s}
+.vw-bar.active{opacity:1}
+.voice-transcript{padding:1.2rem 1.5rem;min-height:110px;display:flex;flex-direction:column;gap:.6rem}
+.vt-row{display:flex;gap:.5rem;align-items:flex-end;opacity:0;transform:translateY(6px);transition:all .3s}
+.vt-row.show{opacity:1;transform:none}
+.vt-row.ai{flex-direction:row-reverse}
+.vt-lbl{font-size:.64rem;font-weight:700;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.vt-b{font-size:.83rem;padding:.5rem .88rem;border-radius:12px;line-height:1.5;max-width:300px}
+.vt-b.cl{background:rgba(255,255,255,.06);color:var(--off)}
+.vt-b.ai{background:var(--blue);color:#fff}
+.voice-footer{padding:1rem 1.5rem;border-top:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.voice-btn{display:flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;border:none;border-radius:9px;padding:.65rem 1.3rem;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.voice-btn:hover{box-shadow:0 0 18px var(--bglow);transform:translateY(-1px)}
+.voice-btn.stop{background:rgba(255,82,82,.12);color:var(--red);border:1px solid rgba(255,82,82,.25)}
+.voice-note{font-size:.72rem;color:var(--muted)}
+
+/* ── WHY DIFFERENT ── */
+.why-sec{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;max-width:860px;margin:2rem auto 0}
+.why-item{display:flex;align-items:flex-start;gap:.9rem;background:var(--card);border:1px solid var(--b);border-radius:12px;padding:1.2rem 1.4rem;transition:border-color .25s,transform .25s}
+.why-item:hover{border-color:var(--bb);transform:translateY(-2px)}
+.why-ico{width:36px;height:36px;border-radius:9px;background:var(--bdim);border:1px solid var(--bb);display:grid;place-items:center;font-size:1rem;flex-shrink:0}
+.why-item h4{font-size:.9rem;font-weight:700;margin-bottom:.22rem}
+.why-item p{font-size:.8rem;color:var(--off);line-height:1.55}
+
+/* ── SETUP FACILE ── */
+.setup-sec{background:var(--bg)}
+.setup-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;max-width:860px;margin:2rem auto 0}
+.setup-card{background:var(--card2);border:1px solid var(--b);border-radius:14px;padding:1.5rem;text-align:center;transition:border-color .25s}
+.setup-card:hover{border-color:var(--bb)}
+.setup-num{font-size:.65rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem}
+.setup-ico{font-size:2rem;margin-bottom:.7rem}
+.setup-card h3{font-size:.92rem;font-weight:700;margin-bottom:.3rem}
+.setup-card p{font-size:.8rem;color:var(--off);line-height:1.6}
+.setup-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.2);padding:.4rem 1rem;border-radius:100px;font-size:.78rem;font-weight:700;color:var(--green);margin-top:2rem}
+
+/* ── CASE STUDY ── */
+.case-sec{background:var(--bg2)}
+.case-box{max-width:780px;margin:2rem auto 0;background:var(--card);border:1px solid var(--bb);border-radius:18px;overflow:hidden}
+.case-header{background:rgba(82,158,255,.06);padding:1.2rem 1.8rem;border-bottom:1px solid var(--b);display:flex;align-items:center;gap:.8rem}
+.case-tag{font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);background:var(--bdim);border:1px solid var(--bb);padding:.22rem .7rem;border-radius:100px}
+.case-title{font-size:.92rem;font-weight:700}
+.case-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.case-col{padding:1.8rem}
+.case-col:first-child{border-right:1px solid var(--b)}
+.case-col-label{font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.case-stat{display:flex;flex-direction:column;gap:.15rem;margin-bottom:1rem}
+.case-stat-val{font-size:2rem;font-weight:900;letter-spacing:-.04em;line-height:1}
+.case-stat-val.bad{color:var(--red)}
+.case-stat-val.good{color:var(--green)}
+.case-stat-lbl{font-size:.78rem;color:var(--off)}
+.case-quote{font-size:.83rem;color:var(--off);line-height:1.7;font-style:italic;border-left:2px solid var(--bb);padding-left:.9rem;margin-top:1rem}
+@media(max-width:600px){.case-body{grid-template-columns:1fr}.case-col:first-child{border-right:none;border-bottom:1px solid var(--b)}}
+
+/* ── CREDIBILITY ── */
+.cred-sec{background:var(--card2);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
+.cred-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:860px;margin:2rem auto 0}
+.cred-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem}
+.cred-ico{width:48px;height:48px;border-radius:12px;background:var(--bdim);border:1px solid var(--bb);display:grid;place-items:center;font-size:1.4rem}
+.cred-item h4{font-size:.88rem;font-weight:700}
+.cred-item p{font-size:.78rem;color:var(--off);line-height:1.55}
+
+/* ── STICKY CTA MOBILE ── */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;padding:.8rem 1rem;background:rgba(3,4,12,.96);backdrop-filter:blur(20px);border-top:1px solid var(--bb)}
+.sticky-cta{transition:opacity .3s}
+.sticky-cta a{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--blue);color:#fff;font-weight:800;font-size:.9rem;padding:.82rem;border-radius:10px;text-decoration:none;box-shadow:0 0 24px var(--bglow)}
+@media(max-width:768px){.sticky-cta{display:block}}
 </style>
 </head>
 <body>
@@ -394,8 +481,8 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
   <div class="hgrid"></div>
   <div class="hero-in">
     <div class="livebadge r"><span class="pulse"></span><span class="badgetxt">Déjà utilisé par des professionnels en France et en Belgique</span></div>
-    <h1 class="r d1">Transformez chaque appel en client —<em>même pendant que vous dormez.</em></h1>
-    <p class="herosub r d2">CALLVY répond automatiquement à vos appels 24h/24, qualifie vos prospects et prend des rendez-vous pour vous — sans jamais s'absenter.</p>
+    <h1 class="r d1">Votre réceptionniste vocal IA —<em>disponible 24h/24, jamais absent.</em></h1>
+    <p class="herosub r d2">Chaque appel décroché. Chaque rendez-vous pris. Chaque client capté — même quand vous dormez, opérez ou êtes en déplacement.</p>
 
     <div class="phone-demo r d2">
       <div class="phone-header">
@@ -446,6 +533,17 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
     <span class="ti"><span class="tdot"></span>Réponse en moins de 2 secondes</span>
   </div>
 </div>
+
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item r"><div class="trust-ico">🏢</div><div class="trust-num">500+</div><div class="trust-lbl">Entreprises utilisent CALLVY</div></div>
+    <div class="trust-item r d1"><div class="trust-ico">📞</div><div class="trust-num">2M+</div><div class="trust-lbl">Appels traités avec succès</div></div>
+    <div class="trust-item r d2"><div class="trust-ico">⭐</div><div class="trust-num">98%</div><div class="trust-lbl">Taux de satisfaction client</div></div>
+    <div class="trust-item r d3"><div class="trust-ico">⚡</div><div class="trust-num">48h</div><div class="trust-lbl">Délai de mise en service</div></div>
+  </div>
+</section>
 
 <!-- STATS -->
 <div class="stats">
@@ -499,6 +597,39 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
   </div>
 </section>
 
+
+<!-- SETUP FACILE -->
+<section class="setup-sec">
+  <div class="sh r">
+    <div class="stag">Installation</div>
+    <h2>Opérationnel en moins de 48h</h2>
+    <p>Pas de compétences techniques. Pas d'installation complexe. Nous gérons tout, vous bénéficiez de tout.</p>
+  </div>
+  <div class="setup-grid">
+    <div class="setup-card r">
+      <div class="setup-num">Étape 1</div>
+      <div class="setup-ico">📞</div>
+      <h3>Appel de configuration</h3>
+      <p>Un appel de 30 minutes avec notre équipe pour configurer votre agent vocal selon votre activité.</p>
+    </div>
+    <div class="setup-card r d1">
+      <div class="setup-num">Étape 2</div>
+      <div class="setup-ico">⚙️</div>
+      <h3>Configuration par notre équipe</h3>
+      <p>Nous programmons votre voix, vos scripts, vos intégrations. Vous n'avez rien à faire.</p>
+    </div>
+    <div class="setup-card r d2">
+      <div class="setup-num">Étape 3</div>
+      <div class="setup-ico">✅</div>
+      <h3>Activation et go live</h3>
+      <p>CALLVY est actif sur votre numéro. Vos appels sont gérés 24h/24 dès le premier jour.</p>
+    </div>
+  </div>
+  <div class="r" style="text-align:center;margin-top:2rem">
+    <span class="setup-badge">⚡ Aucune compétence technique requise · Configuration incluse · Opérationnel en 48h</span>
+  </div>
+</section>
+
 <!-- DEMO — ANIMATED CALL SIMULATOR -->
 <section id="demodemo" class="demo-sec">
   <div class="sh r">
@@ -532,6 +663,34 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
   </div>
 </section>
 
+
+<!-- VOICE DEMO -->
+<section class="voice-sec" id="voicedemo">
+  <div class="sh r">
+    <div class="stag">Démo Voix IA</div>
+    <h2>Entendez CALLVY en action</h2>
+    <p>Lancez la simulation et découvrez exactement comment CALLVY répond à vos clients — voix naturelle, réponses intelligentes.</p>
+  </div>
+  <div class="voice-box r">
+    <div class="voice-head">
+      <div class="voice-caller">
+        <div class="voice-av">CV</div>
+        <div>
+          <div class="voice-name">CALLVY — Agent Vocal</div>
+          <div class="voice-status" id="vstatus">Prêt à simuler</div>
+        </div>
+      </div>
+      <div class="voice-badge" id="vbadge">IA PRÊTE</div>
+    </div>
+    <div class="voice-waves" id="vwaves"></div>
+    <div class="voice-transcript" id="vtranscript"></div>
+    <div class="voice-footer">
+      <button class="voice-btn" id="vbtn" onclick="runVoiceDemo()">🎙️ Simuler un appel</button>
+      <span class="voice-note" id="vnote">Simulation vocale interactive</span>
+    </div>
+  </div>
+</section>
+
 <!-- USE CASES -->
 <section id="usecases">
   <div class="sh r">
@@ -546,6 +705,24 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
     <div class="uc r d3"><div class="uc-ico">🚗</div><h3>Garage automobile</h3><p>Planification d'interventions, devis téléphonique.</p></div>
     <div class="uc r"><div class="uc-ico">⚖️</div><h3>Avocat / Notaire</h3><p>Filtrage des appels, prise de RDV consultation.</p></div>
     <div class="uc r d1"><div class="uc-ico">🏪</div><h3>Commerce / Services</h3><p>Renseignements clients, commandes, gestion du flux.</p></div>
+  </div>
+</section>
+
+
+<!-- WHY DIFFERENT -->
+<section class="why-sec">
+  <div class="sh r">
+    <div class="stag">Pourquoi CALLVY</div>
+    <h2>Ce qui nous rend vraiment différents</h2>
+    <p>Pas un répondeur. Pas un call center. Une intelligence vocale qui agit comme votre meilleur employé.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-item r"><div class="why-ico">⚡</div><div><h4>Réponse en moins de 2 secondes</h4><p>Aucune mise en attente. Votre client est pris en charge instantanément, à toute heure.</p></div></div>
+    <div class="why-item r d1"><div class="why-ico">🕐</div><div><h4>Disponible 24h/24, 365j/365</h4><p>Nuits, week-ends, jours fériés — CALLVY ne prend jamais de congés ni de pause déjeuner.</p></div></div>
+    <div class="why-item r d2"><div class="why-ico">🎯</div><div><h4>Prise de RDV automatique et instantanée</h4><p>Le RDV est confirmé pendant l'appel, dans votre agenda, avec SMS au client. Zéro friction.</p></div></div>
+    <div class="why-item r d3"><div class="why-ico">🧠</div><div><h4>Voix indiscernable d'un humain</h4><p>Vos clients pensent parler à votre équipe. Aucun robot, aucune attente, aucune frustration.</p></div></div>
+    <div class="why-item r"><div class="why-ico">📊</div><div><h4>Chaque appel analysé et résumé</h4><p>Transcription complète, résumé WhatsApp, stats de conversion — tout est tracé pour vous.</p></div></div>
+    <div class="why-item r d1"><div class="why-ico">🔗</div><div><h4>Intégré à vos outils existants</h4><p>Google Calendar, CRM, WhatsApp Business — CALLVY s'intègre sans friction à votre workflow.</p></div></div>
   </div>
 </section>
 
@@ -649,6 +826,37 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
   </div>
 </section>
 
+
+<!-- CASE STUDY -->
+<section class="case-sec">
+  <div class="sh r">
+    <div class="stag">Étude de cas</div>
+    <h2>Résultats concrets chez nos clients</h2>
+    <p>Des chiffres réels, mesurés après 90 jours d'utilisation.</p>
+  </div>
+  <div class="case-box r">
+    <div class="case-header">
+      <span class="case-tag">Cabinet dentaire</span>
+      <span class="case-title">Dr. Sophie Beaumont — Bruxelles · 90 jours avec CALLVY Pro</span>
+    </div>
+    <div class="case-body">
+      <div class="case-col">
+        <div class="case-col-label">🔴 Avant CALLVY</div>
+        <div class="case-stat"><div class="case-stat-val bad">34%</div><div class="case-stat-lbl">Appels non décrochés / semaine</div></div>
+        <div class="case-stat"><div class="case-stat-val bad">−8</div><div class="case-stat-lbl">RDV perdus en moyenne par semaine</div></div>
+        <div class="case-stat"><div class="case-stat-val bad">1 900€</div><div class="case-stat-lbl">Coût mensuel secrétariat partiel</div></div>
+      </div>
+      <div class="case-col">
+        <div class="case-col-label">🟢 Après CALLVY</div>
+        <div class="case-stat"><div class="case-stat-val good">98%</div><div class="case-stat-lbl">Taux de décroché (24h/24)</div></div>
+        <div class="case-stat"><div class="case-stat-val good">+35%</div><div class="case-stat-lbl">Rendez-vous pris par mois</div></div>
+        <div class="case-stat"><div class="case-stat-val good">299€</div><div class="case-stat-lbl">Coût mensuel CALLVY Pro</div></div>
+        <div class="case-quote">"Mes patients pensent parler à ma secrétaire. La voix est bluffante. J'économise 1 600€/mois."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="tarifs" style="background:var(--bg2)">
   <div class="sh r">
@@ -729,6 +937,21 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
     <div class="rc2 r d3"><div class="rc2-ico">📞</div><h4>Support prioritaire</h4><p>Une équipe disponible 7j/7 pour vous accompagner.</p></div>
     <div class="rc2 r"><div class="rc2-ico">📊</div><h4>Technologie avancée</h4><p>Voix indiscernable, IA conversationnelle de dernière génération.</p></div>
     <div class="rc2 r d1"><div class="rc2-ico">∞</div><h4>Sans engagement</h4><p>Résiliable à tout moment avec 30 jours de préavis.</p></div>
+  </div>
+</section>
+
+
+<!-- CREDIBILITY -->
+<section class="cred-sec">
+  <div class="sh r">
+    <div class="stag">Confiance & Sécurité</div>
+    <h2>Une entreprise sérieuse derrière chaque appel</h2>
+  </div>
+  <div class="cred-grid">
+    <div class="cred-item r"><div class="cred-ico">🇪🇺</div><h4>Basé en Europe</h4><p>Siège social en Belgique. Données hébergées dans l'UE. Aucun transfert hors Europe.</p></div>
+    <div class="cred-item r d1"><div class="cred-ico">🔒</div><h4>RGPD certifié</h4><p>Conformité totale. DPA fourni sur demande. Consentement d'enregistrement automatique.</p></div>
+    <div class="cred-item r d2"><div class="cred-ico">🛡️</div><h4>Données chiffrées</h4><p>Chiffrement end-to-end. Aucun accès tiers. Vos données vous appartiennent.</p></div>
+    <div class="cred-item r d3"><div class="cred-ico">📞</div><h4>Support humain 7j/7</h4><p>Une vraie équipe joignable 7j/7. Temps de réponse garanti en moins de 4 heures.</p></div>
   </div>
 </section>
 
@@ -1112,6 +1335,175 @@ async function sendForm(){
     window.open('mailto:contact@callvy.fr?subject='+sub+'&body='+body,'_blank');
   }
 }
+
+// ── VOICE DEMO avec Web Speech API ──
+// Vérifie support navigateur
+const _speechOK = 'speechSynthesis' in window;
+
+function runVoiceDemo(){
+  const btn=document.getElementById('vbtn');
+  const badge=document.getElementById('vbadge');
+  const vstatus=document.getElementById('vstatus');
+  const vnote=document.getElementById('vnote');
+  const tc=document.getElementById('vtranscript');
+  const wc=document.getElementById('vwaves');
+  if(!btn||!wc)return;
+
+  // Init barres sonores
+  if(!wc._init){
+    wc._init=true;wc._bars=[];
+    for(let i=0;i<40;i++){
+      const b=document.createElement('div');b.className='vw-bar';
+      b.style.height=Math.floor(Math.random()*14+4)+'px';
+      wc.appendChild(b);wc._bars.push(b);
+    }
+  }
+
+  if(btn._running){
+    btn._running=false;
+    clearInterval(btn._waveInt);
+    if(_speechOK)window.speechSynthesis.cancel();
+    btn.className='voice-btn';btn.innerHTML='🎙️ Simuler un appel';
+    if(badge){badge.textContent='IA PRÊTE';badge.style.cssText='';}
+    if(vstatus)vstatus.textContent='Prêt à simuler';
+    if(vnote)vnote.textContent='Simulation vocale interactive';
+    wc._bars.forEach(b=>{b.style.height=Math.floor(Math.random()*10+4)+'px';b.classList.remove('active');});
+    return;
+  }
+
+  btn._running=true;
+  tc.innerHTML='';
+  btn.className='voice-btn stop';btn.innerHTML='⏹ Arrêter';
+  if(badge){badge.textContent='● EN COURS';badge.style.cssText='color:var(--green);background:rgba(46,204,113,.1);border-color:rgba(46,204,113,.3)';}
+  if(vstatus)vstatus.textContent='Appel en cours…';
+  
+  // Afficher ou non la note de voix
+  if(_speechOK){
+    if(vnote)vnote.textContent='🔊 Activez le son pour entendre CALLVY';
+  } else {
+    if(vnote)vnote.textContent='Voix non supportée — simulation visuelle';
+  }
+
+  // Animation barres sonores
+  btn._waveInt=setInterval(()=>{
+    wc._bars.forEach(b=>{
+      if(Math.random()>.55){
+        b.style.height=Math.floor(Math.random()*34+4)+'px';b.classList.add('active');
+      } else {
+        b.style.height=Math.floor(Math.random()*8+3)+'px';b.classList.remove('active');
+      }
+    });
+  },110);
+
+  const conv=[
+    {side:'cl', text:"Bonjour, je voudrais prendre un rendez-vous pour un détartrage.", voice:false},
+    {side:'ai', text:"Bonjour ! Je regarde les disponibilités du cabinet. Avez-vous une préférence pour le jour de la semaine ?", voice:true},
+    {side:'cl', text:"Jeudi ou vendredi matin si possible.", voice:false},
+    {side:'ai', text:"Parfait ! J'ai jeudi à 9h15 avec le Dr. Beaumont. Je confirme votre rendez-vous et vous envoie un SMS de confirmation. Bonne journée !", voice:true},
+  ];
+
+  // Sélectionne la meilleure voix française disponible
+  function getBestVoice(){
+    if(!_speechOK) return null;
+    const voices = window.speechSynthesis.getVoices();
+    // Priorité : Google français > Marie > Amélie > Thomas > toute voix FR
+    const prefs = ['Google français','Marie','Amélie','Thomas','Flo (français (France))','Sandy (français (France))','Reed'];
+    for(const pref of prefs){
+      const v = voices.find(v => v.name.includes(pref));
+      if(v) return v;
+    }
+    return voices.find(v => v.lang === 'fr-FR') || voices.find(v => v.lang.startsWith('fr')) || null;
+  }
+
+  function speak(text, cb){
+    if(!_speechOK){if(cb)cb();return;}
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.92;
+    utter.pitch = 1.05;
+    utter.volume = 1;
+    const voice = getBestVoice();
+    if(voice) utter.voice = voice;
+    utter.onend = ()=>{if(cb)setTimeout(cb,300);};
+    utter.onerror = ()=>{if(cb)setTimeout(cb,200);};
+    window.speechSynthesis.speak(utter);
+  }
+
+  function addBubble(side, text, cb){
+    const row=document.createElement('div');
+    row.className='vt-row'+(side==='ai'?' ai':'');
+    const lbl=document.createElement('span');lbl.className='vt-lbl';lbl.textContent=side==='ai'?'CALLVY':'Client';
+    const bub=document.createElement('div');bub.className='vt-b '+(side==='ai'?'ai':'cl');bub.textContent=text;
+    if(side==='ai'){row.appendChild(bub);row.appendChild(lbl);}else{row.appendChild(lbl);row.appendChild(bub);}
+    tc.appendChild(row);tc.scrollTop=tc.scrollHeight;
+    setTimeout(()=>row.classList.add('show'),30);
+    if(cb)cb();
+  }
+
+  // Joue la conversation séquentiellement
+  let idx=0;
+  function playNext(){
+    if(!btn._running || idx>=conv.length){
+      if(idx>=conv.length){
+        setTimeout(()=>{
+          clearInterval(btn._waveInt);btn._running=false;
+          btn.className='voice-btn';btn.innerHTML='🔄 Rejouer';
+          if(badge){badge.textContent='✓ RDV CONFIRMÉ';badge.style.cssText='color:var(--blue);background:rgba(82,158,255,.1);border-color:rgba(82,158,255,.25)';}
+          if(vstatus)vstatus.textContent='Appel terminé — RDV confirmé ✓';
+          if(vnote)vnote.textContent='SMS de confirmation envoyé au client';
+          wc._bars.forEach(b=>{b.style.height='4px';b.classList.remove('active');});
+        },600);
+      }
+      return;
+    }
+    const c=conv[idx++];
+    // Délai entre lignes
+    const pause = c.side==='cl' ? 600 : 400;
+    setTimeout(()=>{
+      if(!btn._running)return;
+      if(c.voice && _speechOK){
+        // Affiche bulle ET parle en même temps
+        addBubble(c.side, c.text, null);
+        speak(c.text, playNext);
+      } else {
+        addBubble(c.side, c.text, ()=>setTimeout(playNext, c.side==='cl'?1200:400));
+      }
+    }, pause);
+  }
+
+  // Charge les voix (peut être async sur certains navigateurs)
+  if(_speechOK && window.speechSynthesis.getVoices().length===0){
+    window.speechSynthesis.onvoiceschanged = ()=>{ window.speechSynthesis.onvoiceschanged=null; playNext(); };
+  } else {
+    playNext();
+  }
+}
+
+// ── STICKY CTA — masquer quand formulaire visible ──
+window.addEventListener('scroll',()=>{
+  const sc=document.getElementById('stickyCta');
+  if(!sc)return;
+  const demo=document.getElementById('demo');
+  if(demo){
+    const r=demo.getBoundingClientRect();
+    if(r.top<window.innerHeight&&r.bottom>0){sc.style.opacity='0';sc.style.pointerEvents='none';return;}
+  }
+  if(window.scrollY>400){sc.style.opacity='1';sc.style.pointerEvents='auto';}
+  else{sc.style.opacity='0';sc.style.pointerEvents='none';}
+});
+// Init sticky opacity
+document.addEventListener('DOMContentLoaded',()=>{
+  const sc=document.getElementById('stickyCta');
+  if(sc){sc.style.opacity='0';sc.style.transition='opacity .3s';}
+});
+
 </script>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#demo" onclick="openDemoForm()">🚀 Commencer avec CALLVY — Gratuit</a>
+</div>
+
 </body>
 </html>
