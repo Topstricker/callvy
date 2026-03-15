@@ -684,9 +684,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b);padding:0 clamp(1.5re
       <div class="voice-badge" id="vbadge">🔊 VOIX IA</div>
     </div>
     <div class="demo-scenarios" style="padding:.75rem 1.4rem;border-bottom:1px solid var(--b);display:flex;gap:.5rem;flex-wrap:wrap">
-      <button class="scen-btn active" id="vs0" onclick="setVScenario('dentiste',this)">🦷 Cabinet dentaire</button>
-      <button class="scen-btn" id="vs1" onclick="setVScenario('plombier',this)">🔧 Plombier urgence</button>
-      <button class="scen-btn" id="vs2" onclick="setVScenario('immo',this)">🏠 Immobilier</button>
+      <button class="scen-btn active" id="vs0" onclick="setVScenario('dentiste',this)">🦷 Cabinet dentaire — Démo live</button>
     </div>
     <div class="voice-waves" id="vwaves"></div>
     <div class="voice-transcript" id="vtranscript">
@@ -1393,7 +1391,7 @@ function setVScenario(name, btn){
   const vbtn = document.getElementById('vbtn');
   if(vbtn && vbtn._running) return;
   _vActive = name;
-  document.querySelectorAll('#vs0,#vs1,#vs2').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#vs0').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
   const tc = document.getElementById('vtranscript');
   if(tc) tc.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:80px;color:var(--muted);font-size:.82rem">▶ Cliquez sur "Simuler un appel" pour entendre CALLVY</div>';
