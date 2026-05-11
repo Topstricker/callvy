@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>CALLVY — Vos concurrents répondent. Vous, non.</title>
-<meta name="description" content="Chaque appel manqué = 200 à 500€ qui partent chez le voisin. CALLVY décroche à votre place 24h/24, qualifie le besoin et vous envoie le résumé sur WhatsApp. Garantie 5 RDV en 30 jours ou 1 mois offert. Mise en place en 48h."/>
-<meta property="og:title" content="CALLVY — Vos concurrents répondent. Vous, non."/>
-<meta property="og:description" content="Chaque appel manqué = 200 à 500€ qui partent chez le voisin. CALLVY récupère cet argent à votre place. Garantie résultats."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://callvy.fr"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CALLVY — Ne ratez plus jamais un appel client</title>
+<meta name="description" content="CALLVY répond à vos appels 24h/24, qualifie chaque besoin et vous envoie le résumé sur WhatsApp. Installation en 48h. Garantie 5 RDV en 30 jours ou 1 mois offert."/>
 <link rel="canonical" href="https://callvy.fr"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231B4FFF'/><text y='.9em' font-size='55' x='50' text-anchor='middle' dy='.1em' fill='white' font-family='Arial' font-weight='bold'>C</text></svg>"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://callvy.fr/#org","name":"CALLVY","url":"https://callvy.fr","email":"contact@callvy.fr","description":"Assistant téléphonique 24h/24 pour professionnels en France et en Belgique.","address":{"@type":"PostalAddress","addressCountry":"BE"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Vos clients vont-ils savoir que ce n'est pas vous ?","acceptedAnswer":{"@type":"Answer","text":"Non. Votre assistant s'annonce avec votre nom commercial. Vos clients pensent parler à votre secrétariat."}},{"@type":"Question","name":"Vous gardez votre numéro de téléphone actuel ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Vos appels sont transférés vers CALLVY — votre numéro ne change pas."}},{"@type":"Question","name":"Combien de temps pour la mise en place ?","acceptedAnswer":{"@type":"Answer","text":"48 heures maximum. Nous gérons 100% de la technique."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://callvy.fr/#org","name":"CALLVY","url":"https://callvy.fr","email":"contact@callvy.fr"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 :root{--pr:#1B4FFF;--dk:#0A0F1E;--tx:#374151;--mu:#6B7280;--gr:#10B981;--rd:#EF4444;--bg:#FFFFFF;--ba:#F8F9FC;--bd:rgba(0,0,0,0.08);--sh:0 2px 16px rgba(0,0,0,0.06);--fo:'Inter',-apple-system,sans-serif;--r:12px;--rl:20px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:#fff;color:var(--tx);font-family:var(--fo);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+body{background:#fff;color:var(--tx);font-family:var(--fo);font-size:16px;line-height:1.65;overflow-x:hidden}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .rv.on{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,3.5rem);background:#fff;border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
 nav.on{border-color:var(--bd);box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-.logo{font-size:1.25rem;font-weight:800;color:var(--pr);text-decoration:none;letter-spacing:-.02em}
+.logo{font-size:1.25rem;font-weight:800;color:var(--pr);text-decoration:none}
 .navlinks{display:flex;align-items:center;gap:2rem;list-style:none}
 .navlinks a{font-size:.88rem;font-weight:500;color:var(--mu);text-decoration:none;transition:color .2s}
 .navlinks a:hover{color:var(--dk)}
-.nav-cta{background:var(--pr)!important;color:#fff!important;font-weight:600!important;padding:.48rem 1.2rem!important;border-radius:8px!important;font-size:.88rem!important;transition:box-shadow .2s,transform .2s!important}
+.nav-cta{background:var(--pr)!important;color:#fff!important;font-weight:600!important;padding:.48rem 1.2rem!important;border-radius:8px!important;transition:box-shadow .2s,transform .2s!important}
 .nav-cta:hover{box-shadow:0 4px 16px rgba(27,79,255,.3)!important;transform:translateY(-1px)!important}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem;border:none;background:none}
 .burger span{display:block;width:22px;height:2px;background:var(--dk);border-radius:2px;transition:all .3s}
@@ -36,44 +33,41 @@ nav.on{border-color:var(--bd);box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .mnav{display:none;position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bd);z-index:450;padding:1.5rem 2rem 2rem;flex-direction:column;gap:.25rem;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
-.mnav a{font-size:.95rem;font-weight:500;color:var(--tx);text-decoration:none;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.05);display:block;transition:color .2s}
-.mnav a:hover{color:var(--pr)}
-.mnav a:last-child{border-bottom:none;margin-top:.75rem;background:var(--pr);color:#fff!important;text-align:center;padding:.85rem;border-radius:8px;font-weight:600}
+.mnav a{font-size:.95rem;font-weight:500;color:var(--tx);text-decoration:none;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.05);display:block}
+.mnav a:last-child{border:none;margin-top:.75rem;background:var(--pr);color:#fff!important;text-align:center;padding:.85rem;border-radius:8px;font-weight:600}
 .mnav.open{display:flex}
 @media(max-width:860px){.navlinks{display:none}.burger{display:flex}}
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fo);font-weight:600;font-size:1rem;padding:.85rem 1.75rem;border-radius:8px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:all .2s ease;letter-spacing:-.01em;white-space:nowrap}
-.btn-p{background:var(--pr);color:#fff;border-color:var(--pr);box-shadow:0 2px 8px rgba(27,79,255,.18)}
-.btn-p:hover{box-shadow:0 6px 20px rgba(27,79,255,.35);transform:translateY(-2px)}
-.btn-s{background:transparent;color:var(--pr);border-color:var(--pr)}
-.btn-s:hover{background:rgba(27,79,255,.04);transform:translateY(-2px)}
-.btn-w{background:#fff;color:var(--pr);border-color:#fff;font-weight:700}
-.btn-w:hover{box-shadow:0 6px 24px rgba(0,0,0,.15);transform:translateY(-2px)}
-@media(max-width:500px){.btn{font-size:.9rem;padding:.78rem 1.4rem}}
 section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .sec-h{text-align:center;margin-bottom:clamp(2.5rem,4vw,4rem)}
 .sec-h h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:.75rem;color:var(--dk)}
 .sec-h p{font-size:1rem;color:var(--mu);max-width:560px;margin:0 auto;line-height:1.8}
 .hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:calc(64px + 48px) clamp(1.5rem,7vw,6rem) 60px;gap:4rem}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:#EEF2FF;color:var(--pr);padding:.42rem 1rem;border-radius:100px;font-size:.82rem;font-weight:600;margin-bottom:1.6rem}
-.hero h1{font-size:clamp(2.4rem,4.4vw,3.7rem);font-weight:800;letter-spacing:-.05em;line-height:1.04;color:var(--dk);margin-bottom:1.1rem}
-.hero h1 .strike{position:relative;display:inline-block;color:var(--rd)}
-.hero h1 .strike::after{content:"";position:absolute;left:-4%;right:-4%;top:55%;height:5px;background:var(--rd);transform:rotate(-3deg);border-radius:3px}
-.hero-loss{display:inline-block;background:#FEF2F2;border:1px solid rgba(239,68,68,.22);color:#B91C1C;padding:.55rem 1rem;border-radius:8px;font-size:.86rem;font-weight:600;margin-bottom:1.4rem}
-.hero-sub{font-size:1.18rem;font-weight:400;color:var(--mu);line-height:1.75;margin-bottom:2rem;max-width:520px}
-.hero-sub strong{color:var(--dk);font-weight:700}
-.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:1.25rem}
-.hero-trust{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:.75rem;font-size:.82rem;color:var(--mu)}
-.hero-trust span{display:inline-flex;align-items:center;gap:.4rem}
-.hero-trust span::before{content:"✓";color:var(--gr);font-weight:800}
-.hero-visual{display:flex;justify-content:center;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.2vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.12;color:var(--dk);margin-bottom:1.2rem}
+.hero-sub{font-size:1.12rem;font-weight:400;color:var(--mu);line-height:1.7;margin-bottom:1.5rem;max-width:520px}
+.hero-sub strong{color:var(--dk);font-weight:600}
+.hero-objection{background:#F0FDF4;border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:.7rem 1rem;margin-bottom:1.8rem;max-width:520px}
+.hero-objection span{font-size:.88rem;color:#065F46;line-height:1.6}
+.hero-objection span strong{font-weight:600}
+.hero-trust{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.8rem}
+.hero-trust span{display:inline-flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--tx);font-weight:500}
+.hero-trust span::before{content:"✓";color:var(--gr);font-weight:800;font-size:1rem}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fo);font-weight:600;font-size:1rem;padding:.85rem 1.75rem;border-radius:8px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-p{background:var(--pr);color:#fff;border-color:var(--pr);box-shadow:0 2px 8px rgba(27,79,255,.18)}
+.btn-p:hover{box-shadow:0 6px 20px rgba(27,79,255,.35);transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--pr);border-color:var(--pr)}
+.btn-s:hover{background:rgba(27,79,255,.04);transform:translateY(-2px)}
+.btn-w{background:#fff;color:var(--pr);border-color:#fff;font-weight:700}
+.btn-w:hover{box-shadow:0 6px 24px rgba(0,0,0,.15);transform:translateY(-2px)}
 @media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:calc(64px + 32px)}.hero-visual{display:none}.hero-btns{flex-direction:column;align-items:stretch}.hero-btns .btn{text-align:center;justify-content:center}}
 .stats-band{background:var(--dk);padding:clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,6vw,5rem)}
 .stats-inner{display:flex;align-items:center;justify-content:center;max-width:880px;margin:0 auto;flex-wrap:wrap}
 .stat-item{text-align:center;padding:1rem 2.5rem;position:relative;flex:1;min-width:160px}
-.stat-item+.stat-item::before{content:'|';position:absolute;left:0;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.15);font-size:1.4rem;line-height:1}
-.stat-v{font-size:1.55rem;font-weight:800;color:#fff;display:block;margin-bottom:.25rem;letter-spacing:-.03em}
+.stat-item+.stat-item::before{content:'|';position:absolute;left:0;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.15);font-size:1.4rem}
+.stat-v{font-size:1.55rem;font-weight:800;color:#fff;display:block;margin-bottom:.25rem}
 .stat-l{font-size:.76rem;color:rgba(255,255,255,.5);font-weight:500}
-@media(max-width:640px){.stats-inner{flex-direction:column;gap:0}.stat-item+.stat-item::before{content:none}.stat-item{padding:.75rem 1rem;border-top:1px solid rgba(255,255,255,.07);width:100%;flex:none}}
+@media(max-width:640px){.stats-inner{flex-direction:column}.stat-item+.stat-item::before{content:none}.stat-item{padding:.75rem 1rem;border-top:1px solid rgba(255,255,255,.07);width:100%}}
 .ps-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;max-width:900px;margin:0 auto}
 .ps-col{display:flex;flex-direction:column;gap:.85rem}
 .ps-card{padding:1.15rem 1.3rem;border-radius:var(--r);display:flex;align-items:flex-start;gap:.85rem}
@@ -83,15 +77,35 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .ps-card.bad .ps-icon{color:var(--rd)}
 .ps-card.good .ps-icon{color:var(--gr)}
 .ps-card p{font-size:.9rem;color:var(--tx);line-height:1.55;font-weight:500}
-.ps-arrow{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:0 .5rem}
-.ps-arr-line{width:2px;flex:1;min-height:30px;background:rgba(27,79,255,.12);border-radius:1px}
-.ps-arr-label{font-size:.72rem;font-weight:700;color:var(--pr);background:#EEF2FF;padding:.35rem .75rem;border-radius:100px;white-space:nowrap;text-align:center}
+.ps-arrow{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.ps-arr-line{width:2px;flex:1;min-height:30px;background:rgba(27,79,255,.12)}
+.ps-arr-label{font-size:.72rem;font-weight:700;color:var(--pr);background:#EEF2FF;padding:.35rem .75rem;border-radius:100px;white-space:nowrap}
 .ps-arr-ico{font-size:1.1rem;color:var(--pr)}
-@media(max-width:680px){.ps-grid{grid-template-columns:1fr}.ps-arrow{flex-direction:row;justify-content:center;padding:.5rem 0}.ps-arr-line{width:40px;height:2px;min-height:2px;flex:none}.ps-arr-ico{transform:rotate(90deg)}}
+@media(max-width:680px){.ps-grid{grid-template-columns:1fr}.ps-arrow{flex-direction:row;justify-content:center;padding:.5rem 0}.ps-arr-line{width:40px;height:2px;min-height:2px}.ps-arr-ico{transform:rotate(90deg)}}
+.roi-section{padding:clamp(60px,7vw,90px) clamp(1.5rem,6vw,5rem);background:linear-gradient(135deg,#EEF2FF 0%,#F8F9FC 100%)}
+.roi-box{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--bd);border-radius:var(--rl);padding:2.5rem;box-shadow:var(--sh)}
+.roi-box h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--dk);margin-bottom:.8rem;text-align:center}
+.roi-box .sub{font-size:.95rem;color:var(--mu);text-align:center;margin-bottom:2rem;line-height:1.7}
+.roi-inputs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+.roi-fg{display:flex;flex-direction:column;gap:.4rem}
+.roi-fg label{font-size:.82rem;font-weight:600;color:var(--dk)}
+.roi-fg input{background:#fff;border:1.5px solid var(--bd);border-radius:8px;color:var(--tx);font-family:var(--fo);font-size:1rem;padding:.7rem .95rem;outline:none;width:100%;transition:border-color .2s}
+.roi-fg input:focus{border-color:var(--pr)}
+.roi-results{background:var(--ba);border-radius:var(--r);padding:1.5rem;margin-bottom:1.5rem}
+.roi-line{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--bd)}
+.roi-line:last-child{border-bottom:none;padding-top:1rem;margin-top:.5rem;border-top:2px solid var(--bd)}
+.roi-line-label{font-size:.88rem;color:var(--tx);font-weight:500}
+.roi-line-value{font-size:1.1rem;font-weight:700;color:var(--dk)}
+.roi-line.loss .roi-line-value{color:var(--rd)}
+.roi-line.gain .roi-line-value{color:var(--gr);font-size:1.4rem}
+.roi-cta{text-align:center}
+.roi-cta a{display:inline-block;background:var(--pr);color:#fff;padding:.85rem 1.75rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:.95rem;transition:all .2s}
+.roi-cta a:hover{box-shadow:0 4px 16px rgba(27,79,255,.3);transform:translateY(-1px)}
+@media(max-width:600px){.roi-inputs{grid-template-columns:1fr}}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:840px;margin:0 auto}
-.how-step{text-align:center;padding:1.5rem 1.5rem 2rem}
+.how-step{text-align:center;padding:1.5rem}
 .how-num{width:48px;height:48px;border-radius:50%;background:var(--pr);color:#fff;font-size:1.1rem;font-weight:800;display:grid;place-items:center;margin:0 auto 1.1rem}
-.how-ico{font-size:2rem;margin-bottom:.75rem;display:block}
+.how-ico{font-size:2rem;margin-bottom:.75rem}
 .how-step h3{font-size:1rem;font-weight:700;color:var(--dk);margin-bottom:.45rem}
 .how-step p{font-size:.88rem;color:var(--mu);line-height:1.75}
 @media(max-width:600px){.how-grid{grid-template-columns:1fr;max-width:380px}}
@@ -99,59 +113,93 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .demo-header{background:#1B4FFF;padding:13px 20px;display:flex;align-items:center;gap:10px;color:white;font-size:13px;font-weight:600}
 .demo-live-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:livePulse 1.5s infinite}
 @keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.4)}50%{box-shadow:0 0 0 5px rgba(74,222,128,0)}}
-.demo-live-badge{margin-left:auto;background:rgba(255,255,255,0.18);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.08em}
-.demo-transcript{padding:20px;display:flex;flex-direction:column;gap:14px;min-height:280px;background:#f0f2f5;overflow-y:auto}
-.demo-msg{display:flex;align-items:flex-end;gap:8px;opacity:0;transform:translateY(10px);transition:opacity 0.35s ease,transform 0.35s ease;pointer-events:none}
-.demo-msg.show{opacity:1;transform:translateY(0);pointer-events:auto}
-.demo-msg.speaking .demo-bubble-c,.demo-msg.speaking .demo-bubble-cl{box-shadow:0 0 0 2px #1B4FFF}
+.demo-live-badge{margin-left:auto;background:rgba(255,255,255,0.18);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px}
+.demo-transcript{padding:20px;display:flex;flex-direction:column;gap:14px;min-height:280px;background:#f0f2f5}
+.demo-msg{display:flex;align-items:flex-end;gap:8px;opacity:0;transform:translateY(10px);transition:opacity .35s,transform .35s}
+.demo-msg.show{opacity:1;transform:translateY(0)}
 .demo-msg-client{flex-direction:row-reverse}
-.demo-avatar-c{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1B4FFF,#0030CC);color:white;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(27,79,255,0.3)}
+.demo-avatar-c{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1B4FFF,#0030CC);color:white;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .demo-avatar-cl{width:34px;height:34px;border-radius:50%;background:#e5e7eb;color:#374151;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.demo-bubble-c{background:#fff;border-radius:16px 16px 16px 3px;padding:11px 15px;font-size:13px;color:#1c1c1e;line-height:1.55;max-width:78%;box-shadow:0 1px 3px rgba(0,0,0,0.08);transition:box-shadow 0.3s}
-.demo-bubble-cl{background:#1B4FFF;color:white;border-radius:16px 16px 3px 16px;padding:11px 15px;font-size:13px;line-height:1.55;max-width:78%;box-shadow:0 1px 3px rgba(0,0,0,0.1);transition:box-shadow 0.3s}
+.demo-bubble-c{background:#fff;border-radius:16px 16px 16px 3px;padding:11px 15px;font-size:13px;color:#1c1c1e;line-height:1.55;max-width:78%;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.demo-bubble-cl{background:#1B4FFF;color:white;border-radius:16px 16px 3px 16px;padding:11px 15px;font-size:13px;line-height:1.55;max-width:78%;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
 .demo-controls{padding:16px 20px;display:flex;align-items:center;gap:14px;background:#fff;border-top:1px solid #f3f4f6}
-.demo-play-btn{display:flex;align-items:center;gap:10px;background:#1B4FFF;color:white;border:none;border-radius:50px;padding:11px 22px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.2s;flex-shrink:0}
+.demo-play-btn{display:flex;align-items:center;gap:10px;background:#1B4FFF;color:white;border:none;border-radius:50px;padding:11px 22px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
 .demo-play-btn:hover{background:#1540e0;transform:translateY(-1px)}
 .demo-progress-wrap{flex:1}
 .demo-progress-bar{height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden}
-.demo-progress-fill{height:100%;background:#1B4FFF;border-radius:3px;width:0%;transition:width 0.3s linear}
+.demo-progress-fill{height:100%;background:#1B4FFF;border-radius:3px;width:0%;transition:width .3s linear}
 .demo-footnote{text-align:center;font-size:12px;color:#9CA3AF;padding:0 20px 16px;margin:0}
+.simulation-flow{display:flex;align-items:center;justify-content:center;gap:0;margin:48px 0 24px;flex-wrap:wrap}
+.sim-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 16px;background:#F8F9FC;border-radius:16px;border:1px solid #e5e7eb;width:120px;transition:all .3s}
+.sim-step:hover{border-color:#1B4FFF;background:#EEF2FF;transform:translateY(-4px)}
+.sim-icon{font-size:28px;margin-bottom:8px}
+.sim-label{font-size:11px;font-weight:700;color:#0A0F1E;margin-bottom:4px}
+.sim-desc{font-size:10px;color:#6B7280;line-height:1.4}
+.sim-arrow{display:flex;align-items:center;width:32px}
+.sim-arrow-line{flex:1;height:2px;background:linear-gradient(90deg,#1B4FFF22,#1B4FFF)}
+.sim-note{text-align:center;font-size:13px;color:#6B7280;background:#F8F9FC;border-radius:12px;padding:12px 20px}
 .guarantee-section{background:linear-gradient(135deg,#EEF2FF 0%,#F8F9FC 100%);padding:clamp(60px,7vw,90px) clamp(1.5rem,6vw,5rem)}
 .guarantee-box{max-width:780px;margin:0 auto;background:#fff;border:2px solid var(--pr);border-radius:24px;padding:clamp(2rem,4vw,3.5rem);text-align:center;box-shadow:0 20px 60px rgba(27,79,255,.12);position:relative;overflow:hidden}
 .guarantee-box::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pr),#3B82F6,var(--pr))}
 .guarantee-seal{width:80px;height:80px;border:3px solid var(--pr);border-radius:50%;display:grid;place-items:center;margin:0 auto 1.5rem;font-size:2rem;color:var(--pr);font-weight:800;background:#EEF2FF}
+.section-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pr);background:#EEF2FF;border:1px solid rgba(27,79,255,.18);padding:.35rem 1rem;border-radius:100px;margin-bottom:1rem}
 .guarantee-box h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--dk);margin-bottom:1rem}
 .guarantee-box h2 .hl{color:var(--pr)}
 .guarantee-promise{font-size:1.05rem;color:var(--tx);max-width:600px;margin:0 auto 1.25rem;line-height:1.7;font-weight:500}
 .guarantee-promise strong{color:var(--dk);font-weight:700}
 .guarantee-conditions{font-size:.78rem;color:var(--mu);font-style:italic;line-height:1.7;max-width:560px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:1px solid var(--bd)}
+.container{max-width:1100px;margin:0 auto;padding:0 clamp(1.5rem,6vw,5rem)}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:.75rem;color:var(--dk);text-align:center}
+.section-subtitle{font-size:1rem;color:var(--mu);max-width:500px;margin:0 auto;line-height:1.8;text-align:center}
+.compare-table-wrapper{overflow-x:auto;margin:40px 0;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+.compare-table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden}
+.compare-table th{padding:16px 20px;font-size:13px;font-weight:700;text-align:center;background:#F8F9FC;border-bottom:2px solid #e5e7eb}
+.compare-table th.col-callvy{background:#1B4FFF;color:#fff;font-size:15px;font-weight:800}
+.compare-table th.col-criteria{text-align:left;color:#6B7280;font-weight:600}
+.compare-table td{padding:14px 20px;text-align:center;font-size:13px;border-bottom:1px solid #f3f4f6}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:#fafafa}
+.compare-table td.col-callvy{background:#EEF2FF}
+.compare-table tr:hover td.col-callvy{background:#e0e8ff}
+.criteria-cell{text-align:left;font-weight:500;color:#374151}
+.cell-yes{color:#10B981;font-size:18px;font-weight:700}
+.cell-yes.col-callvy{color:#1B4FFF}
+.cell-no{color:#EF4444;font-size:18px;font-weight:700}
+.cell-partial{color:#F59E0B;font-size:18px;font-weight:700}
+.cell-bad{color:#EF4444;font-size:12px;font-weight:600}
+.cell-ok{color:#6B7280;font-size:12px}
+.cell-price{color:#1B4FFF;font-size:13px;font-weight:700}
+.compare-footer{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.compare-stat{text-align:center;background:#fff;border-radius:16px;padding:24px 32px;border:1px solid #e5e7eb;flex:1;min-width:180px;max-width:220px}
+.compare-stat-number{font-size:40px;font-weight:800;color:#1B4FFF;line-height:1;margin-bottom:8px}
+.compare-stat-label{font-size:12px;color:#6B7280;line-height:1.5}
 .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1000px;margin:0 auto}
 .value-card{background:#fff;border:1px solid var(--bd);border-radius:var(--rl);padding:2rem 1.75rem;transition:border-color .25s,box-shadow .25s,transform .25s}
 .value-card:hover{border-color:rgba(27,79,255,.25);box-shadow:0 8px 32px rgba(27,79,255,.08);transform:translateY(-4px)}
 .value-icon-wrap{width:52px;height:52px;border-radius:14px;background:#EEF2FF;display:grid;place-items:center;margin-bottom:1.1rem;font-size:1.4rem}
-.value-card h3{font-size:1.05rem;font-weight:700;color:var(--dk);margin-bottom:.6rem;letter-spacing:-.01em}
+.value-card h3{font-size:1.05rem;font-weight:700;color:var(--dk);margin-bottom:.6rem}
 .value-card p{font-size:.88rem;color:var(--mu);line-height:1.7}
 .value-card p strong{color:var(--dk);font-weight:600}
-@media(max-width:768px){.value-grid{grid-template-columns:1fr;max-width:420px}}
+@media(max-width:768px){.value-grid{grid-template-columns:1fr;max-width:420px}.simulation-flow{flex-direction:column;align-items:stretch;gap:8px}.sim-step{width:100%;flex-direction:row;text-align:left;gap:12px}.sim-icon{font-size:22px;margin:0}.sim-arrow{display:none}}
 .toggle-wrap{display:flex;justify-content:center;margin-bottom:2.5rem}
 .toggle{display:inline-flex;background:#fff;border:1px solid var(--bd);border-radius:100px;padding:5px;box-shadow:var(--sh)}
 .toggle button{padding:.65rem 1.3rem;border-radius:100px;font-size:.85rem;font-weight:600;color:var(--mu);background:transparent;border:none;cursor:pointer;transition:all .2s;font-family:var(--fo);display:inline-flex;align-items:center;gap:.45rem}
 .toggle button.active{background:var(--pr);color:#fff;box-shadow:0 2px 8px rgba(27,79,255,.25)}
-.toggle .savings{font-size:.68rem;font-weight:700;padding:2px 7px;background:rgba(16,185,129,.15);color:var(--gr);border-radius:4px;letter-spacing:.02em}
+.toggle .savings{font-size:.68rem;font-weight:700;padding:2px 7px;background:rgba(16,185,129,.15);color:var(--gr);border-radius:4px}
 .toggle button.active .savings{background:rgba(255,255,255,.22);color:#fff}
 @media(max-width:520px){.toggle{flex-direction:column;border-radius:14px}.toggle button{justify-content:center}}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:start;max-width:960px;margin:0 auto}
 .plan{background:#fff;border:1px solid var(--bd);border-radius:var(--rl);padding:2rem 1.75rem;position:relative;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s,transform .25s}
 .plan:hover{border-color:rgba(27,79,255,.25);box-shadow:0 8px 32px rgba(27,79,255,.08);transform:translateY(-4px)}
 .plan.featured{border-color:var(--pr);box-shadow:0 4px 24px rgba(27,79,255,.12)}
-.plan-badge{display:inline-block;background:var(--pr);color:#fff;font-size:.7rem;font-weight:700;padding:.28rem .85rem;border-radius:100px;margin-bottom:1rem;letter-spacing:.02em}
+.plan-badge{display:inline-block;background:var(--pr);color:#fff;font-size:.7rem;font-weight:700;padding:.28rem .85rem;border-radius:100px;margin-bottom:1rem}
 .plan-tier{font-size:.78rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
 .plan-tagline{font-size:.85rem;color:var(--mu);margin-bottom:1.25rem;font-weight:500}
-.plan-was{font-size:.82rem;color:var(--mu);text-decoration:line-through;margin-bottom:.25rem;height:1.1rem;transition:opacity .2s}
+.plan-was{font-size:.82rem;color:var(--mu);text-decoration:line-through;margin-bottom:.25rem;height:1.1rem}
 .plan-was.hidden{visibility:hidden}
-.plan-price{font-size:2.6rem;font-weight:800;color:var(--dk);line-height:1;margin-bottom:.3rem;letter-spacing:-.04em;display:flex;align-items:baseline;gap:0}
-.plan-price sup{font-size:1.2rem;font-weight:700;vertical-align:.3em;letter-spacing:0}
-.plan-price sub{font-size:.9rem;font-weight:500;color:var(--mu);letter-spacing:0;margin-left:.2rem}
+.plan-price{font-size:2.6rem;font-weight:800;color:var(--dk);line-height:1;margin-bottom:.3rem;letter-spacing:-.04em;display:flex;align-items:baseline}
+.plan-price sup{font-size:1.2rem;font-weight:700}
+.plan-price sub{font-size:.9rem;font-weight:500;color:var(--mu);margin-left:.2rem}
 .plan-engagement{font-size:.78rem;color:var(--pr);font-weight:600;margin:.5rem 0 1.25rem;background:#EEF2FF;display:inline-block;padding:.28rem .7rem;border-radius:6px}
 .plan-engagement.flex{background:#F3F4F6;color:var(--mu)}
 .plan-divider{height:1px;background:var(--bd);margin-bottom:1.4rem}
@@ -170,9 +218,8 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
 details.faq-item{background:#fff;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
 details.faq-item[open]{border-color:rgba(27,79,255,.22)}
-details.faq-item summary{padding:1.2rem 1.5rem;font-size:.95rem;font-weight:600;color:var(--dk);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;list-style:none;-webkit-appearance:none}
-details.faq-item summary::-webkit-details-marker{display:none}
-details.faq-item summary::after{content:'+';font-size:1.3rem;color:var(--pr);font-weight:300;flex-shrink:0;line-height:1}
+details.faq-item summary{padding:1.2rem 1.5rem;font-size:.95rem;font-weight:600;color:var(--dk);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;list-style:none}
+details.faq-item summary::after{content:'+';font-size:1.3rem;color:var(--pr);font-weight:300;flex-shrink:0}
 details.faq-item[open] summary::after{content:'−'}
 .faq-body{padding:0 1.5rem 1.25rem;font-size:.9rem;color:var(--mu);line-height:1.8}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:960px;margin:0 auto}
@@ -193,12 +240,12 @@ details.faq-item[open] summary::after{content:'−'}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
 .fg label{font-size:.82rem;font-weight:600;color:var(--dk)}
-.fg input,.fg select,.fg textarea{background:#fff;border:1.5px solid var(--bd);border-radius:8px;color:var(--tx);font-family:var(--fo);font-size:.92rem;padding:.68rem .95rem;outline:none;width:100%;transition:border-color .2s;appearance:none;-webkit-appearance:none}
+.fg input,.fg select,.fg textarea{background:#fff;border:1.5px solid var(--bd);border-radius:8px;color:var(--tx);font-family:var(--fo);font-size:.92rem;padding:.68rem .95rem;outline:none;width:100%;transition:border-color .2s;appearance:none}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--pr)}
 .fg textarea{min-height:80px;resize:vertical}
 .form-submit{width:100%;background:var(--pr);color:#fff;border:none;border-radius:8px;padding:1rem;font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--fo);transition:all .2s;margin-top:.5rem}
 .form-submit:hover{box-shadow:0 6px 20px rgba(27,79,255,.35);transform:translateY(-1px)}
-.form-submit:disabled{opacity:.65;cursor:not-allowed;transform:none}
+.form-submit:disabled{opacity:.65;cursor:not-allowed}
 .form-note{font-size:.76rem;color:var(--mu);text-align:center;margin-top:.75rem}
 #fok{display:none;text-align:center;padding:1rem 0}
 .okico{font-size:2.5rem;display:block;margin-bottom:1rem}
@@ -207,7 +254,7 @@ details.faq-item[open] summary::after{content:'−'}
 .next-box h4{font-size:.82rem;font-weight:700;color:var(--dk);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
 .ns{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.85rem}
 .ns:last-child{margin-bottom:0}
-.ns-n{width:26px;height:26px;border-radius:50%;background:var(--pr);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;flex-shrink:0;margin-top:.05rem}
+.ns-n{width:26px;height:26px;border-radius:50%;background:var(--pr);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;flex-shrink:0}
 .ns p{font-size:.85rem;color:var(--tx);line-height:1.6}
 .cal-link{display:inline-block;background:var(--pr);color:#fff;padding:.82rem 1.75rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:.9rem;transition:all .2s}
 .cal-link:hover{box-shadow:0 4px 16px rgba(27,79,255,.3);transform:translateY(-1px)}
@@ -217,8 +264,8 @@ details.faq-item[open] summary::after{content:'−'}
 .cta-fin>p{font-size:1.05rem;color:rgba(255,255,255,.78);margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto}
 .cta-sub{font-size:.82rem;color:rgba(255,255,255,.55);margin-top:1.1rem;display:block}
 footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem) 2rem}
-.ftop{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.flogo{font-size:1.25rem;font-weight:800;color:#fff;text-decoration:none;display:block;margin-bottom:.75rem;letter-spacing:-.02em}
+.ftop{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-top:1px solid rgba(255,255,255,.07)}
+.flogo{font-size:1.25rem;font-weight:800;color:#fff;text-decoration:none;display:block;margin-bottom:.75rem}
 .fdesc{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;max-width:240px}
 .fcol h4{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
 .fcol ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
@@ -230,90 +277,48 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 .flinks a{font-size:.78rem;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
 .flinks a:hover{color:rgba(255,255,255,.6)}
 @media(max-width:680px){.ftop{grid-template-columns:1fr;gap:2rem}.fbot{flex-direction:column;align-items:flex-start}}
-.section-simulation{padding:80px 0;background:#fff}
-.simulation-flow{display:flex;align-items:center;justify-content:center;gap:0;margin:48px 0 24px;flex-wrap:wrap}
-.sim-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 16px;background:#F8F9FC;border-radius:16px;border:1px solid #e5e7eb;width:120px;transition:all 0.3s ease;animation:simStepIn 0.4s ease-out both}
-.sim-step:nth-child(1){animation-delay:0s}.sim-step:nth-child(3){animation-delay:0.15s}.sim-step:nth-child(5){animation-delay:0.3s}.sim-step:nth-child(7){animation-delay:0.45s}.sim-step:nth-child(9){animation-delay:0.6s}
-@keyframes simStepIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.sim-step:hover{border-color:#1B4FFF;background:#EEF2FF;transform:translateY(-4px);box-shadow:0 8px 24px rgba(27,79,255,0.12)}
-.sim-icon{font-size:28px;margin-bottom:8px}
-.sim-label{font-size:11px;font-weight:700;color:#0A0F1E;margin-bottom:4px}
-.sim-desc{font-size:10px;color:#6B7280;line-height:1.4}
-.sim-arrow{display:flex;align-items:center;gap:0;flex-shrink:0;width:32px;position:relative}
-.sim-arrow-line{flex:1;height:2px;background:linear-gradient(90deg,#1B4FFF22,#1B4FFF)}
-.sim-note{text-align:center;font-size:13px;color:#6B7280;background:#F8F9FC;border-radius:12px;padding:12px 20px;display:flex;justify-content:center}
-.section-compare{padding:80px 0;background:#F8F9FC}
-.container{max-width:1100px;margin:0 auto;padding:0 clamp(1.5rem,6vw,5rem)}
-.section-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pr);background:#EEF2FF;border:1px solid rgba(27,79,255,.18);padding:.35rem 1rem;border-radius:100px;margin-bottom:1rem}
-.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:.75rem;color:var(--dk);text-align:center}
-.section-subtitle{font-size:1rem;color:var(--mu);max-width:500px;margin:0 auto 0;line-height:1.8;text-align:center}
-.compare-table-wrapper{overflow-x:auto;margin:40px 0;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
-.compare-table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden}
-.compare-table th{padding:16px 20px;font-size:13px;font-weight:700;text-align:center;background:#F8F9FC;border-bottom:2px solid #e5e7eb}
-.compare-table th.col-callvy{background:#1B4FFF;color:#fff;font-size:15px;font-weight:800;letter-spacing:0.02em;padding:18px 20px}
-.compare-table th.col-criteria{text-align:left;color:#6B7280;font-weight:600}
-.compare-table td{padding:14px 20px;text-align:center;font-size:13px;border-bottom:1px solid #f3f4f6}
-.compare-table tr:last-child td{border-bottom:none}
-.compare-table tr:hover td{background:#fafafa}
-.compare-table td.col-callvy{background:#EEF2FF}
-.compare-table tr:hover td.col-callvy{background:#e0e8ff}
-.criteria-cell{text-align:left;font-weight:500;color:#374151}
-.cell-yes{color:#10B981;font-size:18px;font-weight:700}
-.cell-yes.col-callvy{color:#1B4FFF}
-.cell-no{color:#EF4444;font-size:18px;font-weight:700}
-.cell-partial{color:#F59E0B;font-size:18px;font-weight:700}
-.cell-bad{color:#EF4444;font-size:12px;font-weight:600}
-.cell-ok{color:#6B7280;font-size:12px}
-.cell-price{color:#1B4FFF;font-size:13px;font-weight:700}
-.compare-footer{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:40px}
-.compare-stat{text-align:center;background:#fff;border-radius:16px;padding:24px 32px;border:1px solid #e5e7eb;flex:1;min-width:180px;max-width:220px}
-.compare-stat-number{font-size:40px;font-weight:800;color:#1B4FFF;line-height:1;margin-bottom:8px}
-.compare-stat-label{font-size:12px;color:#6B7280;line-height:1.5}
-@media(max-width:768px){.simulation-flow{flex-direction:column;align-items:stretch;gap:8px}.sim-step{width:100%;flex-direction:row;text-align:left;gap:12px}.sim-icon{font-size:22px;margin:0}.sim-arrow{display:none}}
 .iphone-wrapper{display:flex;justify-content:center;align-items:center;filter:drop-shadow(0 40px 80px rgba(0,0,0,0.18))}
-.iphone-outer{width:280px;height:570px;background:linear-gradient(160deg,#3a3a3c 0%,#1c1c1e 35%,#111113 70%,#1a1a1c 100%);border-radius:54px;padding:12px;box-shadow:0 0 0 0.5px rgba(255,255,255,0.18),0 0 0 1.5px rgba(0,0,0,0.9),inset 0 0 0 0.5px rgba(255,255,255,0.06),0 30px 80px rgba(0,0,0,0.45),0 10px 30px rgba(0,0,0,0.3);position:relative;box-sizing:border-box}
-.iphone-btn{position:absolute;background:linear-gradient(90deg,#2a2a2c,#222224);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)}
+.iphone-outer{width:280px;height:570px;background:linear-gradient(160deg,#3a3a3c 0%,#1c1c1e 35%,#111113 70%,#1a1a1c 100%);border-radius:54px;padding:12px;box-shadow:0 0 0 .5px rgba(255,255,255,.18),0 0 0 1.5px rgba(0,0,0,.9),inset 0 0 0 .5px rgba(255,255,255,.06),0 30px 80px rgba(0,0,0,.45);position:relative}
+.iphone-btn{position:absolute;background:linear-gradient(90deg,#2a2a2c,#222224)}
 .iphone-btn-silent{left:-3.5px;top:80px;width:3.5px;height:26px;border-radius:2px 0 0 2px}
 .iphone-btn-vol-up{left:-3.5px;top:118px;width:3.5px;height:44px;border-radius:2px 0 0 2px}
 .iphone-btn-vol-down{left:-3.5px;top:172px;width:3.5px;height:44px;border-radius:2px 0 0 2px}
 .iphone-btn-power{right:-3.5px;top:132px;width:3.5px;height:58px;border-radius:0 2px 2px 0}
 .iphone-screen{width:100%;height:100%;background:#000;border-radius:44px;overflow:hidden;position:relative;display:flex;flex-direction:column}
-.iphone-island{width:90px;height:26px;background:#000;border-radius:50px;margin:10px auto 0;position:relative;z-index:10;flex-shrink:0;box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 2px 6px rgba(0,0,0,0.6)}
+.iphone-island{width:90px;height:26px;background:#000;border-radius:50px;margin:10px auto 0;position:relative;z-index:10;flex-shrink:0}
 .iphone-content{flex:1;display:flex;flex-direction:column;background:#f2f2f7;overflow:hidden}
 .iphone-statusbar{display:flex;justify-content:space-between;align-items:center;padding:5px 16px 3px;background:#f2f2f7;flex-shrink:0}
-.iphone-time{font-size:12px;font-weight:700;color:#000;letter-spacing:-0.3px}
-.iphone-status-icons{display:flex;align-items:center;gap:5px}
-.wa-header{background:#fff;padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid rgba(0,0,0,0.12);flex-shrink:0}
-.wa-back{font-size:24px;color:#007AFF;font-weight:200;line-height:1}
-.wa-avatar-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1B4FFF 0%,#0030CC 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(27,79,255,0.4)}
+.iphone-time{font-size:12px;font-weight:700;color:#000}
+.wa-header{background:#fff;padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:.5px solid rgba(0,0,0,.12);flex-shrink:0}
+.wa-back{font-size:24px;color:#007AFF;font-weight:200}
+.wa-avatar-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1B4FFF,#0030CC);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .wa-avatar{color:#fff;font-size:14px;font-weight:800}
 .wa-info{flex:1;min-width:0}
 .wa-name{font-size:13px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .wa-status{font-size:10px;color:#34C759;font-weight:600;margin-top:1px}
-.wa-header-actions{flex-shrink:0}
-.wa-messages{flex:1;padding:10px 10px 6px;overflow:hidden;display:flex;flex-direction:column;gap:8px;background:#ece5dd}
-.wa-time-badge{align-self:center;background:rgba(0,0,0,0.18);color:#fff;font-size:10px;font-weight:500;padding:2px 10px;border-radius:10px}
-.wa-bubble-in{background:#fff;border-radius:16px 16px 16px 3px;padding:10px 12px 6px;max-width:94%;align-self:flex-start;box-shadow:0 1px 4px rgba(0,0,0,0.1)}
+.wa-messages{flex:1;padding:10px;overflow:hidden;display:flex;flex-direction:column;gap:8px;background:#ece5dd}
+.wa-time-badge{align-self:center;background:rgba(0,0,0,.18);color:#fff;font-size:10px;font-weight:500;padding:2px 10px;border-radius:10px}
+.wa-bubble-in{background:#fff;border-radius:16px 16px 16px 3px;padding:10px 12px 6px;max-width:94%;align-self:flex-start}
 .wa-bubble-header-row{display:flex;align-items:center;gap:7px;margin-bottom:8px}
 .wa-bubble-icon-wrap{font-size:15px}
 .wa-bubble-title-text{font-size:11px;font-weight:800;color:#1B4FFF}
-.wa-divider{height:0.5px;background:#e5e5ea;margin-bottom:7px}
+.wa-divider{height:.5px;background:#e5e5ea;margin-bottom:7px}
 .wa-info-row{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px}
 .wa-emoji{font-size:11px;flex-shrink:0;margin-top:1px}
 .wa-text{font-size:11px;color:#1c1c1e;line-height:1.45}
 .wa-status-pill{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46;font-size:10px;font-weight:700;border-radius:8px;padding:5px 9px;margin-top:8px;display:inline-block}
 .wa-bubble-footer{text-align:right;font-size:9px;color:#8e8e93;margin-top:4px}
-.wa-typing-wrap{display:flex;align-items:center;gap:4px;background:#fff;border-radius:16px 16px 16px 3px;padding:10px 14px;align-self:flex-start;box-shadow:0 1px 3px rgba(0,0,0,0.08);width:fit-content}
+.wa-typing-wrap{display:flex;align-items:center;gap:4px;background:#fff;border-radius:16px 16px 16px 3px;padding:10px 14px;align-self:flex-start}
 .wa-typing-dot{width:7px;height:7px;background:#c7c7cc;border-radius:50%;animation:waDot 1.4s infinite ease-in-out}
-.wa-typing-dot:nth-child(2){animation-delay:0.18s}
-.wa-typing-dot:nth-child(3){animation-delay:0.36s}
+.wa-typing-dot:nth-child(2){animation-delay:.18s}
+.wa-typing-dot:nth-child(3){animation-delay:.36s}
 @keyframes waDot{0%,60%,100%{transform:translateY(0);background:#c7c7cc}30%{transform:translateY(-5px);background:#8e8e93}}
-.wa-composer{background:#f2f2f7;padding:7px 10px;display:flex;align-items:center;gap:8px;border-top:0.5px solid rgba(0,0,0,0.1);flex-shrink:0}
-.wa-composer-inner{flex:1;background:#fff;border-radius:20px;padding:7px 13px;border:0.5px solid rgba(0,0,0,0.12)}
+.wa-composer{background:#f2f2f7;padding:7px 10px;display:flex;align-items:center;gap:8px;border-top:.5px solid rgba(0,0,0,.1);flex-shrink:0}
+.wa-composer-inner{flex:1;background:#fff;border-radius:20px;padding:7px 13px;border:.5px solid rgba(0,0,0,.12)}
 .wa-composer-placeholder{font-size:11px;color:#aeaeb2}
-.wa-mic-btn{width:32px;height:32px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(37,211,102,0.4)}
+.wa-mic-btn{width:32px;height:32px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .iphone-home-bar{height:20px;background:#000;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.iphone-home-bar::after{content:'';width:88px;height:4px;background:rgba(255,255,255,0.45);border-radius:2px}
+.iphone-home-bar::after{content:'';width:88px;height:4px;background:rgba(255,255,255,.45);border-radius:2px}
 </style>
 </head>
 <body>
@@ -327,7 +332,7 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#voicedemo" class="nav-cta">Entendre la démo →</a></li>
 </ul>
-<button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+<button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mnav" id="mobileNav">
 <a href="#how" onclick="closeMenu()">Fonctionnement</a>
@@ -339,18 +344,20 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 
 <div class="hero">
 <div>
-<div class="hero-badge rv">✦ Disponible 24h/24 · 7j/7</div>
-<h1 class="rv d1">Vos concurrents répondent.<br>Vous, <span class="strike">non.</span></h1>
-<div class="hero-loss rv d1">⚠ Chaque appel manqué = 200 à 500€ qui partent chez le voisin</div>
-<p class="hero-sub rv d1">CALLVY décroche à votre place, qualifie le besoin de votre client et vous envoie le résumé sur WhatsApp. <strong>Vous récupérez l'argent qui vous appartient.</strong></p>
-<div class="hero-btns rv d2">
-<a href="#voicedemo" class="btn btn-p">🎧 Entendre la démo maintenant</a>
-<a href="#demo" onclick="openDemoForm();return false;" class="btn btn-s">Réserver un appel gratuit →</a>
+<div class="hero-badge rv">✦ Assistant téléphonique 24h/24 · France & Belgique</div>
+<h1 class="rv d1">Ne ratez plus jamais un appel client.<br>CALLVY répond à votre place — même pendant vos interventions.</h1>
+<p class="hero-sub rv d1">Chaque appel manqué coûte entre <strong>200 et 500€</strong>. CALLVY décroche en 3 secondes, qualifie le besoin et vous envoie le résumé complet sur WhatsApp. Vous ne perdez plus aucun client.</p>
+<div class="hero-objection rv d2">
+<span>💬 <strong>Vos clients ne sauront pas que c'est automatisé.</strong> Voix naturelle, présentation à votre nom commercial.</span>
 </div>
 <div class="hero-trust rv d2">
-<span>Mise en place sous 48h</span>
-<span>Garantie résultats</span>
-<span>Support WhatsApp direct</span>
+<span>Installation en 48h — vous gardez votre numéro actuel</span>
+<span>Résumé de chaque appel envoyé sur WhatsApp</span>
+<span>Garantie 5 RDV en 30 jours ou 1 mois offert</span>
+</div>
+<div class="hero-btns rv d3">
+<a href="#voicedemo" class="btn btn-p">Entendre la démo maintenant</a>
+<a href="#roi" class="btn btn-s">Calculer votre retour sur investissement</a>
 </div>
 </div>
 <div class="hero-visual rv d2">
@@ -366,9 +373,9 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <div class="iphone-statusbar">
 <span class="iphone-time">9:41</span>
 <div class="iphone-status-icons">
-<svg width="17" height="12" viewBox="0 0 17 12" fill="#000"><rect x="0" y="3" width="3" height="9" rx="1"/><rect x="4.5" y="2" width="3" height="10" rx="1"/><rect x="9" y="0" width="3" height="12" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity="0.25"/></svg>
-<svg width="16" height="12" viewBox="0 0 16 12" fill="#000"><path d="M8 2.4C10.2 2.4 12.2 3.3 13.6 4.8L15 3.4C13.2 1.5 10.7 0.4 8 0.4C5.3 0.4 2.8 1.5 1 3.4L2.4 4.8C3.8 3.3 5.8 2.4 8 2.4Z"/><path d="M8 5.6C9.5 5.6 10.8 6.2 11.8 7.2L13.2 5.8C11.8 4.4 9.9 3.6 8 3.6C6.1 3.6 4.2 4.4 2.8 5.8L4.2 7.2C5.2 6.2 6.5 5.6 8 5.6Z"/><circle cx="8" cy="10" r="2"/></svg>
-<svg width="27" height="13" viewBox="0 0 27 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="#000" stroke-opacity="0.35"/><rect x="2" y="2" width="18" height="9" rx="2" fill="#000"/><path d="M24.5 4.5V8.5C25.4 8.2 26 7.2 26 6.5C26 5.8 25.4 4.8 24.5 4.5Z" fill="#000" opacity="0.4"/></svg>
+<svg width="17" height="12" viewBox="0 0 17 12" fill="#000"><rect x="0" y="3" width="3" height="9" rx="1"/><rect x="4.5" y="2" width="3" height="10" rx="1"/><rect x="9" y="0" width="3" height="12" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".25"/></svg>
+<svg width="16" height="12" viewBox="0 0 16 12" fill="#000"><path d="M8 2.4C10.2 2.4 12.2 3.3 13.6 4.8L15 3.4C13.2 1.5 10.7 .4 8 .4C5.3 .4 2.8 1.5 1 3.4L2.4 4.8C3.8 3.3 5.8 2.4 8 2.4Z"/><path d="M8 5.6C9.5 5.6 10.8 6.2 11.8 7.2L13.2 5.8C11.8 4.4 9.9 3.6 8 3.6C6.1 3.6 4.2 4.4 2.8 5.8L4.2 7.2C5.2 6.2 6.5 5.6 8 5.6Z"/><circle cx="8" cy="10" r="2"/></svg>
+<svg width="27" height="13" fill="none"><rect x=".5" y=".5" width="22" height="12" rx="3.5" stroke="#000" stroke-opacity=".35"/><rect x="2" y="2" width="18" height="9" rx="2" fill="#000"/><path d="M24.5 4.5V8.5C25.4 8.2 26 7.2 26 6.5 26 5.8 25.4 4.8 24.5 4.5Z" fill="#000" opacity=".4"/></svg>
 </div>
 </div>
 <div class="wa-header">
@@ -377,9 +384,6 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <div class="wa-info">
 <div class="wa-name">CALLVY Assist...</div>
 <div class="wa-status">● En ligne maintenant</div>
-</div>
-<div class="wa-header-actions">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
 </div>
 </div>
 <div class="wa-messages">
@@ -396,13 +400,13 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <div class="wa-info-row"><span class="wa-emoji">📍</span><span class="wa-text">12 rue des Lilas, Lyon</span></div>
 <div class="wa-info-row"><span class="wa-emoji">🕒</span><span class="wa-text">Disponible demain matin</span></div>
 <div class="wa-status-pill">✅ RDV confirmé — mardi 9h00</div>
-<div class="wa-bubble-footer">14:23  ✓✓</div>
+<div class="wa-bubble-footer">14:23 ✓✓</div>
 </div>
 <div class="wa-typing-wrap"><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div></div>
 </div>
 <div class="wa-composer">
 <div class="wa-composer-inner"><span class="wa-composer-placeholder">Message</span></div>
-<div class="wa-mic-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v4M8 23h8"/></svg></div>
+<div class="wa-mic-btn"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v4M8 23h8"/></svg></div>
 </div>
 </div>
 <div class="iphone-home-bar"></div>
@@ -439,6 +443,44 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <div class="ps-card good"><span class="ps-icon">✓</span><p>Vous décrochez en 3 secondes — même les mains sales</p></div>
 <div class="ps-card good"><span class="ps-icon">✓</span><p>Vous capturez le besoin, l'adresse, le créneau</p></div>
 <div class="ps-card good"><span class="ps-icon">✓</span><p>Vous gardez l'argent qui vous était dû</p></div>
+</div>
+</div>
+</section>
+
+<section id="roi" class="roi-section">
+<div class="roi-box rv">
+<h2>Calculez ce que vos appels manqués vous coûtent</h2>
+<p class="sub">Entrez vos chiffres réels pour voir l'impact financier exact.</p>
+<div class="roi-inputs">
+<div class="roi-fg">
+<label>Appels manqués par mois</label>
+<input type="number" id="roiCalls" value="10" min="1" max="500"/>
+</div>
+<div class="roi-fg">
+<label>Valeur moyenne d'une intervention (€)</label>
+<input type="number" id="roiValue" value="350" min="50" step="50"/>
+</div>
+</div>
+<div class="roi-results">
+<div class="roi-line loss">
+<span class="roi-line-label">Vous perdez actuellement</span>
+<span class="roi-line-value" id="roiLossMonth">3 500€/mois</span>
+</div>
+<div class="roi-line loss">
+<span class="roi-line-label">Soit sur un an</span>
+<span class="roi-line-value" id="roiLossYear">42 000€/an</span>
+</div>
+<div class="roi-line">
+<span class="roi-line-label">CALLVY (engagement 12 mois)</span>
+<span class="roi-line-value">262€/mois</span>
+</div>
+<div class="roi-line gain">
+<span class="roi-line-label">Vous récupérez chaque mois</span>
+<span class="roi-line-value" id="roiGain">3 238€</span>
+</div>
+</div>
+<div class="roi-cta">
+<a href="#voicedemo">Voir comment CALLVY récupère cet argent →</a>
 </div>
 </div>
 </section>
@@ -499,7 +541,7 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 </div>
 </section>
 
-<section class="section-simulation">
+<section style="padding:80px 0;background:#fff">
 <div class="container">
 <div style="text-align:center;margin-bottom:48px">
 <div class="section-label">⚡ En temps réel</div>
@@ -507,35 +549,15 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <p class="section-subtitle">En moins de 8 secondes, vous récupérez le client.</p>
 </div>
 <div class="simulation-flow">
-<div class="sim-step" data-step="1">
-<div class="sim-icon">📞</div>
-<div class="sim-label">Appel entrant</div>
-<div class="sim-desc">Votre client compose votre numéro</div>
-</div>
+<div class="sim-step"><div class="sim-icon">📞</div><div class="sim-label">Appel entrant</div><div class="sim-desc">Votre client compose votre numéro</div></div>
 <div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step" data-step="2">
-<div class="sim-icon">⚡</div>
-<div class="sim-label">Décroché en &lt;2s</div>
-<div class="sim-desc">L'assistant répond à votre nom</div>
-</div>
+<div class="sim-step"><div class="sim-icon">⚡</div><div class="sim-label">Décroché en &lt;2s</div><div class="sim-desc">L'assistant répond à votre nom</div></div>
 <div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step" data-step="3">
-<div class="sim-icon">🎯</div>
-<div class="sim-label">Besoin qualifié</div>
-<div class="sim-desc">Urgence, adresse, disponibilités</div>
-</div>
+<div class="sim-step"><div class="sim-icon">🎯</div><div class="sim-label">Besoin qualifié</div><div class="sim-desc">Urgence, adresse, disponibilités</div></div>
 <div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step" data-step="4">
-<div class="sim-icon">📅</div>
-<div class="sim-label">RDV confirmé</div>
-<div class="sim-desc">Directement dans votre agenda</div>
-</div>
+<div class="sim-step"><div class="sim-icon">📅</div><div class="sim-label">RDV confirmé</div><div class="sim-desc">Directement dans votre agenda</div></div>
 <div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step" data-step="5">
-<div class="sim-icon">💬</div>
-<div class="sim-label">WhatsApp envoyé</div>
-<div class="sim-desc">Résumé complet sur votre téléphone</div>
-</div>
+<div class="sim-step"><div class="sim-icon">💬</div><div class="sim-label">WhatsApp envoyé</div><div class="sim-desc">Résumé complet sur votre téléphone</div></div>
 </div>
 <div class="sim-note">⏱ Durée moyenne d'un appel géré : <strong>2 min 14s</strong> · Pendant ce temps, vous travaillez.</div>
 </div>
@@ -552,7 +574,7 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 </div>
 </section>
 
-<section class="section-compare">
+<section style="padding:80px 0;background:#F8F9FC">
 <div class="container">
 <div style="text-align:center">
 <div class="section-label">💡 Comparatif</div>
@@ -562,13 +584,7 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <div class="compare-table-wrapper">
 <table class="compare-table">
 <thead>
-<tr>
-<th class="col-criteria">Critère</th>
-<th>👩‍💼 Secrétaire</th>
-<th>📼 Répondeur</th>
-<th>📞 Call center</th>
-<th class="col-callvy">✦ CALLVY</th>
-</tr>
+<tr><th class="col-criteria">Critère</th><th>👩‍💼 Secrétaire</th><th>📼 Répondeur</th><th>📞 Call center</th><th class="col-callvy">✦ CALLVY</th></tr>
 </thead>
 <tbody>
 <tr><td class="criteria-cell">Disponible 24h/24</td><td class="cell-no">✗</td><td class="cell-partial">~</td><td class="cell-partial">~</td><td class="cell-yes col-callvy">✓</td></tr>
@@ -582,18 +598,9 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 </table>
 </div>
 <div class="compare-footer">
-<div class="compare-stat">
-<div class="compare-stat-number">87%</div>
-<div class="compare-stat-label">des appelants ne laissent pas de message sur un répondeur</div>
-</div>
-<div class="compare-stat">
-<div class="compare-stat-number">10×</div>
-<div class="compare-stat-label">moins cher qu'une secrétaire — pour un service disponible 24h/24</div>
-</div>
-<div class="compare-stat">
-<div class="compare-stat-number">48h</div>
-<div class="compare-stat-label">pour être opérationnel, sans formation</div>
-</div>
+<div class="compare-stat"><div class="compare-stat-number">87%</div><div class="compare-stat-label">des appelants ne laissent pas de message sur un répondeur</div></div>
+<div class="compare-stat"><div class="compare-stat-number">10×</div><div class="compare-stat-label">moins cher qu'une secrétaire — pour un service disponible 24h/24</div></div>
+<div class="compare-stat"><div class="compare-stat-number">48h</div><div class="compare-stat-label">pour être opérationnel, sans formation</div></div>
 </div>
 </div>
 </section>
@@ -695,7 +702,7 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 <div class="faq-list">
 <details class="faq-item rv">
 <summary>Vos clients vont-ils savoir que ce n'est pas vous ?</summary>
-<div class="faq-body">Non. Votre assistant s'annonce avec votre nom commercial et vos informations. Vos clients pensent parler à votre secrétariat. La voix est naturelle, le ton calibré pour votre métier.</div>
+<div class="faq-body">Non. Votre assistant s'annonce avec votre nom commercial et vos informations. Vos clients pensent parler à votre secrétariat. La voix est naturelle, le ton calibré pour votre métier — aucune voix robotique.</div>
 </details>
 <details class="faq-item rv">
 <summary>Que se passe-t-il si un client veut absolument vous parler ?</summary>
@@ -703,220 +710,266 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 </details>
 <details class="faq-item rv">
 <summary>Vous gardez votre numéro de téléphone actuel ?</summary>
-<div class="faq-body">Oui. Vos appels sont transférés vers CALLVY — votre numéro ne change pas. Vos clients composent le même numéro qu'avant. Vous n'avez aucune migration à faire.</div>
+<div class="faq-body">Oui. Vos appels sont transférés vers CALLVY — votre numéro ne change pas. Vos clients composent le même numéro qu'avant. Vous n'avez aucune migration à faire. C'est totalement transparent pour eux.</div>
 </details>
 <details class="faq-item rv">
 <summary>L'engagement contractuel : pourquoi et comment ?</summary>
-<div class="faq-body">Pour vous offrir des tarifs réduits (jusqu'à −25%), vous vous engagez sur 6 ou 12 mois. Si vous préférez la flexibilité, vous pouvez choisir le tarif mensuel sans engagement. Dans tous les cas, votre première facture n'arrive qu'après validation de votre démo.</div>
+<div class="faq-body">Pour vous offrir des tarifs réduits (jusqu'à −25%), vous vous engagez sur 6 ou 12 mois. Si vous souhaitez arrêter avant, vous réglez les mensualités restantes de l'engagement. Vous pouvez aussi prendre le tarif mensuel sans engagement — vous payez plus, mais vous êtes libre de partir à tout moment.</div>
 </details>
 <details class="faq-item rv">
-<summary>Combien de temps avant vos premiers résultats ?</summary>
-<div class="faq-body">Vous voyez votre premier appel géré dès le lendemain de votre mise en service. La majorité de nos clients récupèrent leur premier client dès la première semaine — c'est exactement le mécanisme de notre garantie 5 RDV en 30 jours.</div>
+<summary>Combien de temps pour la mise en place ?</summary>
+<div class="faq-body">48 heures maximum après votre signature. Nous configurons votre assistant avec vous lors d'un appel de 30 minutes. Vous validez le script, nous activons le transfert — vous êtes opérationnel le lendemain. Nous gérons 100% de la technique.</div>
 </details>
 <details class="faq-item rv">
-<summary>Que se passe-t-il en cas de panne technique ?</summary>
-<div class="faq-body">Vos appels sont automatiquement redirigés vers votre téléphone personnel. Aucun appel ne peut être perdu. Notre infrastructure est redondante avec un uptime de 99,9%.</div>
+<summary>Que se passe-t-il si je dépasse mes minutes incluses ?</summary>
+<div class="faq-body">Vous payez 0,25€ par minute supplémentaire. Vous recevez une alerte à 80% de votre quota. Si vous dépassez régulièrement, nous vous proposons de passer au plan supérieur — meilleur tarif minute que de payer du dépassement.</div>
 </details>
 </div>
 </section>
 
 <section>
-<div class="sec-h rv"><h2>Vous arrêtez de rater des clients dès le premier jour</h2></div>
+<div class="sec-h rv"><h2>Ils nous font confiance depuis plusieurs mois</h2></div>
 <div class="testi-grid">
 <div class="testi-card rv">
 <div class="stars">★★★★★</div>
-<p class="testi-q">"J'ai récupéré 3 clients en une semaine que j'aurais ratés. Mon abonnement est rentabilisé dès le premier RDV."</p>
-<div class="testi-auth"><div class="tav a">MD</div><div><div class="tname">M.D.</div><div class="trole">Plombier · Liège</div></div></div>
+<p class="testi-q">« Avant CALLVY, je perdais 3 à 4 chantiers par mois parce que je ne pouvais pas décrocher. Maintenant je ne rate plus rien. Mon CA a augmenté de 30% en 2 mois. »</p>
+<div class="testi-auth">
+<div class="tav a">M</div>
+<div><div class="tname">Marc D.</div><div class="trole">Plombier · Bruxelles</div></div>
+</div>
 </div>
 <div class="testi-card rv d1">
 <div class="stars">★★★★★</div>
-<p class="testi-q">"Mes clients sont surpris par la qualité de l'accueil. Plusieurs m'ont dit que ma secrétaire était très professionnelle."</p>
-<div class="testi-auth"><div class="tav b">SK</div><div><div class="tname">S.K.</div><div class="trole">Serrurier · Lyon</div></div></div>
+<p class="testi-q">« Les patients appellent même le soir et le week-end. CALLVY prend les RDV automatiquement. Je gagne 6 heures par semaine — et je ne perds plus un seul patient. »</p>
+<div class="testi-auth">
+<div class="tav b">A</div>
+<div><div class="tname">Dr. Amandine L.</div><div class="trole">Dentiste · Lyon</div></div>
+</div>
 </div>
 <div class="testi-card rv d2">
 <div class="stars">★★★★★</div>
-<p class="testi-q">"Je travaille en paix sur mes chantiers. Plus d'interruptions. Tous les messages sur WhatsApp le soir, prêts à traiter."</p>
-<div class="testi-auth"><div class="tav c">PV</div><div><div class="tname">P.V.</div><div class="trole">Chauffagiste · Bruxelles</div></div></div>
+<p class="testi-q">« Installation en 48h comme promis. Le service client répond en 10 minutes sur WhatsApp. Mes clients ne voient aucune différence — sauf qu'ils tombent enfin sur quelqu'un. »</p>
+<div class="testi-auth">
+<div class="tav c">T</div>
+<div><div class="tname">Thomas R.</div><div class="trole">Électricien · Paris</div></div>
+</div>
 </div>
 </div>
 </section>
 
-<section id="demo" style="background:var(--ba)">
+<section id="contact" style="background:var(--ba)">
+<div class="sec-h rv"><h2>Vous voulez voir si CALLVY est fait pour vous ?</h2><p>Réservez un appel de 30 minutes. Nous vous montrons le système en action, et vous décidez.</p></div>
 <div class="form-box">
-<div class="sec-h rv">
-<h2>Réservez votre appel gratuit</h2>
-<p>15 minutes pour voir votre assistant en action, adapté à votre métier. Gratuit et sans engagement.</p>
-</div>
 <div class="form-card rv">
-<div id="fform">
+<form id="contactForm" action="https://formspree.io/f/xaqpbedg" method="POST">
 <div class="frow">
-<div class="fg"><label>Prénom *</label><input type="text" id="fp" placeholder="Jean" required/></div>
-<div class="fg"><label>Nom *</label><input type="text" id="fn" placeholder="Dupont" required/></div>
+<div class="fg">
+<label for="name">Prénom et nom *</label>
+<input type="text" id="name" name="name" required/>
 </div>
-<div class="fg"><label>Email professionnel *</label><input type="email" id="fe" placeholder="jean@votreentreprise.fr" required/></div>
-<div class="fg"><label>Téléphone *</label><input type="tel" id="ft" placeholder="+33 6 XX XX XX XX" required/></div>
-<div class="frow">
-<div class="fg"><label>Secteur d'activité *</label>
-<select id="fs" required>
-<option value="" disabled selected>Votre secteur</option>
-<option>Artisan / BTP / Plombier</option>
-<option>Chauffagiste / Électricien</option>
-<option>Serrurier / Menuisier</option>
-<option>Santé / Médical</option>
-<option>Immobilier</option>
-<option>Commerce / Retail</option>
-<option>Services B2B</option>
-<option>Autre</option>
+<div class="fg">
+<label for="phone">Téléphone *</label>
+<input type="tel" id="phone" name="phone" required/>
+</div>
+</div>
+<div class="fg">
+<label for="email">Email professionnel *</label>
+<input type="email" id="email" name="email" required/>
+</div>
+<div class="fg">
+<label for="activity">Votre secteur d'activité *</label>
+<input type="text" id="activity" name="activity" placeholder="Ex: Plomberie, Dentiste, Agent immobilier..." required/>
+</div>
+<div class="fg">
+<label for="calls">Combien d'appels manquez-vous par mois environ ?</label>
+<select id="calls" name="calls">
+<option value="">-- Sélectionner --</option>
+<option value="5-10">5 à 10 appels/mois</option>
+<option value="10-20">10 à 20 appels/mois</option>
+<option value="20-50">20 à 50 appels/mois</option>
+<option value="50+">Plus de 50 appels/mois</option>
 </select>
 </div>
-<div class="fg"><label>Volume d'appels/mois</label>
-<select id="fa">
-<option value="" disabled selected>Estimation</option>
-<option>Moins de 50</option>
-<option>50 – 200</option>
-<option>200 – 500</option>
-<option>Plus de 500</option>
-</select>
+<div class="fg">
+<label for="message">Message (optionnel)</label>
+<textarea id="message" name="message" placeholder="Décrivez brièvement votre situation..."></textarea>
 </div>
-</div>
-<div class="fg"><label>Votre situation (optionnel)</label><textarea id="fm" placeholder="Ex: Je suis plombier, je rate des appels en chantier..."></textarea></div>
-<button class="form-submit" onclick="sendForm()">Réserver mon appel gratuit →</button>
-<p class="form-note">🔒 Données confidentielles · Aucun spam · Sans engagement</p>
-</div>
+<button type="submit" class="form-submit" id="submitBtn">Réserver mon appel de démo →</button>
+<p class="form-note">Réponse sous 2h ouvrées · Sans engagement · Gratuit</p>
+</form>
 <div id="fok">
 <span class="okico">✅</span>
-<h3>Demande reçue, <span id="okname"></span> !</h3>
+<h3>Votre demande est envoyée !</h3>
 <div class="next-box">
-<h4>Prochaines étapes</h4>
-<div class="ns"><div class="ns-n">1</div><p><strong>Nous analysons votre activité</strong> — nous étudions votre secteur avant de vous appeler.</p></div>
-<div class="ns"><div class="ns-n">2</div><p><strong>Nous vous contactons sous 24h</strong> — par téléphone ou email pour organiser votre démonstration.</p></div>
-<div class="ns"><div class="ns-n">3</div><p><strong>Démonstration de 15 minutes</strong> — avec un scénario adapté à votre métier.</p></div>
+<h4>Prochaines étapes :</h4>
+<div class="ns"><div class="ns-n">1</div><p>Vous recevez un email de confirmation dans les 2 minutes</p></div>
+<div class="ns"><div class="ns-n">2</div><p>Nous vous contactons sous 2h pour réserver votre créneau</p></div>
+<div class="ns"><div class="ns-n">3</div><p>Nous vous montrons CALLVY en action lors d'un appel de 30 minutes</p></div>
 </div>
-<a class="cal-link" href="https://calendly.com/contact-callvy/30min" target="_blank">📅 Choisir mon créneau →</a>
-<p style="font-size:.76rem;color:var(--mu);margin-top:.65rem">Redirection automatique dans <span id="calTimer">5</span>s…</p>
+<p style="font-size:.88rem;color:var(--mu);margin-bottom:1.5rem">Ou réservez directement votre créneau :</p>
+<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="cal-link">Choisir mon créneau maintenant →</a>
 </div>
 </div>
 </div>
 </section>
 
-<section class="cta-fin">
+<div class="cta-fin">
 <h2 class="rv">Vos concurrents ne dorment pas.<br>Vous non plus, à partir de maintenant.</h2>
-<p class="rv">Vous réservez votre démo gratuite de 15 minutes. Vous voyez votre assistant en action sur votre métier. Vous décidez ensuite — sans pression.</p>
-<a href="#demo" onclick="openDemoForm();return false;" class="btn btn-w rv">Réserver mon appel gratuit →</a>
-<span class="cta-sub rv">⏱ Réponse sous 24h · Aucune carte bancaire requise · Garantie 5 RDV ou 1 mois offert</span>
-</section>
+<p class="rv d1">Vous décrochez 24h/24. Vous capturez chaque lead. Vous transformez chaque appel en rendez-vous. Installation en 48h.</p>
+<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn btn-w rv d2">Voir CALLVY en action — 30 min →</a>
+<span class="cta-sub rv d3">Gratuit · Sans engagement · Réponse immédiate</span>
+</div>
 
 <footer>
 <div class="ftop">
 <div>
 <a href="#" class="flogo">CALLVY</a>
-<p class="fdesc">Votre assistant téléphonique 24h/24 pour les professionnels en France et en Belgique. Vous décrochez sur tout. Vous gagnez sur tout.</p>
+<p class="fdesc">L'assistant téléphonique qui répond à votre place — 24h/24, 365 jours par an. Installation en 48h.</p>
 </div>
 <div class="fcol">
-<h4>Navigation</h4>
+<h4>Produit</h4>
 <ul>
 <li><a href="#how">Fonctionnement</a></li>
 <li><a href="#tarifs">Tarifs</a></li>
 <li><a href="#guarantee">Garantie</a></li>
 <li><a href="#faq">FAQ</a></li>
-<li><a href="#voicedemo">Démo</a></li>
 </ul>
 </div>
 <div class="fcol">
-<h4>Légal & Contact</h4>
+<h4>Entreprise</h4>
 <ul>
-<li><a href="mailto:contact@callvy.fr">contact@callvy.fr</a></li>
-<li><a href="#mentions">Mentions légales</a></li>
-<li><a href="#rgpd">Politique RGPD</a></li>
-<li><a href="#cgv">CGV</a></li>
+<li><a href="mailto:contact@callvy.fr">Contact</a></li>
+<li><a href="https://calendly.com/contact-callvy/30min" target="_blank">Réserver une démo</a></li>
 </ul>
 </div>
 </div>
 <div class="fbot">
-<p class="fcopy">© 2026 CALLVY — Tous droits réservés. Prix HT.</p>
+<p class="fcopy">© 2025 CALLVY. Tous droits réservés.</p>
 <ul class="flinks">
-<li><a href="#cgv">CGV</a></li>
-<li><a href="#mentions">Mentions légales</a></li>
-<li><a href="#rgpd">RGPD</a></li>
+<li><a href="#">Mentions légales</a></li>
+<li><a href="#">CGV</a></li>
+<li><a href="#">Politique de confidentialité</a></li>
 </ul>
 </div>
 </footer>
 
 <script>
-window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('on',window.scrollY>20);});
-function toggleMenu(){document.getElementById('burger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open');}
-function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('mobileNav').classList.remove('open');}
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('on',window.scrollY>20)});
+function toggleMenu(){document.getElementById('burger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open')}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('mobileNav').classList.remove('open')}
 
-(function(){var io=new IntersectionObserver(function(els){els.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.1});document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});})();
+const rvEls=document.querySelectorAll('.rv');
+const rvObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.1});
+rvEls.forEach(el=>rvObs.observe(el));
 
-function openDemoForm(){var fok=document.getElementById('fok');if(fok&&fok.style.display==='block'){fok.scrollIntoView({behavior:'smooth',block:'center'});}else{var ff=document.getElementById('fform');if(ff)ff.style.display='block';var d=document.getElementById('demo');if(d)d.scrollIntoView({behavior:'smooth'});}}
+const toggleBtns=document.querySelectorAll('.toggle button');
+const planAmounts=document.querySelectorAll('.plan-amount');
+const planWas=document.querySelectorAll('.plan-was');
+const planEng=document.querySelectorAll('.plan-engagement');
+toggleBtns.forEach(btn=>{btn.addEventListener('click',()=>{toggleBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const plan=btn.dataset.plan;planAmounts.forEach(a=>{a.textContent=a.dataset[plan]});planWas.forEach(w=>{const v=w.dataset['was'+plan.replace('m','M')];if(v){w.textContent='au lieu de '+v+'€';w.style.visibility='visible'}else{w.style.visibility='hidden'}});planEng.forEach(e=>{e.textContent=e.dataset['eng'+plan.replace('m','M')];e.classList.toggle('flex',plan==='m1')})})});
 
-(function(){
-var btns=document.querySelectorAll('.toggle button');
-btns.forEach(function(b){
-b.addEventListener('click',function(){
-btns.forEach(function(x){x.classList.remove('active')});
-b.classList.add('active');
-var plan=b.dataset.plan;
-document.querySelectorAll('.plan-amount').forEach(function(el){el.textContent=el.dataset[plan];});
-document.querySelectorAll('.plan-was').forEach(function(el){
-var key='was'+plan.charAt(0).toUpperCase()+plan.slice(1);
-var v=el.dataset[key];
-if(v){el.textContent='au lieu de '+v+'€';el.classList.remove('hidden');}else{el.classList.add('hidden');}
-});
-document.querySelectorAll('.plan-engagement').forEach(function(el){
-var key='eng'+plan.charAt(0).toUpperCase()+plan.slice(1);
-el.textContent=el.dataset[key];
-if(plan==='m1'){el.classList.add('flex');}else{el.classList.remove('flex');}
-});
-});
-});
-})();
+const roiCalls=document.getElementById('roiCalls');
+const roiValue=document.getElementById('roiValue');
+const roiLossMonth=document.getElementById('roiLossMonth');
+const roiLossYear=document.getElementById('roiLossYear');
+const roiGain=document.getElementById('roiGain');
+function calcROI(){const calls=parseInt(roiCalls.value)||0;const value=parseInt(roiValue.value)||0;const lossM=calls*value;const lossY=lossM*12;const callvyPrice=262;const gainM=lossM-callvyPrice;roiLossMonth.textContent=lossM.toLocaleString('fr-FR')+'€/mois';roiLossYear.textContent=lossY.toLocaleString('fr-FR')+'€/an';roiGain.textContent=gainM.toLocaleString('fr-FR')+'€'}
+roiCalls.addEventListener('input',calcROI);
+roiValue.addEventListener('input',calcROI);
+calcROI();
 
-(function(){
-var sequence=[{msgId:'msg1',audio:'CALLVY_01.mp3'},{msgId:'msg2',audio:'CLIENT_01.mp3'},{msgId:'msg3',audio:'CALLVY_02.mp3'},{msgId:'msg4',audio:'CLIENT_02.mp3'},{msgId:'msg5',audio:'CALLVY_03.mp3'},{msgId:'msg6',audio:'CLIENT_03.mp3'},{msgId:'msg7',audio:'CALLVY_04.mp3'}];
-var currentStep=0,isPlaying=false,currentAudio=null,totalSteps=sequence.length;
-function updateProgress(){var pct=(currentStep/totalSteps)*100;var fill=document.getElementById('demoProgressFill');if(fill)fill.style.width=pct+'%';}
-function clearSpeaking(){document.querySelectorAll('.demo-msg').forEach(function(m){m.classList.remove('speaking');});}
-function playStep(stepIndex){
-if(stepIndex>=totalSteps){clearSpeaking();var fill=document.getElementById('demoProgressFill');if(fill)fill.style.width='100%';document.getElementById('demoPlayLabel').textContent='Réécouter';document.getElementById('iconPlay').style.display='inline';document.getElementById('iconPause').style.display='none';isPlaying=false;currentStep=0;return;}
-var step=sequence[stepIndex];var msgEl=document.getElementById(step.msgId);
-if(msgEl){msgEl.classList.add('show');clearSpeaking();msgEl.classList.add('speaking');msgEl.scrollIntoView({behavior:'smooth',block:'nearest'});}
-updateProgress();
-if(currentAudio){currentAudio.pause();currentAudio.src='';}
-currentAudio=new Audio(step.audio);
-currentAudio.play().catch(function(e){console.log('Audio error:',e);setTimeout(function(){if(isPlaying){currentStep++;playStep(currentStep);}},2000);});
-currentAudio.onended=function(){if(!isPlaying)return;currentStep++;setTimeout(function(){playStep(currentStep);},400);};
+const audioFiles=[
+{speaker:'callvy',file:'https://callvy.fr/audio/CALLVY_01.mp3'},
+{speaker:'client',file:'https://callvy.fr/audio/CLIENT_01.mp3'},
+{speaker:'callvy',file:'https://callvy.fr/audio/CALLVY_02.mp3'},
+{speaker:'client',file:'https://callvy.fr/audio/CLIENT_02.mp3'},
+{speaker:'callvy',file:'https://callvy.fr/audio/CALLVY_03.mp3'},
+{speaker:'client',file:'https://callvy.fr/audio/CLIENT_03.mp3'},
+{speaker:'callvy',file:'https://callvy.fr/audio/CALLVY_04.mp3'}
+];
+let currentIndex=0;
+let currentAudio=null;
+let isPlaying=false;
+let progressInterval=null;
+
+function startDemo(){
+if(isPlaying){pauseDemo();return}
+if(currentIndex===0||currentIndex>=audioFiles.length){currentIndex=0;document.querySelectorAll('.demo-msg').forEach(m=>m.classList.remove('show'))}
+playCurrentAudio();
+document.getElementById('demoPlayLabel').textContent='Pause';
+document.getElementById('iconPlay').style.display='none';
+document.getElementById('iconPause').style.display='block';
+isPlaying=true
 }
-window.startDemo=function(){
-if(isPlaying){isPlaying=false;if(currentAudio)currentAudio.pause();clearSpeaking();document.getElementById('demoPlayLabel').textContent='Reprendre';document.getElementById('iconPlay').style.display='inline';document.getElementById('iconPause').style.display='none';}
-else{isPlaying=true;document.getElementById('demoPlayLabel').textContent='Pause';document.getElementById('iconPlay').style.display='none';document.getElementById('iconPause').style.display='inline';
-if(currentStep>=totalSteps){currentStep=0;document.querySelectorAll('.demo-msg').forEach(function(m){m.classList.remove('show','speaking');});var fill=document.getElementById('demoProgressFill');if(fill)fill.style.width='0%';}
-if(currentAudio&&currentStep>0&&!currentAudio.ended){currentAudio.play();}else{playStep(currentStep);}}
-};
-})();
 
-async function sendForm(){
-var fpEl=document.getElementById('fp'),fnEl=document.getElementById('fn'),feEl=document.getElementById('fe'),ftEl=document.getElementById('ft'),fsEl=document.getElementById('fs');
-var p=fpEl?fpEl.value.trim():'',n=fnEl?fnEl.value.trim():'',e=feEl?feEl.value.trim():'',t=ftEl?ftEl.value.trim():'',s=fsEl?fsEl.value:'';
-if(!p||!n||!e||!t||!s){alert('Veuillez remplir tous les champs obligatoires (*).');return;}
-var faEl=document.getElementById('fa'),fmEl=document.getElementById('fm');
-var a=faEl?faEl.value||'Non renseigné':'Non renseigné',msg=fmEl?fmEl.value||'—':'—';
-var sb=document.querySelector('.form-submit');
-if(sb){sb.disabled=true;sb.textContent='Envoi en cours…';}
+function pauseDemo(){
+if(currentAudio){currentAudio.pause()}
+clearInterval(progressInterval);
+document.getElementById('demoPlayLabel').textContent='Reprendre';
+document.getElementById('iconPlay').style.display='block';
+document.getElementById('iconPause').style.display='none';
+isPlaying=false
+}
+
+function playCurrentAudio(){
+if(currentIndex>=audioFiles.length){resetDemo();return}
+const item=audioFiles[currentIndex];
+currentAudio=new Audio(item.file);
+currentAudio.play();
+showMessage(currentIndex+1,item.speaker);
+startProgress(currentAudio.duration||3);
+currentAudio.onended=()=>{currentIndex++;playCurrentAudio()}
+}
+
+function showMessage(n,speaker){
+const msg=document.getElementById('msg'+n);
+if(msg){msg.classList.add('show')}
+}
+
+function startProgress(duration){
+clearInterval(progressInterval);
+const fill=document.getElementById('demoProgressFill');
+const totalSteps=duration*10;
+let step=0;
+progressInterval=setInterval(()=>{step++;const pct=(step/totalSteps)*100;fill.style.width=pct+'%';if(step>=totalSteps)clearInterval(progressInterval)},100)
+}
+
+function resetDemo(){
+currentIndex=0;
+isPlaying=false;
+clearInterval(progressInterval);
+document.getElementById('demoProgressFill').style.width='0%';
+document.getElementById('demoPlayLabel').textContent='Réécouter la démo';
+document.getElementById('iconPlay').style.display='block';
+document.getElementById('iconPause').style.display='none';
+document.querySelectorAll('.demo-msg').forEach(m=>{m.classList.remove('show')})
+}
+
+const form=document.getElementById('contactForm');
+const submitBtn=document.getElementById('submitBtn');
+form.addEventListener('submit',async(e)=>{
+e.preventDefault();
+submitBtn.disabled=true;
+submitBtn.textContent='Envoi en cours...';
+const formData=new FormData(form);
 try{
-var res=await fetch('https://formspree.io/f/xaqpbedg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({prenom:p,nom:n,email:e,telephone:t,secteur:s,appels_mois:a,message:msg,_subject:'Nouvelle demande CALLVY — '+p+' '+n})});
-if(res.ok){var ff=document.getElementById('fform'),fo=document.getElementById('fok'),ok=document.getElementById('okname');if(ff)ff.style.display='none';if(ok)ok.textContent=p;if(fo){fo.style.display='block';fo.scrollIntoView({behavior:'smooth',block:'center'});}var ct=5,ti=document.getElementById('calTimer');var iv=setInterval(function(){ct--;if(ti)ti.textContent=ct;if(ct<=0){clearInterval(iv);window.open('https://calendly.com/contact-callvy/30min','_blank');}},1000);}
-else{throw new Error('server');}
+const res=await fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});
+if(res.ok){
+form.style.display='none';
+document.getElementById('fok').style.display='block';
+setTimeout(()=>{window.location.href='https://calendly.com/contact-callvy/30min'},3000)
+}else{
+alert('Erreur lors de l\'envoi. Veuillez réessayer ou nous contacter directement à contact@callvy.fr');
+submitBtn.disabled=false;
+submitBtn.textContent='Réserver mon appel de démo →'
+}
 }catch(err){
-if(sb){sb.disabled=false;sb.textContent='Réserver mon appel gratuit →';}
-var su=encodeURIComponent('Demande CALLVY — '+p+' '+n),bo=encodeURIComponent('Prénom : '+p+'\nNom : '+n+'\nEmail : '+e+'\nTéléphone : '+t+'\nSecteur : '+s+'\nMessage : '+msg);
-var ff2=document.getElementById('fform'),fo2=document.getElementById('fok'),ok2=document.getElementById('okname');
-if(ff2)ff2.style.display='none';if(ok2)ok2.textContent=p;
-if(fo2){fo2.style.display='block';fo2.scrollIntoView({behavior:'smooth',block:'center'});}
-window.open('mailto:contact@callvy.fr?subject='+su+'&body='+bo,'_blank');
+alert('Erreur réseau. Veuillez vérifier votre connexion.');
+submitBtn.disabled=false;
+submitBtn.textContent='Réserver mon appel de démo →'
 }
-}
+});
 </script>
 </body>
 </html>
