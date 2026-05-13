@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>CALLVY — Ne perdez plus jamais un client à cause d'un appel manqué</title>
-<meta name="description" content="Plombiers, électriciens, dentistes: CALLVY répond à vos appels 24h/24, prend les RDV et vous envoie les résumés sur WhatsApp. Installation en 2 jours. Garantie satisfait ou prolongé."/>
+<meta name="description" content="Assistant téléphonique intelligent 24h/24 pour professionnels: dentistes, plombiers, avocats, agents immobiliers. Répondez à 100% de vos appels, prenez les RDV automatiquement. Installation en 2 jours."/>
 <link rel="canonical" href="https://callvy.fr"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231B4FFF'/><text y='.9em' font-size='55' x='50' text-anchor='middle' dy='.1em' fill='white' font-family='Arial' font-weight='bold'>C</text></svg>"/>
 
@@ -24,15 +24,17 @@ gtag('config', 'G-XXXXXXXXXX', {
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-:root{--pr:#1B4FFF;--dk:#0A0F1E;--tx:#374151;--mu:#6B7280;--gr:#10B981;--rd:#EF4444;--bg:#FFFFFF;--ba:#F8F9FC;--bd:rgba(0,0,0,0.08);--sh:0 2px 16px rgba(0,0,0,0.06);--fo:'Inter',-apple-system,sans-serif;--r:12px;--rl:20px;}
+:root{--pr:#1B4FFF;--dk:#0A0F1E;--tx:#374151;--mu:#6B7280;--gr:#10B981;--rd:#EF4444;--or:#F59E0B;--bg:#FFFFFF;--ba:#F8F9FC;--bd:rgba(0,0,0,0.08);--sh:0 2px 16px rgba(0,0,0,0.06);--fo:'Inter',-apple-system,sans-serif;--r:12px;--rl:20px;}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#fff;color:var(--tx);font-family:var(--fo);font-size:16px;line-height:1.65;overflow-x:hidden}
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .rv.on{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,3.5rem);background:#fff;border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
 nav.on{border-color:var(--bd);box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .logo{font-size:1.25rem;font-weight:800;color:var(--pr);text-decoration:none}
@@ -58,16 +60,21 @@ nav.on{border-color:var(--bd);box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .mnav-contact{display:flex;flex-direction:column;gap:.5rem;padding-top:.75rem;border-top:1px solid var(--bd);margin-top:.5rem}
 .mnav-contact a{display:flex;align-items:center;gap:.5rem;font-size:.88rem;padding:.6rem;background:var(--ba);border-radius:6px;border:none}
 @media(max-width:960px){.navlinks,.nav-contact{display:none}.burger{display:flex}}
+
+/* SECTIONS */
 section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .sec-h{text-align:center;margin-bottom:clamp(2.5rem,4vw,4rem)}
 .sec-h h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:.75rem;color:var(--dk)}
 .sec-h p{font-size:1rem;color:var(--mu);max-width:560px;margin:0 auto;line-height:1.8}
-.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:calc(64px + 48px) clamp(1.5rem,7vw,6rem) 60px;gap:4rem}
+
+/* HERO */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;padding:calc(64px + 48px) clamp(1.5rem,7vw,6rem) 60px;gap:4rem}
+.hero-content{max-width:620px}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:#EEF2FF;color:var(--pr);padding:.42rem 1rem;border-radius:100px;font-size:.82rem;font-weight:600;margin-bottom:1.6rem}
-.hero h1{font-size:clamp(2.2rem,4.2vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.12;color:var(--dk);margin-bottom:1.2rem}
-.hero-sub{font-size:1.12rem;font-weight:400;color:var(--mu);line-height:1.7;margin-bottom:1.5rem;max-width:520px}
+.hero h1{font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:900;letter-spacing:-.05em;line-height:1.08;color:var(--dk);margin-bottom:1.2rem}
+.hero-sub{font-size:1.15rem;font-weight:400;color:var(--mu);line-height:1.7;margin-bottom:1.5rem}
 .hero-sub strong{color:var(--dk);font-weight:600}
-.hero-objection{background:#F0FDF4;border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:.7rem 1rem;margin-bottom:1.8rem;max-width:520px}
+.hero-objection{background:#F0FDF4;border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:.7rem 1rem;margin-bottom:1.8rem}
 .hero-objection span{font-size:.88rem;color:#065F46;line-height:1.6}
 .hero-objection span strong{font-weight:600}
 .hero-trust{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.8rem}
@@ -81,7 +88,43 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .btn-s:hover{background:rgba(27,79,255,.04);transform:translateY(-2px)}
 .btn-w{background:#fff;color:var(--pr);border-color:#fff;font-weight:700}
 .btn-w:hover{box-shadow:0 6px 24px rgba(0,0,0,.15);transform:translateY(-2px)}
-@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:calc(64px + 32px)}.hero-visual{order:-1;margin-bottom:2rem}.hero-btns{flex-direction:column;align-items:stretch}.hero-btns .btn{text-align:center;justify-content:center}}
+
+/* ROI WIDGET IN HERO */
+.hero-roi-widget{background:#fff;border:2px solid var(--pr);border-radius:var(--rl);padding:1.75rem;box-shadow:0 8px 32px rgba(27,79,255,.12);position:sticky;top:80px}
+.hero-roi-widget h3{font-size:1.1rem;font-weight:800;color:var(--dk);margin-bottom:.5rem;text-align:center}
+.hero-roi-widget .sub{font-size:.78rem;color:var(--mu);text-align:center;margin-bottom:1.25rem}
+.roi-fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.roi-fg label{font-size:.78rem;font-weight:600;color:var(--dk)}
+.roi-fg input{background:#fff;border:1.5px solid var(--bd);border-radius:8px;color:var(--tx);font-family:var(--fo);font-size:.92rem;padding:.65rem .85rem;outline:none;width:100%;transition:border-color .2s}
+.roi-fg input:focus{border-color:var(--pr)}
+.roi-result{background:var(--ba);border-radius:var(--r);padding:1.25rem 1rem;margin-bottom:1rem}
+.roi-line{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--bd)}
+.roi-line:last-child{border-bottom:none;padding-top:.85rem;margin-top:.5rem;border-top:2px solid var(--bd)}
+.roi-line-label{font-size:.8rem;color:var(--tx);font-weight:500}
+.roi-line-value{font-size:1rem;font-weight:700;color:var(--dk)}
+.roi-line.loss .roi-line-value{color:var(--rd)}
+.roi-line.gain .roi-line-value{color:var(--gr);font-size:1.25rem}
+.roi-cta-small{text-align:center}
+.roi-cta-small a{display:inline-block;background:var(--pr);color:#fff;padding:.7rem 1.4rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:.85rem;transition:all .2s}
+.roi-cta-small a:hover{box-shadow:0 4px 16px rgba(27,79,255,.3);transform:translateY(-1px)}
+
+@media(max-width:960px){
+.hero{grid-template-columns:1fr;padding-top:calc(64px + 32px)}
+.hero-roi-widget{position:static;margin-top:2rem}
+.hero-btns{flex-direction:column;align-items:stretch}
+.hero-btns .btn{text-align:center;justify-content:center}
+}
+
+/* SCARCITY BADGE */
+.scarcity-badge{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1px solid rgba(239,68,68,.2);border-radius:100px;padding:.55rem 1.2rem;display:inline-flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1.5rem}
+.scarcity-badge .pulse{width:8px;height:8px;background:#EF4444;border-radius:50%;animation:pulseBeat 1.5s infinite}
+@keyframes pulseBeat{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
+
+/* OFFER BADGE */
+.offer-badge{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border:1px solid rgba(245,158,11,.3);border-radius:100px;padding:.55rem 1.2rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:700;color:#92400E;margin-bottom:1.5rem}
+.offer-badge .fire{font-size:1.1rem}
+
+/* STATS BAND */
 .stats-band{background:var(--dk);padding:clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,6vw,5rem)}
 .stats-inner{display:flex;align-items:center;justify-content:center;max-width:880px;margin:0 auto;flex-wrap:wrap}
 .stat-item{text-align:center;padding:1rem 2.5rem;position:relative;flex:1;min-width:160px}
@@ -89,6 +132,8 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .stat-v{font-size:1.55rem;font-weight:800;color:#fff;display:block;margin-bottom:.25rem}
 .stat-l{font-size:.76rem;color:rgba(255,255,255,.5);font-weight:500}
 @media(max-width:640px){.stats-inner{flex-direction:column}.stat-item+.stat-item::before{content:none}.stat-item{padding:.75rem 1rem;border-top:1px solid rgba(255,255,255,.07);width:100%}}
+
+/* PROBLEM SOLUTION */
 .ps-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;max-width:900px;margin:0 auto}
 .ps-col{display:flex;flex-direction:column;gap:.85rem}
 .ps-card{padding:1.15rem 1.3rem;border-radius:var(--r);display:flex;align-items:flex-start;gap:.85rem}
@@ -103,26 +148,8 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .ps-arr-label{font-size:.72rem;font-weight:700;color:var(--pr);background:#EEF2FF;padding:.35rem .75rem;border-radius:100px;white-space:nowrap}
 .ps-arr-ico{font-size:1.1rem;color:var(--pr)}
 @media(max-width:680px){.ps-grid{grid-template-columns:1fr}.ps-arrow{flex-direction:row;justify-content:center;padding:.5rem 0}.ps-arr-line{width:40px;height:2px;min-height:2px}.ps-arr-ico{transform:rotate(90deg)}}
-.roi-section{padding:clamp(60px,7vw,90px) clamp(1.5rem,6vw,5rem);background:linear-gradient(135deg,#EEF2FF 0%,#F8F9FC 100%)}
-.roi-box{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--bd);border-radius:var(--rl);padding:2.5rem;box-shadow:var(--sh)}
-.roi-box h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--dk);margin-bottom:.8rem;text-align:center}
-.roi-box .sub{font-size:.95rem;color:var(--mu);text-align:center;margin-bottom:2rem;line-height:1.7}
-.roi-inputs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
-.roi-fg{display:flex;flex-direction:column;gap:.4rem}
-.roi-fg label{font-size:.82rem;font-weight:600;color:var(--dk)}
-.roi-fg input{background:#fff;border:1.5px solid var(--bd);border-radius:8px;color:var(--tx);font-family:var(--fo);font-size:1rem;padding:.7rem .95rem;outline:none;width:100%;transition:border-color .2s}
-.roi-fg input:focus{border-color:var(--pr)}
-.roi-results{background:var(--ba);border-radius:var(--r);padding:1.5rem;margin-bottom:1.5rem}
-.roi-line{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--bd)}
-.roi-line:last-child{border-bottom:none;padding-top:1rem;margin-top:.5rem;border-top:2px solid var(--bd)}
-.roi-line-label{font-size:.88rem;color:var(--tx);font-weight:500}
-.roi-line-value{font-size:1.1rem;font-weight:700;color:var(--dk)}
-.roi-line.loss .roi-line-value{color:var(--rd)}
-.roi-line.gain .roi-line-value{color:var(--gr);font-size:1.4rem}
-.roi-cta{text-align:center}
-.roi-cta a{display:inline-block;background:var(--pr);color:#fff;padding:.85rem 1.75rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:.95rem;transition:all .2s}
-.roi-cta a:hover{box-shadow:0 4px 16px rgba(27,79,255,.3);transform:translateY(-1px)}
-@media(max-width:600px){.roi-inputs{grid-template-columns:1fr}}
+
+/* HOW IT WORKS */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:840px;margin:0 auto}
 .how-step{text-align:center;padding:1.5rem}
 .how-num{width:48px;height:48px;border-radius:50%;background:var(--pr);color:#fff;font-size:1.1rem;font-weight:800;display:grid;place-items:center;margin:0 auto 1.1rem}
@@ -130,6 +157,8 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .how-step h3{font-size:1rem;font-weight:700;color:var(--dk);margin-bottom:.45rem}
 .how-step p{font-size:.88rem;color:var(--mu);line-height:1.75}
 @media(max-width:600px){.how-grid{grid-template-columns:1fr;max-width:380px}}
+
+/* DEMO WIDGET */
 .demo-widget{background:#fff;border-radius:20px;border:1px solid #e5e7eb;box-shadow:0 8px 40px rgba(0,0,0,0.08);overflow:hidden;max-width:580px;margin:0 auto}
 .demo-header{background:#1B4FFF;padding:13px 20px;display:flex;align-items:center;gap:10px;color:white;font-size:13px;font-weight:600}
 .demo-live-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:livePulse 1.5s infinite}
@@ -150,15 +179,17 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .demo-progress-bar{height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden}
 .demo-progress-fill{height:100%;background:#1B4FFF;border-radius:3px;width:0%;transition:width .3s linear}
 .demo-footnote{text-align:center;font-size:12px;color:#9CA3AF;padding:0 20px 16px;margin:0}
-.simulation-flow{display:flex;align-items:center;justify-content:center;gap:0;margin:48px 0 24px;flex-wrap:wrap}
-.sim-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 16px;background:#F8F9FC;border-radius:16px;border:1px solid #e5e7eb;width:120px;transition:all .3s}
-.sim-step:hover{border-color:#1B4FFF;background:#EEF2FF;transform:translateY(-4px)}
-.sim-icon{font-size:28px;margin-bottom:8px}
-.sim-label{font-size:11px;font-weight:700;color:#0A0F1E;margin-bottom:4px}
-.sim-desc{font-size:10px;color:#6B7280;line-height:1.4}
-.sim-arrow{display:flex;align-items:center;width:32px}
-.sim-arrow-line{flex:1;height:2px;background:linear-gradient(90deg,#1B4FFF22,#1B4FFF)}
-.sim-note{text-align:center;font-size:13px;color:#6B7280;background:#F8F9FC;border-radius:12px;padding:12px 20px}
+
+/* SECTORS */
+.sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:880px;margin:0 auto}
+.sector-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.5rem 1.25rem;text-align:center;transition:border-color .25s,box-shadow .25s}
+.sector-card:hover{border-color:rgba(27,79,255,.18);box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.sector-ico{font-size:2.2rem;margin-bottom:.75rem;display:block}
+.sector-card h3{font-size:.95rem;font-weight:700;color:var(--dk);margin-bottom:.35rem}
+.sector-card p{font-size:.8rem;color:var(--mu);line-height:1.6}
+@media(max-width:680px){.sectors-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* GUARANTEE */
 .guarantee-section{background:linear-gradient(135deg,#EEF2FF 0%,#F8F9FC 100%);padding:clamp(60px,7vw,90px) clamp(1.5rem,6vw,5rem)}
 .guarantee-box{max-width:780px;margin:0 auto;background:#fff;border:2px solid var(--pr);border-radius:24px;padding:clamp(2rem,4vw,3.5rem);text-align:center;box-shadow:0 20px 60px rgba(27,79,255,.12);position:relative;overflow:hidden}
 .guarantee-box::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pr),#3B82F6,var(--pr))}
@@ -169,6 +200,21 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .guarantee-promise{font-size:1.05rem;color:var(--tx);max-width:600px;margin:0 auto 1.25rem;line-height:1.7;font-weight:500}
 .guarantee-promise strong{color:var(--dk);font-weight:700}
 .guarantee-conditions{font-size:.78rem;color:var(--mu);font-style:italic;line-height:1.7;max-width:560px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:1px solid var(--bd)}
+
+/* SAVINGS COMPARISON */
+.savings-section{background:#fff;padding:clamp(60px,7vw,90px) clamp(1.5rem,6vw,5rem)}
+.savings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:900px;margin:0 auto}
+.savings-card{background:var(--ba);border:2px solid var(--bd);border-radius:var(--rl);padding:2rem 1.5rem;text-align:center;transition:all .3s}
+.savings-card.best{border-color:var(--pr);background:#EEF2FF;transform:scale(1.05)}
+.savings-card h3{font-size:.85rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.savings-price{font-size:2.2rem;font-weight:900;color:var(--dk);margin-bottom:.5rem;letter-spacing:-.02em}
+.savings-card.best .savings-price{color:var(--pr)}
+.savings-label{font-size:.78rem;color:var(--mu);font-weight:600}
+.savings-eco{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--bd);font-size:.82rem;color:var(--gr);font-weight:700}
+.savings-card.best .savings-eco{color:var(--pr);font-size:.95rem}
+@media(max-width:768px){.savings-grid{grid-template-columns:1fr}.savings-card.best{transform:scale(1)}}
+
+/* COMPARE TABLE */
 .container{max-width:1100px;margin:0 auto;padding:0 clamp(1.5rem,6vw,5rem)}
 .section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:.75rem;color:var(--dk);text-align:center}
 .section-subtitle{font-size:1rem;color:var(--mu);max-width:500px;margin:0 auto;line-height:1.8;text-align:center}
@@ -190,10 +236,8 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .cell-bad{color:#EF4444;font-size:12px;font-weight:600}
 .cell-ok{color:#6B7280;font-size:12px}
 .cell-price{color:#1B4FFF;font-size:13px;font-weight:700}
-.compare-footer{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:40px}
-.compare-stat{text-align:center;background:#fff;border-radius:16px;padding:24px 32px;border:1px solid #e5e7eb;flex:1;min-width:180px;max-width:220px}
-.compare-stat-number{font-size:40px;font-weight:800;color:#1B4FFF;line-height:1;margin-bottom:8px}
-.compare-stat-label{font-size:12px;color:#6B7280;line-height:1.5}
+
+/* VALUE GRID */
 .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1000px;margin:0 auto}
 .value-card{background:#fff;border:1px solid var(--bd);border-radius:var(--rl);padding:2rem 1.75rem;transition:border-color .25s,box-shadow .25s,transform .25s}
 .value-card:hover{border-color:rgba(27,79,255,.25);box-shadow:0 8px 32px rgba(27,79,255,.08);transform:translateY(-4px)}
@@ -201,7 +245,9 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .value-card h3{font-size:1.05rem;font-weight:700;color:var(--dk);margin-bottom:.6rem}
 .value-card p{font-size:.88rem;color:var(--mu);line-height:1.7}
 .value-card p strong{color:var(--dk);font-weight:600}
-@media(max-width:768px){.value-grid{grid-template-columns:1fr;max-width:420px}.simulation-flow{flex-direction:column;align-items:stretch;gap:8px}.sim-step{width:100%;flex-direction:row;text-align:left;gap:12px}.sim-icon{font-size:22px;margin:0}.sim-arrow{display:none}}
+@media(max-width:768px){.value-grid{grid-template-columns:1fr;max-width:420px}}
+
+/* PRICING */
 .toggle-wrap{display:flex;justify-content:center;margin-bottom:2.5rem}
 .toggle{display:inline-flex;background:#fff;border:1px solid var(--bd);border-radius:100px;padding:5px;box-shadow:var(--sh)}
 .toggle button{padding:.65rem 1.3rem;border-radius:100px;font-size:.85rem;font-weight:600;color:var(--mu);background:transparent;border:none;cursor:pointer;transition:all .2s;font-family:var(--fo);display:inline-flex;align-items:center;gap:.45rem}
@@ -209,6 +255,7 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .toggle .savings{font-size:.68rem;font-weight:700;padding:2px 7px;background:rgba(16,185,129,.15);color:var(--gr);border-radius:4px}
 .toggle button.active .savings{background:rgba(255,255,255,.22);color:#fff}
 @media(max-width:520px){.toggle{flex-direction:column;border-radius:14px}.toggle button{justify-content:center}}
+
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:start;max-width:960px;margin:0 auto}
 .plan{background:#fff;border:1px solid var(--bd);border-radius:var(--rl);padding:2rem 1.75rem;position:relative;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s,transform .25s}
 .plan:hover{border-color:rgba(27,79,255,.25);box-shadow:0 8px 32px rgba(27,79,255,.08);transform:translateY(-4px)}
@@ -236,6 +283,8 @@ section{padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem)}
 .plan-btn.pb:hover{box-shadow:0 4px 16px rgba(27,79,255,.3)}
 .pricing-note{text-align:center;margin-top:1.75rem;font-size:.82rem;color:var(--mu);line-height:1.7;max-width:680px;margin-left:auto;margin-right:auto}
 @media(max-width:768px){.pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+
+/* FAQ */
 .faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
 details.faq-item{background:#fff;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
 details.faq-item[open]{border-color:rgba(27,79,255,.22)}
@@ -243,19 +292,18 @@ details.faq-item summary{padding:1.2rem 1.5rem;font-size:.95rem;font-weight:600;
 details.faq-item summary::after{content:'+';font-size:1.3rem;color:var(--pr);font-weight:300;flex-shrink:0}
 details.faq-item[open] summary::after{content:'−'}
 .faq-body{padding:0 1.5rem 1.25rem;font-size:.9rem;color:var(--mu);line-height:1.8}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:960px;margin:0 auto}
-.testi-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.75rem;transition:border-color .25s,box-shadow .25s}
-.testi-card:hover{border-color:rgba(27,79,255,.18);box-shadow:0 4px 20px rgba(0,0,0,.05)}
-.stars{color:#FBBF24;font-size:.85rem;letter-spacing:.05em;margin-bottom:.9rem}
-.testi-q{font-size:.9rem;color:var(--tx);line-height:1.8;margin-bottom:1.25rem;font-style:italic}
-.testi-auth{display:flex;align-items:center;gap:.75rem}
-.tav{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.82rem;color:#fff;flex-shrink:0}
-.tav.a{background:linear-gradient(135deg,#1B4FFF,#3B82F6)}
-.tav.b{background:linear-gradient(135deg,#059669,#10B981)}
-.tav.c{background:linear-gradient(135deg,#B45309,#F59E0B)}
-.tname{font-size:.86rem;font-weight:700;color:var(--dk)}
-.trole{font-size:.76rem;color:var(--mu)}
-@media(max-width:680px){.testi-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+
+/* TESTIMONIALS (RESULTS) */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:960px;margin:0 auto}
+.result-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.75rem;transition:border-color .25s,box-shadow .25s}
+.result-card:hover{border-color:rgba(27,79,255,.18);box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.result-ico{font-size:2rem;margin-bottom:.85rem}
+.result-card h3{font-size:1rem;font-weight:700;color:var(--dk);margin-bottom:.5rem}
+.result-card p{font-size:.88rem;color:var(--mu);line-height:1.75}
+.result-card p strong{color:var(--dk);font-weight:700}
+@media(max-width:680px){.results-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+
+/* FORM */
 .form-box{max-width:640px;margin:0 auto}
 .form-card{background:#fff;border:1px solid var(--bd);border-radius:var(--rl);padding:2.5rem;box-shadow:var(--sh)}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -271,19 +319,15 @@ details.faq-item[open] summary::after{content:'−'}
 #fok{display:none;text-align:center;padding:1rem 0}
 .okico{font-size:2.5rem;display:block;margin-bottom:1rem}
 #fok h3{font-size:1.25rem;font-weight:800;color:var(--dk);margin-bottom:1.5rem}
-.next-box{background:var(--ba);border:1px solid var(--bd);border-radius:var(--r);padding:1.5rem;text-align:left;margin-bottom:1.5rem}
-.next-box h4{font-size:.82rem;font-weight:700;color:var(--dk);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
-.ns{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.85rem}
-.ns:last-child{margin-bottom:0}
-.ns-n{width:26px;height:26px;border-radius:50%;background:var(--pr);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;flex-shrink:0}
-.ns p{font-size:.85rem;color:var(--tx);line-height:1.6}
-.cal-link{display:inline-block;background:var(--pr);color:#fff;padding:.82rem 1.75rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:.9rem;transition:all .2s}
-.cal-link:hover{box-shadow:0 4px 16px rgba(27,79,255,.3);transform:translateY(-1px)}
 @media(max-width:520px){.frow{grid-template-columns:1fr}}
+
+/* CTA FINAL */
 .cta-fin{background:var(--pr);padding:clamp(60px,7vw,100px) clamp(1.5rem,6vw,5rem);text-align:center}
 .cta-fin h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;margin-bottom:.75rem;letter-spacing:-.04em;line-height:1.1}
 .cta-fin>p{font-size:1.05rem;color:rgba(255,255,255,.78);margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto}
 .cta-sub{font-size:.82rem;color:rgba(255,255,255,.55);margin-top:1.1rem;display:block}
+
+/* FOOTER */
 footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem) 2rem}
 .ftop{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
 .flogo{font-size:1.25rem;font-weight:800;color:#fff;text-decoration:none;display:block;margin-bottom:.75rem}
@@ -298,48 +342,28 @@ footer{background:var(--dk);padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,6vw,5rem
 .flinks a{font-size:.78rem;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
 .flinks a:hover{color:rgba(255,255,255,.6)}
 @media(max-width:680px){.ftop{grid-template-columns:1fr;gap:2rem}.fbot{flex-direction:column;align-items:flex-start}}
-.iphone-wrapper{display:flex;justify-content:center;align-items:center;filter:drop-shadow(0 40px 80px rgba(0,0,0,0.18))}
-.iphone-outer{width:280px;height:570px;background:linear-gradient(160deg,#3a3a3c 0%,#1c1c1e 35%,#111113 70%,#1a1a1c 100%);border-radius:54px;padding:12px;box-shadow:0 0 0 .5px rgba(255,255,255,.18),0 0 0 1.5px rgba(0,0,0,.9),inset 0 0 0 .5px rgba(255,255,255,.06),0 30px 80px rgba(0,0,0,.45);position:relative}
-.iphone-btn{position:absolute;background:linear-gradient(90deg,#2a2a2c,#222224)}
-.iphone-btn-silent{left:-3.5px;top:80px;width:3.5px;height:26px;border-radius:2px 0 0 2px}
-.iphone-btn-vol-up{left:-3.5px;top:118px;width:3.5px;height:44px;border-radius:2px 0 0 2px}
-.iphone-btn-vol-down{left:-3.5px;top:172px;width:3.5px;height:44px;border-radius:2px 0 0 2px}
-.iphone-btn-power{right:-3.5px;top:132px;width:3.5px;height:58px;border-radius:0 2px 2px 0}
-.iphone-screen{width:100%;height:100%;background:#000;border-radius:44px;overflow:hidden;position:relative;display:flex;flex-direction:column}
-.iphone-island{width:90px;height:26px;background:#000;border-radius:50px;margin:10px auto 0;position:relative;z-index:10;flex-shrink:0}
-.iphone-content{flex:1;display:flex;flex-direction:column;background:#f2f2f7;overflow:hidden}
-.iphone-statusbar{display:flex;justify-content:space-between;align-items:center;padding:5px 16px 3px;background:#f2f2f7;flex-shrink:0}
-.iphone-time{font-size:12px;font-weight:700;color:#000}
-.wa-header{background:#fff;padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:.5px solid rgba(0,0,0,.12);flex-shrink:0}
-.wa-back{font-size:24px;color:#007AFF;font-weight:200}
-.wa-avatar-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1B4FFF,#0030CC);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.wa-avatar{color:#fff;font-size:14px;font-weight:800}
-.wa-info{flex:1;min-width:0}
-.wa-name{font-size:13px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.wa-status{font-size:10px;color:#34C759;font-weight:600;margin-top:1px}
-.wa-messages{flex:1;padding:10px;overflow:hidden;display:flex;flex-direction:column;gap:8px;background:#ece5dd}
-.wa-time-badge{align-self:center;background:rgba(0,0,0,.18);color:#fff;font-size:10px;font-weight:500;padding:2px 10px;border-radius:10px}
-.wa-bubble-in{background:#fff;border-radius:16px 16px 16px 3px;padding:10px 12px 6px;max-width:94%;align-self:flex-start}
-.wa-bubble-header-row{display:flex;align-items:center;gap:7px;margin-bottom:8px}
-.wa-bubble-icon-wrap{font-size:15px}
-.wa-bubble-title-text{font-size:11px;font-weight:800;color:#1B4FFF}
-.wa-divider{height:.5px;background:#e5e5ea;margin-bottom:7px}
-.wa-info-row{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px}
-.wa-emoji{font-size:11px;flex-shrink:0;margin-top:1px}
-.wa-text{font-size:11px;color:#1c1c1e;line-height:1.45}
-.wa-status-pill{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46;font-size:10px;font-weight:700;border-radius:8px;padding:5px 9px;margin-top:8px;display:inline-block}
-.wa-bubble-footer{text-align:right;font-size:9px;color:#8e8e93;margin-top:4px}
-.wa-typing-wrap{display:flex;align-items:center;gap:4px;background:#fff;border-radius:16px 16px 16px 3px;padding:10px 14px;align-self:flex-start}
-.wa-typing-dot{width:7px;height:7px;background:#c7c7cc;border-radius:50%;animation:waDot 1.4s infinite ease-in-out}
-.wa-typing-dot:nth-child(2){animation-delay:.18s}
-.wa-typing-dot:nth-child(3){animation-delay:.36s}
-@keyframes waDot{0%,60%,100%{transform:translateY(0);background:#c7c7cc}30%{transform:translateY(-5px);background:#8e8e93}}
-.wa-composer{background:#f2f2f7;padding:7px 10px;display:flex;align-items:center;gap:8px;border-top:.5px solid rgba(0,0,0,.1);flex-shrink:0}
-.wa-composer-inner{flex:1;background:#fff;border-radius:20px;padding:7px 13px;border:.5px solid rgba(0,0,0,.12)}
-.wa-composer-placeholder{font-size:11px;color:#aeaeb2}
-.wa-mic-btn{width:32px;height:32px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.iphone-home-bar{height:20px;background:#000;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.iphone-home-bar::after{content:'';width:88px;height:4px;background:rgba(255,255,255,.45);border-radius:2px}
+
+/* EXIT INTENT POPUP */
+.exit-popup{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.75);z-index:9999;align-items:center;justify-content:center;padding:2rem;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.exit-popup.show{display:flex}
+.exit-content{background:#fff;border-radius:24px;padding:3rem 2.5rem;max-width:520px;width:100%;position:relative;animation:slideUp .4s}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.exit-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;font-size:1.8rem;color:var(--mu);cursor:pointer;line-height:1;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s}
+.exit-close:hover{background:var(--ba)}
+.exit-content h3{font-size:1.6rem;font-weight:800;color:var(--dk);margin-bottom:.75rem;line-height:1.2}
+.exit-content p{font-size:.95rem;color:var(--mu);margin-bottom:1.75rem;line-height:1.7}
+.exit-mini-calc{background:var(--ba);border-radius:var(--r);padding:1.5rem;margin-bottom:1.5rem}
+.exit-fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.exit-fg:last-of-type{margin-bottom:0}
+.exit-fg label{font-size:.78rem;font-weight:600;color:var(--dk)}
+.exit-fg input{background:#fff;border:1.5px solid var(--bd);border-radius:8px;color:var(--tx);font-family:var(--fo);font-size:.9rem;padding:.65rem .85rem;outline:none;width:100%;transition:border-color .2s}
+.exit-fg input:focus{border-color:var(--pr)}
+.exit-result{text-align:center;padding:1rem;background:#FEF2F2;border-radius:var(--r);margin-top:1rem}
+.exit-result-text{font-size:.85rem;color:var(--mu);margin-bottom:.35rem}
+.exit-result-value{font-size:1.8rem;font-weight:900;color:var(--rd)}
+.exit-cta{width:100%;background:var(--pr);color:#fff;border:none;border-radius:8px;padding:1rem;font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--fo);transition:all .2s}
+.exit-cta:hover{box-shadow:0 6px 20px rgba(27,79,255,.35);transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -366,6 +390,7 @@ WhatsApp
 </div>
 <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
+
 <div class="mnav" id="mobileNav">
 <a href="#how" onclick="closeMenu()">Fonctionnement</a>
 <a href="#tarifs" onclick="closeMenu()">Tarifs</a>
@@ -384,75 +409,53 @@ WhatsApp
 </div>
 
 <div class="hero">
-<div>
-<div class="hero-badge rv">✦ Assistant téléphonique 24h/24 · France & Belgique</div>
-<h1 class="rv d1">Plombiers, électriciens, artisans:<br>Transformez chaque appel manqué en client payant</h1>
-<p class="hero-sub rv d1">Vous perdez <strong>4 à 8 chantiers par mois</strong> parce que vous ne décrochez pas. CALLVY répond en 3 secondes, prend le RDV et vous envoie le client qualifié sur WhatsApp. <strong>Installation en 2 jours ouvrables.</strong></p>
-<div class="hero-objection rv d2">
+<div class="hero-content">
+<div class="scarcity-badge rv"><span class="pulse"></span> Plus que 5 places ce mois-ci</div>
+<div class="offer-badge rv d1"><span class="fire">🔥</span> Installation GRATUITE (valeur 500€) pour les 10 premiers</div>
+<div class="hero-badge rv d2">✦ Assistant téléphonique 24h/24 · France & Belgique</div>
+<h1 class="rv d2">Professionnels: Transformez chaque appel manqué en client payant</h1>
+<p class="hero-sub rv d2">Vous perdez <strong>4 à 8 clients par mois</strong> parce que vous ne décrochez pas. CALLVY répond en 3 secondes, prend le RDV et vous envoie le prospect qualifié sur WhatsApp. <strong>Installation en 2 jours ouvrables.</strong></p>
+<div class="hero-objection rv d3">
 <span><strong>99% de vos clients pensent parler à une vraie personne.</strong> Voix française naturelle, ton professionnel, présentation à votre nom commercial.</span>
 </div>
-<div class="hero-trust rv d2">
+<div class="hero-trust rv d3">
 <span>Vous gardez votre numéro actuel — zéro changement pour vos clients</span>
 <span>Chaque appel résumé sur WhatsApp en temps réel</span>
-<span>Garantie satisfait ou prolongé (voir conditions)</span>
+<span>Garantie: 1 500€ récupérés ou 60 jours gratuits</span>
 </div>
 <div class="hero-btns rv d3">
 <a href="#voicedemo" class="btn btn-p" onclick="gtag('event','click',{event_category:'cta',event_label:'hero_demo'})">Entendre la démo maintenant</a>
-<a href="#roi" class="btn btn-s" onclick="gtag('event','click',{event_category:'cta',event_label:'hero_roi'})">Calculer ce que vous perdez →</a>
+<a href="#contact" class="btn btn-s" onclick="gtag('event','click',{event_category:'cta',event_label:'hero_contact'})">Calculer vos pertes →</a>
 </div>
 </div>
-<div class="hero-visual rv d2">
-<div class="iphone-wrapper">
-<div class="iphone-outer">
-<div class="iphone-btn iphone-btn-silent"></div>
-<div class="iphone-btn iphone-btn-vol-up"></div>
-<div class="iphone-btn iphone-btn-vol-down"></div>
-<div class="iphone-btn iphone-btn-power"></div>
-<div class="iphone-screen">
-<div class="iphone-island"></div>
-<div class="iphone-content">
-<div class="iphone-statusbar">
-<span class="iphone-time">9:41</span>
-<div class="iphone-status-icons">
-<svg width="17" height="12" viewBox="0 0 17 12" fill="#000"><rect x="0" y="3" width="3" height="9" rx="1"/><rect x="4.5" y="2" width="3" height="10" rx="1"/><rect x="9" y="0" width="3" height="12" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".25"/></svg>
-<svg width="16" height="12" viewBox="0 0 16 12" fill="#000"><path d="M8 2.4C10.2 2.4 12.2 3.3 13.6 4.8L15 3.4C13.2 1.5 10.7 .4 8 .4C5.3 .4 2.8 1.5 1 3.4L2.4 4.8C3.8 3.3 5.8 2.4 8 2.4Z"/><path d="M8 5.6C9.5 5.6 10.8 6.2 11.8 7.2L13.2 5.8C11.8 4.4 9.9 3.6 8 3.6C6.1 3.6 4.2 4.4 2.8 5.8L4.2 7.2C5.2 6.2 6.5 5.6 8 5.6Z"/><circle cx="8" cy="10" r="2"/></svg>
-<svg width="27" height="13" fill="none"><rect x=".5" y=".5" width="22" height="12" rx="3.5" stroke="#000" stroke-opacity=".35"/><rect x="2" y="2" width="18" height="9" rx="2" fill="#000"/><path d="M24.5 4.5V8.5C25.4 8.2 26 7.2 26 6.5 26 5.8 25.4 4.8 24.5 4.5Z" fill="#000" opacity=".4"/></svg>
+
+<div class="hero-roi-widget rv d3">
+<h3>Calculez vos pertes réelles</h3>
+<p class="sub">Vos vrais chiffres. Résultat immédiat.</p>
+<div class="roi-fg">
+<label>Appels manqués par mois</label>
+<input type="number" id="heroRoiCalls" value="6" min="1" max="500" oninput="calcHeroROI();gtag('event','interact',{event_category:'roi_hero',event_label:'calls'})"/>
+</div>
+<div class="roi-fg">
+<label>Valeur moyenne client (€)</label>
+<input type="number" id="heroRoiValue" value="350" min="50" step="50" oninput="calcHeroROI();gtag('event','interact',{event_category:'roi_hero',event_label:'value'})"/>
+</div>
+<div class="roi-result">
+<div class="roi-line loss">
+<span class="roi-line-label">Vous perdez</span>
+<span class="roi-line-value" id="heroLoss">2 100€/mois</span>
+</div>
+<div class="roi-line">
+<span class="roi-line-label">CALLVY</span>
+<span class="roi-line-value">349€/mois</span>
+</div>
+<div class="roi-line gain">
+<span class="roi-line-label">Vous récupérez</span>
+<span class="roi-line-value" id="heroGain">1 751€/mois</span>
 </div>
 </div>
-<div class="wa-header">
-<div class="wa-back">‹</div>
-<div class="wa-avatar-ring"><div class="wa-avatar">C</div></div>
-<div class="wa-info">
-<div class="wa-name">CALLVY Assistant</div>
-<div class="wa-status">● En ligne maintenant</div>
-</div>
-</div>
-<div class="wa-messages">
-<div class="wa-time-badge">Aujourd'hui · 14:23</div>
-<div class="wa-bubble-in">
-<div class="wa-bubble-header-row">
-<div class="wa-bubble-icon-wrap">📞</div>
-<div class="wa-bubble-title-text">Résumé d'appel entrant</div>
-</div>
-<div class="wa-divider"></div>
-<div class="wa-info-row"><span class="wa-emoji">🔧</span><span class="wa-text"><strong>Fuite sous l'évier</strong> — urgent</span></div>
-<div class="wa-info-row"><span class="wa-emoji">👤</span><span class="wa-text">Jean-Pierre M.</span></div>
-<div class="wa-info-row"><span class="wa-emoji">📱</span><span class="wa-text">+33 6 12 34 56 78</span></div>
-<div class="wa-info-row"><span class="wa-emoji">📍</span><span class="wa-text">12 rue des Lilas, Lyon</span></div>
-<div class="wa-info-row"><span class="wa-emoji">🕒</span><span class="wa-text">Disponible demain matin</span></div>
-<div class="wa-status-pill">✅ RDV confirmé — mardi 9h00</div>
-<div class="wa-bubble-footer">14:23 ✓✓</div>
-</div>
-<div class="wa-typing-wrap"><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div></div>
-</div>
-<div class="wa-composer">
-<div class="wa-composer-inner"><span class="wa-composer-placeholder">Message</span></div>
-<div class="wa-mic-btn"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v4M8 23h8"/></svg></div>
-</div>
-</div>
-<div class="iphone-home-bar"></div>
-</div>
-</div>
+<div class="roi-cta-small">
+<a href="#contact" onclick="gtag('event','click',{event_category:'cta',event_label:'roi_hero_cta'})">Voir comment →</a>
 </div>
 </div>
 </div>
@@ -461,72 +464,75 @@ WhatsApp
 <div class="stats-inner">
 <div class="stat-item rv"><span class="stat-v">2 jours</span><span class="stat-l">Installation complète</span></div>
 <div class="stat-item rv d1"><span class="stat-v">3 sec</span><span class="stat-l">Temps de décrochage moyen</span></div>
-<div class="stat-item rv d2"><span class="stat-v">0€</span><span class="stat-l">Frais d'installation</span></div>
+<div class="stat-item rv d2"><span class="stat-v">0€</span><span class="stat-l">Frais d'installation*</span></div>
 <div class="stat-item rv d3"><span class="stat-v">24h/24</span><span class="stat-l">365 jours par an</span></div>
 </div>
 </div>
+<p style="text-align:center;font-size:.7rem;color:rgba(255,255,255,.35);margin-top:-.5rem;padding-bottom:1rem;background:var(--dk)">*Offre limitée: installation gratuite pour les 10 premiers clients</p>
 
 <section>
-<div class="sec-h rv"><h2>Pendant que vous travaillez, vos concurrents prennent vos clients</h2><p>Vous êtes sur un chantier, sous un évier, sur un toit. Le téléphone sonne. Vous ne pouvez pas répondre. Le client rappelle votre concurrent.</p></div>
+<div class="sec-h rv"><h2>Pendant que vous travaillez, vos concurrents prennent vos clients</h2><p>Vous êtes sur un chantier, en consultation, en visite. Le téléphone sonne. Vous ne pouvez pas répondre. Le client rappelle votre concurrent.</p></div>
 <div class="ps-grid">
 <div class="ps-col rv">
-<div class="ps-card bad"><span class="ps-icon">✗</span><p>Vous êtes en intervention, votre téléphone sonne dans le vide</p></div>
+<div class="ps-card bad"><span class="ps-icon">✗</span><p>Vous êtes occupé, votre téléphone sonne dans le vide</p></div>
 <div class="ps-card bad"><span class="ps-icon">✗</span><p>Votre client raccroche et compose le numéro d'en dessous sur Google</p></div>
 <div class="ps-card bad"><span class="ps-icon">✗</span><p>Vous perdez 350€ en moyenne — sans même le savoir</p></div>
 </div>
 <div class="ps-arrow rv d1">
 <div class="ps-arr-line"></div>
-<div class="ps-arr-label">Vous reprenez le contrôle</div>
+<div class="ps-arr-label">Avec CALLVY</div>
 <div class="ps-arr-ico">↓</div>
 <div class="ps-arr-line"></div>
 </div>
 <div class="ps-col rv d2">
-<div class="ps-card good"><span class="ps-icon">✓</span><p>Vous décrochez en 3 secondes — même les mains sales ou en hauteur</p></div>
+<div class="ps-card good"><span class="ps-icon">✓</span><p>Vous décrochez en 3 secondes — même les mains sales ou occupées</p></div>
 <div class="ps-card good"><span class="ps-icon">✓</span><p>Vous capturez le besoin, l'adresse, la disponibilité, l'urgence</p></div>
 <div class="ps-card good"><span class="ps-icon">✓</span><p>Vous gardez les 350€ qui vous étaient dus</p></div>
 </div>
 </div>
 </section>
 
-<section id="roi" class="roi-section">
-<div class="roi-box rv">
-<h2>Calculez exactement ce que vos appels manqués vous coûtent</h2>
-<p class="sub">Utilisez vos vrais chiffres. Le résultat risque de vous surprendre.</p>
-<div class="roi-inputs">
-<div class="roi-fg">
-<label>Appels manqués par mois (estimation)</label>
-<input type="number" id="roiCalls" value="6" min="1" max="500" oninput="gtag('event','interact',{event_category:'roi_calculator',event_label:'calls_input'})"/>
+<section style="background:var(--ba)">
+<div class="sec-h rv">
+<div class="section-label">✓ Secteurs compatibles</div>
+<h2>Quel que soit votre métier,<br>si vos clients appellent, CALLVY répond</h2>
+<p>Déjà utilisé par des professionnels dans 12 secteurs d'activité différents.</p>
 </div>
-<div class="roi-fg">
-<label>Valeur moyenne d'une intervention (€)</label>
-<input type="number" id="roiValue" value="350" min="50" step="50" oninput="gtag('event','interact',{event_category:'roi_calculator',event_label:'value_input'})"/>
+<div class="sectors-grid">
+<div class="sector-card rv">
+<span class="sector-ico">🔧</span>
+<h3>Plomberie & Chauffage</h3>
+<p>Dépannages urgents, installation, entretien</p>
 </div>
+<div class="sector-card rv d1">
+<span class="sector-ico">🦷</span>
+<h3>Professions de santé</h3>
+<p>Dentistes, kinés, ostéos, médecins</p>
 </div>
-<div class="roi-results">
-<div class="roi-line loss">
-<span class="roi-line-label">Vous perdez actuellement</span>
-<span class="roi-line-value" id="roiLossMonth">2 100€/mois</span>
+<div class="sector-card rv d2">
+<span class="sector-ico">⚡</span>
+<h3>Électricité</h3>
+<p>Dépannage, rénovation, installation</p>
 </div>
-<div class="roi-line loss">
-<span class="roi-line-label">Soit sur un an</span>
-<span class="roi-line-value" id="roiLossYear">25 200€/an</span>
+<div class="sector-card rv">
+<span class="sector-ico">🏠</span>
+<h3>Immobilier</h3>
+<p>Agents immo, gestion locative</p>
 </div>
-<div class="roi-line">
-<span class="roi-line-label">CALLVY (tarif mensuel flexible)</span>
-<span class="roi-line-value">349€/mois</span>
+<div class="sector-card rv d1">
+<span class="sector-ico">⚖️</span>
+<h3>Juridique & Conseil</h3>
+<p>Avocats, notaires, consultants</p>
 </div>
-<div class="roi-line gain">
-<span class="roi-line-label">Vous récupérez chaque mois</span>
-<span class="roi-line-value" id="roiGain">1 751€</span>
-</div>
-</div>
-<div class="roi-cta">
-<a href="#voicedemo" onclick="gtag('event','click',{event_category:'cta',event_label:'roi_to_demo'})">Voir comment CALLVY récupère cet argent →</a>
+<div class="sector-card rv d2">
+<span class="sector-ico">🔨</span>
+<h3>Tous artisans</h3>
+<p>Serrurerie, menuiserie, toiture, etc.</p>
 </div>
 </div>
 </section>
 
-<section id="how" style="background:var(--ba)">
+<section id="how">
 <div class="sec-h rv"><h2>Installation en 2 jours ouvrables, vous oubliez ensuite</h2><p>Vous gardez votre numéro. Vous gardez votre identité. Vous récupérez votre temps et vos clients.</p></div>
 <div class="how-grid">
 <div class="how-step rv">
@@ -550,7 +556,7 @@ WhatsApp
 </div>
 </section>
 
-<section id="voicedemo">
+<section id="voicedemo" style="background:var(--ba)">
 <div class="sec-h rv">
 <h2>Écoutez exactement ce que vos clients vont entendre</h2>
 <p>Activez le son de votre appareil et cliquez pour lancer la démo en situation réelle.</p>
@@ -571,7 +577,7 @@ WhatsApp
 <div class="demo-msg demo-msg-callvy" id="msg7"><div class="demo-avatar-c">C</div><div class="demo-bubble-c">Très bien Sophie, votre rendez-vous est confirmé jeudi à neuf heures et quart. Vous recevrez un message de confirmation dans quelques instants. Bonne journée, au revoir ! ✅</div></div>
 </div>
 <div class="demo-controls">
-<button class="demo-play-btn" id="demoPlayBtn" onclick="startDemo();gtag('event','play',{event_category:'demo_audio',event_label:'play_button'})">
+<button class="demo-play-btn" id="demoPlayBtn" onclick="startDemo();gtag('event','play',{event_category:'demo_audio',event_label:'play'})">
 <svg id="iconPlay" width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
 <svg id="iconPause" width="18" height="18" viewBox="0 0 24 24" fill="white" style="display:none"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
 <span id="demoPlayLabel">Écouter la démo</span>
@@ -582,43 +588,49 @@ WhatsApp
 </div>
 </section>
 
-<section style="padding:80px 0;background:#fff">
-<div class="container">
-<div style="text-align:center;margin-bottom:48px">
-<div class="section-label">⚡ En temps réel</div>
-<h2 class="section-title">Ce qui se passe quand votre client appelle</h2>
-<p class="section-subtitle">En moins de 10 secondes, vous récupérez le client sans lever le petit doigt.</p>
-</div>
-<div class="simulation-flow">
-<div class="sim-step"><div class="sim-icon">📞</div><div class="sim-label">Appel entrant</div><div class="sim-desc">Votre client compose votre numéro</div></div>
-<div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step"><div class="sim-icon">⚡</div><div class="sim-label">Décroché en 3s</div><div class="sim-desc">L'assistant répond à votre nom</div></div>
-<div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step"><div class="sim-icon">🎯</div><div class="sim-label">Besoin qualifié</div><div class="sim-desc">Urgence, adresse, disponibilités</div></div>
-<div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step"><div class="sim-icon">📅</div><div class="sim-label">RDV pris</div><div class="sim-desc">Directement dans votre agenda</div></div>
-<div class="sim-arrow"><div class="sim-arrow-line"></div><svg width="12" height="12" viewBox="0 0 12 12" fill="#1B4FFF"><path d="M6 0L12 6L6 12L4.6 10.6L8.2 7H0V5H8.2L4.6 1.4L6 0Z"/></svg></div>
-<div class="sim-step"><div class="sim-icon">💬</div><div class="sim-label">WhatsApp envoyé</div><div class="sim-desc">Résumé complet sur votre téléphone</div></div>
-</div>
-<div class="sim-note">⏱ Durée moyenne d'un appel géré : <strong>2 min 14s</strong> · Pendant ce temps, vous travaillez et vous gagnez de l'argent.</div>
-</div>
-</section>
-
 <section id="guarantee" class="guarantee-section">
 <div class="guarantee-box rv">
 <div class="guarantee-seal">G</div>
-<div class="section-label" style="margin-bottom:1rem">🛡 Garantie satisfait ou prolongé</div>
-<h2>Si CALLVY ne vous apporte pas de valeur,<br>vous êtes <span class="hl">prolongé gratuitement</span></h2>
-<p class="guarantee-promise">Si vous activez correctement le transfert d'appels et que CALLVY ne traite pas <strong>au moins 20 appels qualifiés</strong> dans vos 30 premiers jours d'utilisation effective, votre abonnement est <strong>prolongé de 30 jours supplémentaires sans frais</strong>. Vous gardez tous les leads déjà reçus.</p>
-<p class="guarantee-promise" style="font-size:.95rem;color:var(--mu)">Vous ne prenez aucun risque financier. Si le système ne livre pas la valeur promise, vous obtenez un mois supplémentaire pour atteindre vos objectifs — sans rien payer de plus.</p>
-<p class="guarantee-conditions"><strong>Conditions d'activation de la garantie:</strong> (1) Transfert d'appels activé et vérifié fonctionnel dans les 7 jours suivant l'onboarding · (2) Volume d'appels entrants ≥40 appels/mois constaté sur le premier mois (vérifié via nos logs système) · (3) Secteur d'activité compatible avec notre service (artisans, professions libérales, services B2C) · (4) Garantie applicable une seule fois par client · (5) Non cumulable avec d'autres offres ou réductions · (6) Demande de prolongation à formuler par email avant la fin du 1er mois d'abonnement avec justificatifs (captures logs système accessibles dans votre tableau de bord). Cette garantie ne constitue pas un remboursement en espèces mais une prolongation de service.</p>
+<div class="section-label">🛡 Garantie 100% satisfait</div>
+<h2>Si vous ne récupérez pas au minimum <span class="hl">1 500€ en 60 jours,</span><br>on vous prolonge <span class="hl">60 jours GRATUITEMENT</span></h2>
+<p class="guarantee-promise">Vous activez le transfert d'appels correctement et CALLVY ne vous fait pas récupérer <strong>au moins 1 500€</strong> dans vos 60 premiers jours d'utilisation effective ? Votre abonnement est <strong>prolongé de 60 jours supplémentaires sans aucun frais.</strong> Vous gardez tous les leads déjà reçus, et vous ne payez rien de plus.</p>
+<p class="guarantee-promise" style="font-size:.95rem;color:var(--mu)">Vous ne prenez aucun risque financier. Si le système ne livre pas la valeur promise, vous obtenez 2 mois supplémentaires pour atteindre vos objectifs — gratuitement.</p>
+<p class="guarantee-conditions"><strong>Conditions d'activation:</strong> (1) Transfert d'appels activé et vérifié dans les 7 jours suivant l'onboarding · (2) Volume ≥40 appels entrants/mois constaté (vérifié via logs système) · (3) Secteur compatible (artisans, professions libérales, services B2C) · (4) Garantie applicable 1× par client · (5) Non cumulable avec autres offres · (6) Demande par email avant fin des 60 premiers jours avec captures logs (accessibles dans votre tableau de bord). Cette garantie ne constitue pas un remboursement en espèces mais une prolongation de service gratuite.</p>
 </div>
 </section>
 
-<section style="padding:80px 0;background:#F8F9FC">
+<section class="savings-section">
+<div class="sec-h rv">
+<div class="section-label">💰 Économies réelles</div>
+<h2>CALLVY coûte 7× moins cher qu'une secrétaire,<br>pour un service disponible 24h/24</h2>
+<p>Comparaison sur 12 mois (coût total annuel).</p>
+</div>
+<div class="savings-grid">
+<div class="savings-card rv">
+<h3>Secrétaire humaine</h3>
+<div class="savings-price">30 000€</div>
+<div class="savings-label">par an</div>
+<div class="savings-eco">Disponible 35h/semaine uniquement</div>
+</div>
+<div class="savings-card rv d1">
+<h3>Call center</h3>
+<div class="savings-price">14 400€</div>
+<div class="savings-label">par an (estimation)</div>
+<div class="savings-eco">Qualité variable, pas de RDV auto</div>
+</div>
+<div class="savings-card best rv d2">
+<h3>CALLVY</h3>
+<div class="savings-price">4 188€</div>
+<div class="savings-label">par an (mensuel sans engagement)</div>
+<div class="savings-eco">✓ Vous économisez 25 812€/an vs secrétaire</div>
+</div>
+</div>
+</section>
+
+<section style="background:#fff;padding:80px 0">
 <div class="container">
-<div style="text-align:center">
-<div class="section-label">💡 Comparatif</div>
+<div style="text-align:center;margin-bottom:48px">
+<div class="section-label">💡 Comparatif honnête</div>
 <h2 class="section-title">Pourquoi pas une secrétaire ? Un simple répondeur ?</h2>
 <p class="section-subtitle">Parce qu'en 2025, vos clients veulent une réponse immédiate — pas "rappelez plus tard".</p>
 </div>
@@ -633,16 +645,12 @@ WhatsApp
 <tr><td class="criteria-cell">Qualifie le besoin du client</td><td class="cell-yes">✓</td><td class="cell-no">✗</td><td class="cell-partial">~</td><td class="cell-yes col-callvy">✓</td></tr>
 <tr><td class="criteria-cell">Prend les RDV automatiquement</td><td class="cell-yes">✓</td><td class="cell-no">✗</td><td class="cell-no">✗</td><td class="cell-yes col-callvy">✓</td></tr>
 <tr><td class="criteria-cell">Résumé WhatsApp instantané</td><td class="cell-no">✗</td><td class="cell-no">✗</td><td class="cell-no">✗</td><td class="cell-yes col-callvy">✓</td></tr>
-<tr><td class="criteria-cell">Coût mensuel total</td><td class="cell-bad">2 500€ minimum</td><td class="cell-ok">Gratuit</td><td class="cell-bad">800–1500€</td><td class="cell-price col-callvy">dès 349€</td></tr>
-<tr><td class="criteria-cell">Délai de mise en place</td><td class="cell-bad">Plusieurs semaines</td><td class="cell-ok">Immédiat</td><td class="cell-bad">1-2 semaines</td><td class="cell-price col-callvy">2 jours ouvrables</td></tr>
+<tr><td class="criteria-cell">Coût mensuel total</td><td class="cell-bad">2 500€ min</td><td class="cell-ok">Gratuit</td><td class="cell-bad">800–1500€</td><td class="cell-price col-callvy">dès 349€</td></tr>
+<tr><td class="criteria-cell">Délai de mise en place</td><td class="cell-bad">3-4 semaines</td><td class="cell-ok">Immédiat</td><td class="cell-bad">1-2 semaines</td><td class="cell-price col-callvy">2 jours</td></tr>
 </tbody>
 </table>
 </div>
-<div class="compare-footer">
-<div class="compare-stat"><div class="compare-stat-number">87%</div><div class="compare-stat-label">des appelants ne laissent JAMAIS de message sur un répondeur (source: étude BrightLocal 2024)</div></div>
-<div class="compare-stat"><div class="compare-stat-number">7×</div><div class="compare-stat-label">moins cher qu'une secrétaire à temps plein — pour un service disponible 24h/24</div></div>
-<div class="compare-stat"><div class="compare-stat-number">2 jours</div><div class="compare-stat-label">pour être 100% opérationnel, sans embauche ni formation</div></div>
-</div>
+<p style="text-align:center;font-size:.85rem;color:var(--mu);margin-top:2rem"><strong>87%</strong> des appelants ne laissent JAMAIS de message sur un répondeur (étude BrightLocal 2024)</p>
 </div>
 </section>
 
@@ -650,23 +658,23 @@ WhatsApp
 <div class="sec-h rv">
 <div class="section-label">🎯 Au-delà du décrochage</div>
 <h2>Vous êtes accompagné chaque mois,<br>pas livré et oublié</h2>
-<p>Vous payez chaque mois — vous méritez de voir chaque mois exactement ce que vous récupérez en échange.</p>
+<p>Vous payez chaque mois — vous méritez de voir chaque mois exactement ce que vous récupérez.</p>
 </div>
 <div class="value-grid">
 <div class="value-card rv">
 <div class="value-icon-wrap">📊</div>
-<h3>Vous recevez votre rapport mensuel</h3>
-<p>Chaque fin de mois, vous recevez automatiquement votre tableau de bord : <strong>nombre d'appels gérés, RDV pris, leads qualifiés, et estimation chiffrée du CA récupéré</strong>. Vous voyez votre ROI noir sur blanc.</p>
+<h3>Rapport mensuel automatique</h3>
+<p>Fin de chaque mois: <strong>tableau de bord avec appels gérés, RDV pris, leads qualifiés, estimation CA récupéré.</strong> Votre ROI noir sur blanc.</p>
 </div>
 <div class="value-card rv d1">
 <div class="value-icon-wrap">👤</div>
-<h3>Vous êtes onboardé par un humain</h3>
-<p>Pas d'email automatique impersonnel. <strong>Dans les 2 jours ouvrables après votre signature</strong>, vous parlez à un membre de l'équipe qui configure votre assistant avec vous, ligne par ligne, jusqu'à ce que la voix sonne juste.</p>
+<h3>Onboarding humain garanti</h3>
+<p><strong>Dans les 2 jours ouvrables</strong>, vous parlez à un membre de l'équipe qui configure votre assistant avec vous, ligne par ligne, jusqu'à ce que ça sonne juste.</p>
 </div>
 <div class="value-card rv d2">
 <div class="value-icon-wrap">💬</div>
-<h3>Vous joignez le support en direct</h3>
-<p>Un <strong>numéro WhatsApp direct et un numéro de téléphone</strong>, pas un formulaire. Vous écrivez ou appelez, vous obtenez une réponse rapide d'un humain. Si quelque chose cloche, vous le réglez en minutes — pas en jours.</p>
+<h3>Support direct WhatsApp + téléphone</h3>
+<p><strong>Numéro direct</strong>, pas de formulaire. Vous contactez, réponse rapide d'un humain. Problème réglé en minutes, pas en jours.</p>
 </div>
 </div>
 </section>
@@ -674,68 +682,68 @@ WhatsApp
 <section id="tarifs">
 <div class="sec-h rv">
 <h2>Vous payez moins qu'une journée de travail perdu</h2>
-<p>Choisissez votre engagement. Plus vous vous engagez, plus vous économisez. <strong style="color:var(--dk)">Aucun frais d'installation.</strong></p>
+<p>Choisissez votre engagement. Plus vous vous engagez, plus vous économisez. <strong style="color:var(--dk)">Aucun frais d'installation*</strong></p>
 </div>
 <div class="toggle-wrap rv">
 <div class="toggle">
-<button data-plan="m1">Mensuel</button>
+<button class="active" data-plan="m1">Mensuel</button>
 <button data-plan="m6">6 mois <span class="savings">−15%</span></button>
-<button class="active" data-plan="m12">12 mois <span class="savings">−25%</span></button>
+<button data-plan="m12">12 mois <span class="savings">−25%</span></button>
 </div>
 </div>
 <div class="pricing-grid">
 <div class="plan rv">
 <div class="plan-tier">Starter</div>
 <div class="plan-tagline">Pour démarrer sans risque</div>
-<div class="plan-was" data-was-m1="" data-was-m6="349" data-was-m12="349">au lieu de 349€</div>
+<div class="plan-was" data-was-m1="" data-was-m6="349" data-was-m12="349"></div>
 <div class="plan-price"><sup>€</sup><span class="plan-amount" data-m1="349" data-m6="297" data-m12="262">349</span><sub>/mois HT</sub></div>
 <div class="plan-engagement flex" data-eng-m1="Sans engagement" data-eng-m6="Engagement 6 mois" data-eng-m12="Engagement 12 mois">Sans engagement</div>
 <div class="plan-divider"></div>
 <ul class="plan-feats">
-<li>Vous décrochez 24h/24 sur votre nom commercial</li>
-<li>Jusqu'à 300 minutes d'appels par mois incluses</li>
-<li>Résumé de chaque appel sur WhatsApp en temps réel</li>
+<li>Décrochez 24h/24 sur votre nom commercial</li>
+<li>Jusqu'à 300 minutes d'appels/mois incluses</li>
+<li>Résumé WhatsApp en temps réel</li>
 <li>1 numéro de transfert inclus</li>
 <li>Support email sous 24h ouvrées</li>
 </ul>
-<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="plan-btn po" onclick="gtag('event','click',{event_category:'pricing',event_label:'starter_cta'})">Démarrer →</a>
+<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="plan-btn po" onclick="gtag('event','click',{event_category:'pricing',event_label:'starter'})">Démarrer →</a>
 </div>
 <div class="plan featured rv d1">
 <div class="plan-badge">★ Le plus populaire</div>
 <div class="plan-tier">Pro</div>
 <div class="plan-tagline">Pour transformer votre activité</div>
-<div class="plan-was" data-was-m1="" data-was-m6="549" data-was-m12="549">au lieu de 549€</div>
+<div class="plan-was" data-was-m1="" data-was-m6="549" data-was-m12="549"></div>
 <div class="plan-price"><sup>€</sup><span class="plan-amount" data-m1="549" data-m6="467" data-m12="412">549</span><sub>/mois HT</sub></div>
 <div class="plan-engagement flex" data-eng-m1="Sans engagement" data-eng-m6="Engagement 6 mois" data-eng-m12="Engagement 12 mois">Sans engagement</div>
 <div class="plan-divider"></div>
 <ul class="plan-feats">
 <li class="indent">Tout Starter, plus :</li>
-<li>Jusqu'à 600 minutes d'appels par mois incluses</li>
-<li>Prise de RDV automatique dans votre agenda</li>
-<li>Rapport mensuel chiffré avec estimation CA récupéré</li>
-<li>Support WhatsApp + téléphone direct (réponse rapide)</li>
-<li>Onboarding humain garanti sous 2 jours ouvrables</li>
+<li>Jusqu'à 600 minutes d'appels/mois</li>
+<li>Prise de RDV auto dans votre agenda</li>
+<li>Rapport mensuel chiffré + estimation CA</li>
+<li>Support WhatsApp + téléphone direct</li>
+<li>Onboarding humain sous 2 jours</li>
 </ul>
-<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="plan-btn pb" onclick="gtag('event','click',{event_category:'pricing',event_label:'pro_cta'})">Choisir Pro →</a>
+<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="plan-btn pb" onclick="gtag('event','click',{event_category:'pricing',event_label:'pro'})">Choisir Pro →</a>
 </div>
 <div class="plan rv d2">
 <div class="plan-tier">Entreprise</div>
 <div class="plan-tagline">Pour équipes ou multi-sites</div>
-<div class="plan-was" data-was-m1="" data-was-m6="849" data-was-m12="849">au lieu de 849€</div>
+<div class="plan-was" data-was-m1="" data-was-m6="849" data-was-m12="849"></div>
 <div class="plan-price"><sup>€</sup><span class="plan-amount" data-m1="849" data-m6="722" data-m12="637">849</span><sub>/mois HT</sub></div>
 <div class="plan-engagement flex" data-eng-m1="Sans engagement" data-eng-m6="Engagement 6 mois" data-eng-m12="Engagement 12 mois">Sans engagement</div>
 <div class="plan-divider"></div>
 <ul class="plan-feats">
 <li class="indent">Tout Pro, plus :</li>
-<li>Jusqu'à 1 500 minutes d'appels par mois incluses</li>
-<li>Intégration CRM personnalisée (Pipedrive, HubSpot...)</li>
-<li>Gestion multi-sites et plusieurs numéros</li>
-<li>Gestionnaire de compte dédié (priorité support)</li>
+<li>Jusqu'à 1 500 minutes d'appels/mois</li>
+<li>Intégration CRM (Pipedrive, HubSpot...)</li>
+<li>Gestion multi-sites et numéros</li>
+<li>Gestionnaire de compte dédié</li>
 </ul>
-<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="plan-btn po" onclick="gtag('event','click',{event_category:'pricing',event_label:'enterprise_cta'})">Nous contacter →</a>
+<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="plan-btn po" onclick="gtag('event','click',{event_category:'pricing',event_label:'enterprise'})">Nous contacter →</a>
 </div>
 </div>
-<p class="pricing-note rv">Dépassement minutes: 0,25€/min · Prix HT (TVA 21% pour clients belges B2C, 0% pour B2B avec n° TVA valide, 20% pour clients français) · Tarifs réduits soumis à engagement contractuel avec paiement mensuel · Première facture après validation technique lors de votre onboarding · Garantie satisfait ou prolongé applicable (voir conditions)</p>
+<p class="pricing-note rv">*Installation gratuite pour les 10 premiers clients seulement · Dépassement: 0,25€/min · Prix HT (TVA 21% clients belges B2C, 0% B2B avec n° TVA valide, 20% clients français) · Garantie 60 jours applicable (voir conditions)</p>
 </section>
 
 <section id="faq" style="background:var(--ba)">
@@ -743,132 +751,95 @@ WhatsApp
 <div class="faq-list">
 <details class="faq-item rv">
 <summary>Mes clients vont-ils savoir que c'est automatisé ?</summary>
-<div class="faq-body">Non. Votre assistant s'annonce avec votre nom commercial et vos informations. 99% de vos clients pensent parler à votre secrétariat. La voix est française, naturelle (technologie ElevenLabs), le ton est calibré pour votre métier — aucune voix robotique ou synthétique audible.</div>
+<div class="faq-body">Non. Votre assistant s'annonce avec votre nom commercial. 99% de vos clients pensent parler à votre secrétariat. Voix française naturelle (ElevenLabs), ton calibré pour votre métier — aucune voix robotique audible.</div>
 </details>
 <details class="faq-item rv">
-<summary>Que se passe-t-il si un client veut absolument ME parler personnellement ?</summary>
-<div class="faq-body">Votre assistant prend ses coordonnées complètes, qualifie l'urgence de la demande, et vous envoie une alerte immédiate sur WhatsApp avec toutes les informations. Vous rappelez en quelques minutes si c'est urgent — sans avoir interrompu votre travail en cours.</div>
+<summary>Que se passe-t-il si un client veut absolument ME parler ?</summary>
+<div class="faq-body">Votre assistant prend ses coordonnées, qualifie l'urgence, et vous envoie une alerte WhatsApp immédiate. Vous rappelez en quelques minutes si urgent — sans interrompre votre travail.</div>
 </details>
 <details class="faq-item rv">
-<summary>Je garde mon numéro de téléphone actuel ?</summary>
-<div class="faq-body">Oui, absolument. Vos appels sont redirigés (transfert d'appels) vers CALLVY — votre numéro ne change pas du tout. Vos clients continuent de composer le même numéro qu'avant. Vous n'avez aucune migration à faire, aucune carte de visite à réimprimer. C'est totalement transparent pour eux. Compatible avec tous les opérateurs (Orange, SFR, Bouygues, Proximus, etc.).</div>
+<summary>Je garde mon numéro actuel ?</summary>
+<div class="faq-body">Oui, absolument. Transfert d'appels vers CALLVY — votre numéro ne change pas. Vos clients composent le même numéro qu'avant. Zéro migration, aucune carte de visite à réimprimer. Compatible tous opérateurs (Orange, SFR, Bouygues, Proximus, etc.).</div>
 </details>
 <details class="faq-item rv">
-<summary>L'engagement contractuel : c'est quoi exactement ?</summary>
-<div class="faq-body">Pour bénéficier des tarifs réduits (jusqu'à −25%), vous vous engagez sur une période de 6 ou 12 mois avec paiement mensuel. Si vous souhaitez arrêter avant la fin de l'engagement, vous réglez les mensualités restantes de la période souscrite. Vous pouvez aussi choisir le tarif mensuel flexible sans aucun engagement — vous payez le prix plein, mais vous êtes libre d'arrêter à tout moment sans pénalité.</div>
+<summary>L'engagement: c'est quoi exactement ?</summary>
+<div class="faq-body">Pour bénéficier des tarifs réduits (−25% max), engagement 6 ou 12 mois avec paiement mensuel. Arrêt avant la fin = mensualités restantes à régler. Tarif mensuel flexible = aucun engagement, arrêt à tout moment sans pénalité.</div>
 </details>
 <details class="faq-item rv">
-<summary>Combien de temps pour la mise en place complète ?</summary>
-<div class="faq-body">Maximum 2 jours ouvrables après votre signature. Nous configurons votre assistant avec vous lors d'un appel de 30 minutes (vous validez le script, le ton, les horaires). Ensuite nous activons le transfert d'appels — vous êtes opérationnel le lendemain ou surlendemain. Nous gérons 100% de la technique, vous n'avez rien à installer.</div>
+<summary>Délai de mise en place ?</summary>
+<div class="faq-body">Maximum 2 jours ouvrables après signature. Configuration avec vous lors d'un appel de 30 min (script, ton, horaires), puis activation transfert. Vous êtes opérationnel le lendemain ou surlendemain. Nous gérons 100% de la technique.</div>
 </details>
 <details class="faq-item rv">
-<summary>Que se passe-t-il si je dépasse mes minutes incluses ?</summary>
-<div class="faq-body">Vous payez 0,25€ par minute supplémentaire (facturation au réel). Vous recevez une alerte automatique lorsque vous atteignez 80% de votre quota mensuel. Si vous dépassez régulièrement, nous vous proposons de passer au plan supérieur — le tarif minute est alors plus avantageux que de payer du dépassement.</div>
+<summary>Dépassement de minutes ?</summary>
+<div class="faq-body">0,25€/min supplémentaire (facturation réelle). Alerte auto à 80% du quota. Si dépassement régulier, nous proposons plan supérieur (tarif minute plus avantageux que dépassement).</div>
 </details>
 <details class="faq-item rv">
-<summary>Ça marche si mon client parle mal français ou avec un fort accent ?</summary>
-<div class="faq-body">Oui. Notre système de reconnaissance vocale (Deepgram Nova-2) est entraîné sur des dizaines de milliers d'heures de français parlé avec accents régionaux, accents étrangers, et environnements bruyants. Le taux de compréhension est > 95% même avec des accents prononcés. Si vraiment l'assistant ne comprend pas, il demande poliment de répéter ou reformuler — comme le ferait une vraie personne.</div>
+<summary>Ça marche avec accents ou mauvais français ?</summary>
+<div class="faq-body">Oui. Deepgram Nova-2 entraîné sur dizaines de milliers d'heures de français avec accents régionaux/étrangers et environnements bruyants. Taux compréhension >95% même avec accents prononcés. Si vraiment incompréhensible, l'assistant demande poliment de répéter.</div>
 </details>
 <details class="faq-item rv">
-<summary>C'est compatible avec mon opérateur téléphonique et mon type de numéro ?</summary>
-<div class="faq-body">Oui. CALLVY fonctionne avec tous les opérateurs français et belges (Orange, SFR, Bouygues, Free, Proximus, BASE, Scarlet...) et tous types de numéros : fixes (01, 02, 03...), mobiles (06, 07...), et numéros spéciaux (0800, 0970...). Le transfert d'appels est une fonction standard disponible chez tous les opérateurs. Nous vous guidons lors de l'installation si besoin.</div>
+<summary>Compatible avec mon opérateur et type de numéro ?</summary>
+<div class="faq-body">Oui. Tous opérateurs FR/BE (Orange, SFR, Bouygues, Free, Proximus, BASE, Scarlet...) et tous types: fixes (01, 02...), mobiles (06, 07...), spéciaux (0800, 0970...). Transfert d'appels = fonction standard disponible partout. Nous guidons lors de l'installation si besoin.</div>
 </details>
 <details class="faq-item rv">
-<summary>Que se passe-t-il avec mes données et les enregistrements d'appels ? (RGPD)</summary>
-<div class="faq-body">Nous sommes conformes RGPD. Les appels sont transcrits en texte en temps réel (pas d'enregistrement audio stocké par défaut). Les résumés contiennent uniquement les informations nécessaires (nom, téléphone, besoin, disponibilité). Vos données sont hébergées en Europe (serveurs certifiés ISO 27001). Vous pouvez demander l'export ou la suppression de vos données à tout moment. Nous ne revendons jamais vos données à des tiers.</div>
+<summary>Données et RGPD ?</summary>
+<div class="faq-body">Conformes RGPD. Transcription texte en temps réel (pas d'audio stocké par défaut). Résumés avec infos nécessaires uniquement (nom, tél, besoin, dispo). Hébergement EU (serveurs ISO 27001). Export/suppression données à tout moment. Jamais de revente à tiers.</div>
 </details>
 <details class="faq-item rv">
-<summary>Je peux tester gratuitement avant de m'engager ?</summary>
-<div class="faq-body">Nous ne proposons pas d'essai gratuit (trop de configurations techniques nécessaires pour un vrai test utile). À la place, nous proposons une garantie satisfait ou prolongé : si CALLVY ne traite pas au moins 20 appels qualifiés dans vos 30 premiers jours, vous êtes prolongé de 30 jours supplémentaires gratuitement. C'est encore mieux qu'un essai gratuit — vous testez en conditions réelles avec vos vrais clients.</div>
+<summary>Essai gratuit possible ?</summary>
+<div class="faq-body">Non. Trop de config technique pour un vrai test utile. À la place: garantie satisfait ou prolongé. Si <20 appels qualifiés en 60j, prolongation 60j gratuite. Mieux qu'un essai — vous testez en conditions réelles avec vos vrais clients.</div>
 </details>
 <details class="faq-item rv">
-<summary>Quels secteurs d'activité sont compatibles avec CALLVY ?</summary>
-<div class="faq-body">CALLVY fonctionne très bien pour : plomberie, électricité, serrurerie, toiture, menuiserie, climatisation, dépannage, professions de santé (dentistes, kinés, ostéos), avocats, notaires, agents immobiliers, coachs, consultants. En général : tout service B2C où les clients appellent pour prendre RDV ou demander une intervention. Secteurs NON compatibles : centres d'appels sortants, démarchage, support technique complexe niveau 2/3, services d'urgence vitale (pompiers, SAMU).</div>
+<summary>Quels secteurs compatibles ?</summary>
+<div class="faq-body">Plomberie, électricité, serrurerie, toiture, menuiserie, climatisation, dépannage, dentistes, kinés, ostéos, avocats, notaires, agents immo, coachs, consultants. En général: tout service B2C où clients appellent pour RDV/intervention. NON compatibles: centres appels sortants, démarchage, support technique niveau 3, urgence vitale (SAMU, pompiers).</div>
 </details>
 </div>
 </section>
 
 <section>
-<div class="sec-h rv"><h2>Ils ont déjà transformé leur activité</h2></div>
-<div class="testi-grid">
-<div class="testi-card rv">
-<div class="stars">★★★★★</div>
-<p class="testi-q">« Avant CALLVY, je perdais au moins 3 chantiers par mois parce que je ne pouvais jamais décrocher pendant les interventions. Maintenant je ne rate plus rien. Mon chiffre d'affaires a augmenté de 30% en 2 mois. Le retour sur investissement est immédiat. »</p>
-<div class="testi-auth">
-<div class="tav a">M</div>
-<div><div class="tname">Marc D.</div><div class="trole">Plombier indépendant · Bruxelles</div></div>
+<div class="sec-h rv"><h2>Ce que nos clients obtiennent<br>dans leurs 30 premiers jours</h2></div>
+<div class="results-grid">
+<div class="result-card rv">
+<div class="result-ico">📈</div>
+<h3>+4 à 8 clients supplémentaires</h3>
+<p>En moyenne, <strong>6 appels manqués capturés chaque mois</strong> qui partaient auparavant chez vos concurrents. Estimation basée sur nos 40 premiers clients.</p>
 </div>
+<div class="result-card rv d1">
+<div class="result-ico">🔔</div>
+<h3>0 appel manqué</h3>
+<p>Pendant vos interventions, consultations, visites: <strong>taux de décrochage 100%</strong> maintenu même aux heures de pointe.</p>
 </div>
-<div class="testi-card rv d1">
-<div class="stars">★★★★★</div>
-<p class="testi-q">« Les patients appellent même le soir, le week-end, les jours fériés. CALLVY prend les rendez-vous automatiquement dans mon agenda. Je gagne facilement 6 heures par semaine — et surtout je ne perds plus un seul patient qui va chez le concurrent. »</p>
-<div class="testi-auth">
-<div class="tav b">A</div>
-<div><div class="tname">Dr. Amandine L.</div><div class="trole">Chirurgien-dentiste · Lyon</div></div>
-</div>
-</div>
-<div class="testi-card rv d2">
-<div class="stars">★★★★★</div>
-<p class="testi-q">« Installation en 48h chrono comme promis. Le service client répond en 10 minutes sur WhatsApp quand j'ai une question. Mes clients ne voient absolument aucune différence — sauf qu'ils tombent enfin sur quelqu'un au lieu de mon répondeur. »</p>
-<div class="testi-auth">
-<div class="tav c">T</div>
-<div><div class="tname">Thomas R.</div><div class="trole">Électricien · Région parisienne</div></div>
-</div>
+<div class="result-card rv d2">
+<div class="result-ico">⏱️</div>
+<h3>6h/semaine récupérées</h3>
+<p><strong>Plus besoin de rappeler</strong> pour qualifier les demandes. WhatsApp livre les leads chauds directement. Vous ne rappelez QUE les clients payants.</p>
 </div>
 </div>
 </section>
 
 <section id="contact" style="background:var(--ba)">
-<div class="sec-h rv"><h2>Vous voulez voir CALLVY en action ?</h2><p>Réservez un appel de 30 minutes. Nous vous montrons le système en direct et répondons à toutes vos questions.</p></div>
+<div class="sec-h rv"><h2>Prêt à arrêter de perdre des clients ?</h2><p>Réservez 15 minutes. On vous montre CALLVY en action et on répond à toutes vos questions.</p></div>
 <div class="form-box">
 <div class="form-card rv">
 <form id="contactForm" action="https://formspree.io/f/xaqpbedg" method="POST">
 <div class="frow">
 <div class="fg">
-<label for="name">Prénom et nom *</label>
-<input type="text" id="name" name="name" required/>
+<label for="email">Email professionnel *</label>
+<input type="email" id="email" name="email" required/>
 </div>
 <div class="fg">
 <label for="phone">Téléphone *</label>
 <input type="tel" id="phone" name="phone" required/>
 </div>
 </div>
-<div class="fg">
-<label for="email">Email professionnel *</label>
-<input type="email" id="email" name="email" required/>
-</div>
-<div class="fg">
-<label for="activity">Votre secteur d'activité *</label>
-<input type="text" id="activity" name="activity" placeholder="Ex: Plomberie, Dentiste, Agent immobilier..." required/>
-</div>
-<div class="fg">
-<label for="calls">Combien d'appels manquez-vous par mois environ ?</label>
-<select id="calls" name="calls">
-<option value="">-- Sélectionner --</option>
-<option value="1-5">1 à 5 appels/mois</option>
-<option value="5-10">5 à 10 appels/mois</option>
-<option value="10-20">10 à 20 appels/mois</option>
-<option value="20+">Plus de 20 appels/mois</option>
-</select>
-</div>
-<div class="fg">
-<label for="message">Message (optionnel)</label>
-<textarea id="message" name="message" placeholder="Décrivez brièvement votre situation ou vos questions..."></textarea>
-</div>
-<button type="submit" class="form-submit" id="submitBtn" onclick="gtag('event','submit',{event_category:'form',event_label:'contact_form'})">Réserver mon appel découverte →</button>
+<button type="submit" class="form-submit" id="submitBtn" onclick="gtag('event','submit',{event_category:'form',event_label:'contact'})">Réserver mon appel découverte (gratuit) →</button>
 <p class="form-note">Réponse sous 2h ouvrées · Sans engagement · Gratuit</p>
 </form>
 <div id="fok">
 <span class="okico">✅</span>
-<h3>Votre demande est bien envoyée !</h3>
-<div class="next-box">
-<h4>Prochaines étapes :</h4>
-<div class="ns"><div class="ns-n">1</div><p>Vous recevez un email de confirmation dans les 2 minutes</p></div>
-<div class="ns"><div class="ns-n">2</div><p>Nous vous contactons sous 2h ouvrées pour réserver votre créneau</p></div>
-<div class="ns"><div class="ns-n">3</div><p>Nous vous montrons CALLVY en action lors d'un appel de 30 minutes</p></div>
-</div>
-<p style="font-size:.88rem;color:var(--mu);margin-bottom:1.5rem">Ou réservez directement votre créneau :</p>
-<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="cal-link" onclick="gtag('event','click',{event_category:'cta',event_label:'calendly_redirect'})">Choisir mon créneau maintenant →</a>
+<h3>Demande bien reçue !</h3>
+<p style="font-size:.95rem;color:var(--mu);margin-bottom:1.5rem">Nous vous contactons sous 2h ouvrées pour réserver votre créneau.</p>
+<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn btn-p" onclick="gtag('event','click',{event_category:'cta',event_label:'calendly_direct'})">Ou choisir mon créneau maintenant →</a>
 </div>
 </div>
 </div>
@@ -876,8 +847,8 @@ WhatsApp
 
 <div class="cta-fin">
 <h2 class="rv">Rejoignez les professionnels qui transforment<br>chaque appel manqué en client payant</h2>
-<p class="rv d1">Vous décrochez 24h/24. Vous capturez chaque lead. Vous transformez chaque appel en rendez-vous confirmé. Installation en 2 jours ouvrables.</p>
-<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn btn-w rv d2" onclick="gtag('event','click',{event_category:'cta',event_label:'final_cta'})">Voir CALLVY en action — appel de 30 min →</a>
+<p class="rv d1">Décrochez 24h/24. Capturez chaque lead. Transformez chaque appel en RDV confirmé. Installation en 2 jours ouvrables.</p>
+<a href="https://calendly.com/contact-callvy/30min" target="_blank" class="btn btn-w rv d2" onclick="gtag('event','click',{event_category:'cta',event_label:'final'})">Voir CALLVY en action — appel de 15 min →</a>
 <span class="cta-sub rv d3">Gratuit · Sans engagement · Réponse sous 2h ouvrées</span>
 </div>
 
@@ -901,7 +872,7 @@ WhatsApp
 <ul>
 <li><a href="/mentions-legales.html">Mentions légales</a></li>
 <li><a href="/cgv.html">CGV</a></li>
-<li><a href="/confidentialite.html">Politique de confidentialité</a></li>
+<li><a href="/confidentialite.html">Confidentialité</a></li>
 <li><a href="mailto:contact@callvy.fr">Contact</a></li>
 </ul>
 </div>
@@ -909,15 +880,47 @@ WhatsApp
 <div class="fbot">
 <p class="fcopy">© 2025 CALLVY. Tous droits réservés. TVA BE0123456789</p>
 <ul class="flinks">
-<li><a href="https://calendly.com/contact-callvy/30min" target="_blank">Réserver une démo</a></li>
+<li><a href="https://calendly.com/contact-callvy/30min" target="_blank">Réserver démo</a></li>
 <li><a href="tel:+32470123456">+32 470 12 34 56</a></li>
 <li><a href="https://wa.me/32470123456" target="_blank">WhatsApp</a></li>
 </ul>
 </div>
 </footer>
 
+<!-- EXIT INTENT POPUP -->
+<div class="exit-popup" id="exitPopup">
+<div class="exit-content">
+<button class="exit-close" onclick="closeExitPopup()">×</button>
+<h3>⚠️ ATTENDEZ!</h3>
+<p>Avant de partir, calculez gratuitement ce que vos appels manqués vous coûtent. Ça prend 10 secondes.</p>
+<div class="exit-mini-calc">
+<div class="exit-fg">
+<label>Appels manqués par mois</label>
+<input type="number" id="exitCalls" value="6" min="1" oninput="calcExitROI()"/>
+</div>
+<div class="exit-fg">
+<label>Valeur moyenne client (€)</label>
+<input type="number" id="exitValue" value="350" min="50" oninput="calcExitROI()"/>
+</div>
+<div class="exit-result">
+<div class="exit-result-text">Vous perdez actuellement</div>
+<div class="exit-result-value" id="exitLoss">2 100€/mois</div>
+</div>
+</div>
+<button class="exit-cta" onclick="window.location.href='#contact';closeExitPopup();gtag('event','click',{event_category:'exit_popup',event_label:'cta'})">Voir comment CALLVY récupère cet argent →</button>
+</div>
+</div>
+
+<!-- Crisp.chat placeholder (COMMENTED - Activate when ready) -->
+<!--
+<script type="text/javascript">
+  window.$crisp=[];window.CRISP_WEBSITE_ID="YOUR_CRISP_ID_HERE";
+  (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+</script>
+-->
+
 <script>
-// Google Analytics event tracking helper
+// Google Analytics helper
 function trackEvent(category,action,label){if(typeof gtag==='function'){gtag('event',action,{event_category:category,event_label:label})}}
 
 // NAV SCROLL
@@ -928,45 +931,58 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 
 // REVEAL ON SCROLL
 const rvEls=document.querySelectorAll('.rv');
-const rvObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');trackEvent('engagement','scroll_reveal',e.target.className.split(' ')[0])}})},{threshold:.1});
+const rvObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on')}})},{threshold:.1});
 rvEls.forEach(el=>rvObs.observe(el));
 
-// PRICING TOGGLE - DEFAULT TO MENSUEL
+// HERO ROI CALCULATOR
+function calcHeroROI(){
+const calls=parseInt(document.getElementById('heroRoiCalls').value)||0;
+const value=parseInt(document.getElementById('heroRoiValue').value)||0;
+const loss=calls*value;
+const gain=loss-349;
+document.getElementById('heroLoss').textContent=loss.toLocaleString('fr-FR')+'€/mois';
+document.getElementById('heroGain').textContent=Math.max(0,gain).toLocaleString('fr-FR')+'€/mois';
+}
+calcHeroROI();
+
+// EXIT POPUP ROI
+function calcExitROI(){
+const calls=parseInt(document.getElementById('exitCalls').value)||0;
+const value=parseInt(document.getElementById('exitValue').value)||0;
+const loss=calls*value;
+document.getElementById('exitLoss').textContent=loss.toLocaleString('fr-FR')+'€/mois';
+}
+
+// EXIT INTENT DETECTION
+let exitShown=false;
+document.addEventListener('mouseleave',(e)=>{
+if(e.clientY<=0 && !exitShown && window.scrollY>300){
+document.getElementById('exitPopup').classList.add('show');
+exitShown=true;
+trackEvent('exit_popup','show','triggered');
+}
+});
+function closeExitPopup(){
+document.getElementById('exitPopup').classList.remove('show');
+trackEvent('exit_popup','close','dismissed');
+}
+
+// PRICING TOGGLE - DEFAULT MENSUEL
 const toggleBtns=document.querySelectorAll('.toggle button');
 const planAmounts=document.querySelectorAll('.plan-amount');
 const planWas=document.querySelectorAll('.plan-was');
 const planEng=document.querySelectorAll('.plan-engagement');
-
-// Set default to mensuel on load
-window.addEventListener('DOMContentLoaded',()=>{
-const mensuelBtn=document.querySelector('.toggle button[data-plan="m1"]');
-if(mensuelBtn){
-mensuelBtn.click();
-}
-});
-
 toggleBtns.forEach(btn=>{btn.addEventListener('click',()=>{
 toggleBtns.forEach(b=>b.classList.remove('active'));
 btn.classList.add('active');
 const plan=btn.dataset.plan;
-trackEvent('pricing','toggle_change',plan);
+trackEvent('pricing','toggle',plan);
 planAmounts.forEach(a=>{a.textContent=a.dataset[plan]});
-planWas.forEach(w=>{const v=w.dataset['was'+plan.replace('m','M')];if(v){w.textContent='au lieu de '+v+'€';w.style.visibility='visible'}else{w.style.visibility='hidden'}});
+planWas.forEach(w=>{const v=w.dataset['was'+plan.replace('m','M')];w.textContent=v?'au lieu de '+v+'€':'';w.style.visibility=v?'visible':'hidden'});
 planEng.forEach(e=>{e.textContent=e.dataset['eng'+plan.replace('m','M')];e.classList.toggle('flex',plan==='m1')})
 })});
 
-// ROI CALCULATOR
-const roiCalls=document.getElementById('roiCalls');
-const roiValue=document.getElementById('roiValue');
-const roiLossMonth=document.getElementById('roiLossMonth');
-const roiLossYear=document.getElementById('roiLossYear');
-const roiGain=document.getElementById('roiGain');
-function calcROI(){const calls=parseInt(roiCalls.value)||0;const value=parseInt(roiValue.value)||0;const lossM=calls*value;const lossY=lossM*12;const callvyPrice=349;const gainM=lossM-callvyPrice;roiLossMonth.textContent=lossM.toLocaleString('fr-FR')+'€/mois';roiLossYear.textContent=lossY.toLocaleString('fr-FR')+'€/an';roiGain.textContent=Math.max(0,gainM).toLocaleString('fr-FR')+'€'}
-roiCalls.addEventListener('input',calcROI);
-roiValue.addEventListener('input',calcROI);
-calcROI();
-
-// DEMO AUDIO - Using external URLs (replace with your actual hosted MP3s)
+// DEMO AUDIO
 const audioFiles=[
 {speaker:'callvy',file:'https://callvy.fr/audio/CALLVY_01.mp3'},
 {speaker:'client',file:'https://callvy.fr/audio/CLIENT_01.mp3'},
@@ -989,7 +1005,6 @@ document.getElementById('demoPlayLabel').textContent='Pause';
 document.getElementById('iconPlay').style.display='none';
 document.getElementById('iconPause').style.display='block';
 isPlaying=true;
-trackEvent('demo_audio','play','demo_started')
 }
 
 function pauseDemo(){
@@ -999,41 +1014,36 @@ document.getElementById('demoPlayLabel').textContent='Reprendre';
 document.getElementById('iconPlay').style.display='block';
 document.getElementById('iconPause').style.display='none';
 isPlaying=false;
-trackEvent('demo_audio','pause','demo_paused')
+trackEvent('demo_audio','pause','paused');
 }
 
 function playCurrentAudio(){
-if(currentIndex>=audioFiles.length){resetDemo();trackEvent('demo_audio','complete','demo_finished');return}
+if(currentIndex>=audioFiles.length){resetDemo();trackEvent('demo_audio','complete','finished');return}
 const item=audioFiles[currentIndex];
 currentAudio=new Audio(item.file);
-currentAudio.play().catch(e=>{console.log('Audio error:',e);setTimeout(()=>{if(isPlaying){currentIndex++;playCurrentAudio()}},1500)});
-showMessage(currentIndex+1,item.speaker);
+currentAudio.play().catch(e=>{setTimeout(()=>{if(isPlaying){currentIndex++;playCurrentAudio()}},1500)});
+showMessage(currentIndex+1);
 startProgress(currentAudio.duration||3);
 currentAudio.onended=()=>{currentIndex++;playCurrentAudio()}
 }
 
-function showMessage(n,speaker){
-const msg=document.getElementById('msg'+n);
-if(msg){msg.classList.add('show')}
-}
+function showMessage(n){const msg=document.getElementById('msg'+n);if(msg){msg.classList.add('show')}}
 
 function startProgress(duration){
 clearInterval(progressInterval);
 const fill=document.getElementById('demoProgressFill');
 const totalSteps=duration*10;
 let step=0;
-progressInterval=setInterval(()=>{step++;const pct=(step/totalSteps)*100;fill.style.width=pct+'%';if(step>=totalSteps)clearInterval(progressInterval)},100)
+progressInterval=setInterval(()=>{step++;fill.style.width=(step/totalSteps)*100+'%';if(step>=totalSteps)clearInterval(progressInterval)},100)
 }
 
 function resetDemo(){
-currentIndex=0;
-isPlaying=false;
-clearInterval(progressInterval);
+currentIndex=0;isPlaying=false;clearInterval(progressInterval);
 document.getElementById('demoProgressFill').style.width='0%';
-document.getElementById('demoPlayLabel').textContent='Réécouter la démo';
+document.getElementById('demoPlayLabel').textContent='Réécouter';
 document.getElementById('iconPlay').style.display='block';
 document.getElementById('iconPause').style.display='none';
-document.querySelectorAll('.demo-msg').forEach(m=>{m.classList.remove('show')})
+document.querySelectorAll('.demo-msg').forEach(m=>m.classList.remove('show'))
 }
 
 // FORM SUBMIT
@@ -1042,27 +1052,26 @@ const submitBtn=document.getElementById('submitBtn');
 form.addEventListener('submit',async(e)=>{
 e.preventDefault();
 submitBtn.disabled=true;
-submitBtn.textContent='Envoi en cours...';
-trackEvent('form','submit_attempt','contact_form');
+submitBtn.textContent='Envoi...';
+trackEvent('form','submit_attempt','contact');
 const formData=new FormData(form);
 try{
 const res=await fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});
 if(res.ok){
 form.style.display='none';
 document.getElementById('fok').style.display='block';
-trackEvent('form','submit_success','contact_form');
-setTimeout(()=>{window.location.href='https://calendly.com/contact-callvy/30min'},3000)
+trackEvent('form','submit_success','contact');
 }else{
-alert('Erreur lors de l\'envoi. Veuillez réessayer ou nous contacter directement à contact@callvy.fr ou +32 470 12 34 56');
+alert('Erreur. Contactez-nous: contact@callvy.fr ou +32 470 12 34 56');
 submitBtn.disabled=false;
-submitBtn.textContent='Réserver mon appel découverte →';
-trackEvent('form','submit_error','contact_form')
+submitBtn.textContent='Réserver mon appel découverte (gratuit) →';
+trackEvent('form','submit_error','form_error');
 }
 }catch(err){
-alert('Erreur réseau. Veuillez vérifier votre connexion.');
+alert('Erreur réseau. Vérifiez votre connexion.');
 submitBtn.disabled=false;
-submitBtn.textContent='Réserver mon appel découverte →';
-trackEvent('form','submit_error','network_error')
+submitBtn.textContent='Réserver mon appel découverte (gratuit) →';
+trackEvent('form','submit_error','network');
 }
 });
 </script>
