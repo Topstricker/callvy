@@ -534,12 +534,12 @@ WhatsApp
 </div>
 <div class="demo-transcript" id="demoTranscript">
 <div class="demo-msg demo-msg-callvy" id="msg1"><div class="demo-avatar-c">C</div><div class="demo-bubble-c">Bonjour, cabinet d&#39;expertise comptable Martin, je suis l&#39;assistante du cabinet. Ma&#238;tre Martin est actuellement en rendez-vous. Comment puis-je vous aider ?</div></div>
-<div class="demo-msg demo-msg-client" id="msg2"><div class="demo-bubble-cl">Bonjour, je voudrais parler &#224; quelqu&#39;un pour une question sur ma d&#233;claration TVA.</div><div class="demo-avatar-cl">T</div></div>
+<div class="demo-msg demo-msg-client" id="msg2"><div class="demo-bubble-cl">Bonjour, j&#39;aurais une question concernant ma d&#233;claration TVA du trimestre.</div><div class="demo-avatar-cl">T</div></div>
 <div class="demo-msg demo-msg-callvy" id="msg3"><div class="demo-avatar-c">C</div><div class="demo-bubble-c">Bien s&#251;r. Pour que le cabinet puisse vous rappeler, puis-je avoir votre pr&#233;nom ?</div></div>
-<div class="demo-msg demo-msg-client" id="msg4"><div class="demo-bubble-cl">Je m&#39;appelle Thomas.</div><div class="demo-avatar-cl">T</div></div>
-<div class="demo-msg demo-msg-callvy" id="msg5"><div class="demo-avatar-c">C</div><div class="demo-bubble-c">Merci Thomas. Et le nom de votre soci&#233;t&#233; ?</div></div>
+<div class="demo-msg demo-msg-client" id="msg4"><div class="demo-bubble-cl">Thomas.</div><div class="demo-avatar-cl">T</div></div>
+<div class="demo-msg demo-msg-callvy" id="msg5"><div class="demo-avatar-c">C</div><div class="demo-bubble-c">Merci Thomas. Et votre nom de soci&#233;t&#233; ?</div></div>
 <div class="demo-msg demo-msg-client" id="msg6"><div class="demo-bubble-cl">Dupont Services.</div><div class="demo-avatar-cl">T</div></div>
-<div class="demo-msg demo-msg-callvy" id="msg7"><div class="demo-avatar-c">C</div><div class="demo-bubble-c">Parfait. Je transmets votre demande concernant votre d&#233;claration TVA au cabinet Martin. Vous serez recontact&#233; dans les meilleurs d&#233;lais. Bonne journ&#233;e Thomas, au revoir ! &#10003;</div></div>
+<div class="demo-msg demo-msg-callvy" id="msg7"><div class="demo-avatar-c">C</div><div class="demo-bubble-c">Parfait. Je transmets votre message &#224; Ma&#238;tre Martin &mdash; une question concernant votre d&#233;claration TVA du trimestre pour Dupont Services. Vous serez recontact&#233; dans les meilleurs d&#233;lais. Bonne journ&#233;e Thomas, au revoir ! &#10003;</div></div>
 </div>
 <div class="demo-controls">
 <button class="demo-play-btn" id="demoPlayBtn" onclick="startDemo()">
@@ -938,8 +938,9 @@ const item=audioFiles[currentIndex];
 currentAudio=new Audio(item.file);
 currentAudio.play().catch(e=>{setTimeout(()=>{if(isPlaying){currentIndex++;playCurrentAudio()}},1500)});
 showMessage(currentIndex+1);
-startProgress(currentAudio.duration||3);
-currentAudio.onended=()=>{currentIndex++;playCurrentAudio()}
+currentAudio.onloadedmetadata=()=>{startProgress(currentAudio.duration)};
+if(currentAudio.readyState>=1){startProgress(currentAudio.duration||3);}else{startProgress(3);}
+currentAudio.onended=()=>{currentIndex++;setTimeout(()=>{if(isPlaying)playCurrentAudio()},400)}
 }
 function showMessage(n){const msg=document.getElementById('msg'+n);if(msg){msg.classList.add('show')}}
 function startProgress(duration){
@@ -952,7 +953,7 @@ progressInterval=setInterval(()=>{step++;fill.style.width=(step/totalSteps)*100+
 function resetDemo(){
 currentIndex=0;isPlaying=false;clearInterval(progressInterval);
 document.getElementById('demoProgressFill').style.width='0%';
-document.getElementById('demoPlayLabel').textContent='Ré&#233;couter';
+document.getElementById('demoPlayLabel').textContent='Réécouter';
 document.getElementById('iconPlay').style.display='block';
 document.getElementById('iconPause').style.display='none';
 document.querySelectorAll('.demo-msg').forEach(m=>m.classList.remove('show'))
