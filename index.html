@@ -940,7 +940,7 @@ currentAudio.play().catch(e=>{setTimeout(()=>{if(isPlaying){currentIndex++;playC
 showMessage(currentIndex+1);
 currentAudio.onloadedmetadata=()=>{startProgress(currentAudio.duration)};
 if(currentAudio.readyState>=1){startProgress(currentAudio.duration||3);}else{startProgress(3);}
-currentAudio.onended=()=>{currentIndex++;setTimeout(()=>{if(isPlaying)playCurrentAudio()},400)}
+currentAudio.onended=()=>{currentIndex++;setTimeout(()=>{if(isPlaying)playCurrentAudio()},0)}
 }
 function showMessage(n){const msg=document.getElementById('msg'+n);if(msg){msg.classList.add('show')}}
 function startProgress(duration){
